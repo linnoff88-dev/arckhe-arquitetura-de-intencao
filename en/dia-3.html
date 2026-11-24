@@ -4,29 +4,29 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<meta content="arquitetura-intencao" name="inema-course"/>
-<title>Day 3 — The System: from intent to outcome | Architecture of Intent · INEMA.CLUB</title>
+<meta content="arquitetura-intencao" name="ARCKHÉ-course"/>
+<title>Day 3 â€” The System: from intent to outcome | Architecture of Intent Â· ARCKHÉ AI</title>
 <!-- 1) ANTI-FOUC: bloqueante, ANTES do Tailwind. Aplica .dark + data-theme + prefs de leitura antes do 1o paint. Default dark/amber no erro. -->
 <script>
   (function () {
     try {
       var html = document.documentElement;
-      var DEF = { theme: 'inema-dark', font: 'inter', fontScale: 100, lineWidth: 68, leading: 1.7, accent: 'amber' };
+      var DEF = { theme: 'ARCKHÉ-dark', font: 'inter', fontScale: 100, lineWidth: 68, leading: 1.7, accent: 'amber' };
       function clone(o){var r={};for(var x in o)r[x]=o[x];return r;}
       var p = clone(DEF);
       try {
-        var raw = localStorage.getItem('inema.prefs');
+        var raw = localStorage.getItem('ARCKHÉ.prefs');
         if (raw) { var parsed = JSON.parse(raw); if (parsed && typeof parsed === 'object') { for (var k in DEF) if (parsed[k] != null) p[k] = parsed[k]; } }
-        else { var legacy = localStorage.getItem('theme'); if (legacy === 'light') p.theme = 'claro'; else if (legacy === 'dark') p.theme = 'inema-dark'; }
+        else { var legacy = localStorage.getItem('theme'); if (legacy === 'light') p.theme = 'claro'; else if (legacy === 'dark') p.theme = 'ARCKHÉ-dark'; }
       } catch (e) { p = clone(DEF); }
       var THEMES = {
-        'inema-dark': { dark: true,  attr: null,        cs: 'dark'  },
+        'ARCKHÉ-dark': { dark: true,  attr: null,        cs: 'dark'  },
         'claro':      { dark: false, attr: null,        cs: 'light' },
         'sepia':      { dark: false, attr: 'sepia',     cs: 'light' },
         'foco':       { dark: null,  attr: 'foco',      cs: null    },
         'contraste':  { dark: true,  attr: 'contraste', cs: 'dark'  }
       };
-      var t = THEMES[p.theme] || THEMES['inema-dark'];
+      var t = THEMES[p.theme] || THEMES['ARCKHÉ-dark'];
       if (t.dark === true) html.classList.add('dark'); else if (t.dark === false) html.classList.remove('dark');
       if (t.attr) html.setAttribute('data-theme', t.attr); else html.removeAttribute('data-theme');
       html.style.colorScheme = (t.cs ? t.cs : (html.classList.contains('dark') ? 'dark' : 'light'));
@@ -34,7 +34,7 @@
       html.setAttribute('data-accent', p.accent || 'amber');
       html.setAttribute('data-line-width', String(p.lineWidth || 68));
       var s = html.style; var scale = (+p.fontScale || 100);
-      s.setProperty('--inema-font-scale', (scale / 100).toString());
+      s.setProperty('--ARCKHÉ-font-scale', (scale / 100).toString());
       s.setProperty('font-size', scale + '%');
       s.setProperty('--measure', (+p.lineWidth || 68) + 'ch');
       s.setProperty('--lh-body', (+p.leading || 1.7).toString());
@@ -58,15 +58,15 @@
 <link href="../assets/learn.css" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
 <!-- Manifesto do curso (OBRIGATORIO, identico em TODA pagina) -->
-<script data-inema-manifest="" type="application/json">
+<script data-ARCKHÉ-manifest="" type="application/json">
   {
     "course": "arquitetura-intencao",
     "tracks": [
-      { "n": "1", "title": "Arquitetura de Intenção", "modules": [
-        { "id": "1-1", "title": "Dia 1 — A Pirâmide", "topics": 6, "href": "dia-1.html" },
-        { "id": "1-2", "title": "Dia 2 — Os 5 Pilares", "topics": 7, "href": "dia-2.html" },
-        { "id": "1-3", "title": "Dia 3 — O Sistema", "topics": 6, "href": "dia-3.html" },
-        { "id": "1-4", "title": "Dia 4 — A Virada", "topics": 6, "href": "dia-4.html" }
+      { "n": "1", "title": "Arquitetura de IntenÃ§Ã£o", "modules": [
+        { "id": "1-1", "title": "Dia 1 â€” A PirÃ¢mide", "topics": 6, "href": "dia-1.html" },
+        { "id": "1-2", "title": "Dia 2 â€” Os 5 Pilares", "topics": 7, "href": "dia-2.html" },
+        { "id": "1-3", "title": "Dia 3 â€” O Sistema", "topics": 6, "href": "dia-3.html" },
+        { "id": "1-4", "title": "Dia 4 â€” A Virada", "topics": 6, "href": "dia-4.html" }
       ]}
     ]
   }
@@ -77,9 +77,9 @@
     .topic-explanation { display: none; }
     .topic-explanation.active { display: block; }
     html { scroll-behavior: smooth; }
-    [id^="topico-"], [data-inema-topic], main [id] { scroll-margin-top: 84px; }
+    [id^="topico-"], [data-ARCKHÉ-topic], main [id] { scroll-margin-top: 84px; }
 
-    /* Light mode — Parte 1: base */
+    /* Light mode â€” Parte 1: base */
     html:not(.dark) body { background-color: #f8fafc; }
     html:not(.dark) .bg-dark-900 { background-color: #ffffff; }
     html:not(.dark) .bg-dark-800 { background-color: #f9fafb; }
@@ -92,7 +92,7 @@
     html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
     html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
 
-    /* Light mode — Parte 2: acento da trilha (Amber T4 → amber-800 #92400e) */
+    /* Light mode â€” Parte 2: acento da trilha (Amber T4 â†’ amber-800 #92400e) */
     html:not(.dark) .text-amber-400 { color: #92400e; }
     html:not(.dark) .bg-amber-500\/20 { background-color: rgba(217,119,6,0.12); }
     html:not(.dark) .bg-amber-500\/10 { background-color: rgba(217,119,6,0.08); }
@@ -101,7 +101,7 @@
     html:not(.dark) .hover\:text-amber-400:hover { color: #92400e; }
     html:not(.dark) .group:hover .group-hover\:text-amber-400 { color: #92400e; }
 
-    /* Light mode — Parte 3: remove gradientes + cores especiais */
+    /* Light mode â€” Parte 3: remove gradientes + cores especiais */
     html:not(.dark) [class*="bg-gradient-to"] { background-image: none !important; }
     html:not(.dark) .text-primary { color: #a16207; }
     html:not(.dark) .bg-primary\/10 { background-color: rgba(161, 98, 7, 0.08); }
@@ -112,14 +112,14 @@
     html:not(.dark) .hover\:text-sky-300:hover { color: #0284c7; }
     html:not(.dark) .hover\:text-yellow-300:hover { color: #854d0e; }
 
-    /* Light mode — Parte 4: navbar */
+    /* Light mode â€” Parte 4: navbar */
     html:not(.dark) .bg-dark-900\/95 { background-color: rgba(255, 255, 255, 0.95); }
 
-    /* Dark mode — bordas e divisores mais suaves */
+    /* Dark mode â€” bordas e divisores mais suaves */
     .dark .border-dark-600 { border-color: #374151; }
     .dark .divide-dark-600 > :not([hidden]) ~ :not([hidden]) { border-color: #374151; }
 
-    /* SVG diagramas — suaviza no tema claro */
+    /* SVG diagramas â€” suaviza no tema claro */
     html:not(.dark) svg[role="img"] { filter: saturate(0.82) brightness(0.96); }
 
     /* Pulso dos diagramas (so com motion permitido) */
@@ -130,8 +130,8 @@
       .wf-a:nth-child(4){animation-delay:.75s}
     }
   </style>
-<link href="https://inematds.github.io/arquitetura-de-intencao/dia-3.html" hreflang="pt-BR" rel="alternate"/><link href="https://inematds.github.io/arquitetura-de-intencao/en/dia-3.html" hreflang="en" rel="alternate"/><link href="https://inematds.github.io/arquitetura-de-intencao/es/dia-3.html" hreflang="es" rel="alternate"/></head>
-<body class="bg-dark-900 text-neutral-100 min-h-screen"><div class="inema-lang" style="position:fixed;right:14px;bottom:14px;z-index:9999;display:flex;gap:2px;padding:4px;border-radius:10px;background:rgba(12,12,16,.82);border:1px solid rgba(226,162,59,.45);font:600 12px/1 Sora,Inter,system-ui,sans-serif;backdrop-filter:blur(8px)" translate="no"><a href="../dia-3.html" hreflang="pt-BR" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">PT</a><a href="./dia-3.html" hreflang="en" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#1a1206;background:#E2A23B">EN</a><a href="../es/dia-3.html" hreflang="es" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">ES</a></div>
+<link href="https://linnoff88-dev.github.io/ hreflang="pt-BR" rel="alternate"/><link href="https://linnoff88-dev.github.io/ hreflang="en" rel="alternate"/><link href="https://linnoff88-dev.github.io/ hreflang="es" rel="alternate"/></head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen"><div class="ARCKHÉ-lang" style="position:fixed;right:14px;bottom:14px;z-index:9999;display:flex;gap:2px;padding:4px;border-radius:10px;background:rgba(12,12,16,.82);border:1px solid rgba(226,162,59,.45);font:600 12px/1 Sora,Inter,system-ui,sans-serif;backdrop-filter:blur(8px)" translate="no"><a href="../dia-3.html" hreflang="pt-BR" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">PT</a><a href="./dia-3.html" hreflang="en" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#1a1206;background:#E2A23B">EN</a><a href="../es/dia-3.html" hreflang="es" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">ES</a></div>
 <a class="skip" href="#conteudo">Skip to the content</a>
 <!-- NAVIGATION (identico em todas as paginas) -->
 <nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
@@ -139,11 +139,11 @@
 <div class="flex justify-between items-center h-14">
 <div class="flex items-center space-x-3">
 <a class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300" href="index.html">
-<span class="text-2xl">🎯</span>
+<span class="text-2xl">ðŸŽ¯</span>
 <span class="font-bold text-lg hidden sm:inline">Intent Architecture</span>
 </a>
 <span class="text-neutral-600 hidden sm:inline">|</span>
-<a class="text-sky-400 hover:text-sky-300 text-sm font-medium" href="https://inema.club" rel="noopener" target="_blank">INEMA.CLUB</a>
+<a class="text-sky-400 hover:text-sky-300 text-sm font-medium" href="https://ARCKHÉ AI" rel="noopener" target="_blank">ARCKHÉ AI</a>
 </div>
 <div class="flex items-center space-x-1 sm:space-x-2">
 <a class="px-2.5 sm:px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-amber-400 hover:bg-amber-500/10 transition-colors" href="index.html">Start</a>
@@ -151,12 +151,12 @@
 <a class="px-2.5 sm:px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-amber-400 hover:bg-amber-500/10 transition-colors" href="dia-2.html"><span class="sm:hidden">D2</span><span class="hidden sm:inline">Day 2</span></a>
 <a class="px-2.5 sm:px-3 py-1.5 rounded-lg text-sm font-semibold text-amber-400 bg-amber-500/10" href="dia-3.html"><span class="sm:hidden">D3</span><span class="hidden sm:inline">Day 3</span></a>
 <a class="px-2.5 sm:px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-amber-400 hover:bg-amber-500/10 transition-colors" href="dia-4.html"><span class="sm:hidden">D4</span><span class="hidden sm:inline">Day 4</span></a>
-<button class="ml-1 inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-neutral-300 hover:text-neutral-100 hover:bg-dark-700 transition-colors text-sm" data-inema-journey-open="" title="My journey" type="button">
-<span aria-hidden="true">◷</span><span class="hidden sm:inline">Journey</span>
-<span aria-hidden="true" class="inema-journey-badge hidden" data-count="0" data-inema-journey-badge=""></span>
+<button class="ml-1 inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-neutral-300 hover:text-neutral-100 hover:bg-dark-700 transition-colors text-sm" data-ARCKHÉ-journey-open="" title="My journey" type="button">
+<span aria-hidden="true">â—·</span><span class="hidden sm:inline">Journey</span>
+<span aria-hidden="true" class="ARCKHÉ-journey-badge hidden" data-count="0" data-ARCKHÉ-journey-badge=""></span>
 </button>
-<button aria-expanded="false" class="inema-appearance-trigger inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-neutral-300 hover:text-neutral-100 hover:bg-dark-700 transition-colors text-sm" data-inema-appearance-toggle="[data-inema-appearance]" title="Appearance and reading" type="button">
-<span aria-hidden="true">◑</span><span class="hidden sm:inline">Appearance</span>
+<button aria-expanded="false" class="ARCKHÉ-appearance-trigger inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-neutral-300 hover:text-neutral-100 hover:bg-dark-700 transition-colors text-sm" data-ARCKHÉ-appearance-toggle="[data-ARCKHÉ-appearance]" title="Appearance and reading" type="button">
+<span aria-hidden="true">â—‘</span><span class="hidden sm:inline">Appearance</span>
 </button>
 <button aria-label="Toggle light/dark" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors" id="theme-toggle" title="Toggle light/dark">
 <svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-dark-icon" viewbox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
@@ -166,40 +166,40 @@
 </div>
 </div>
 <!-- Painel de aparencia (escondido por padrao; data-open via JS) -->
-<div aria-label="Appearance and reading" class="inema-appearance-pop" data-inema-appearance="" role="dialog">
-<div class="inema-segment"><span class="inema-segment-label">Theme</span>
-<button data-inema-set-theme="inema-dark">Dark</button>
-<button data-inema-set-theme="claro">Clear</button>
-<button data-inema-set-theme="sepia">Sepia</button>
-<button data-inema-set-theme="foco">Focus</button>
-<button data-inema-set-theme="contraste">High contrast</button>
+<div aria-label="Appearance and reading" class="ARCKHÉ-appearance-pop" data-ARCKHÉ-appearance="" role="dialog">
+<div class="ARCKHÉ-segment"><span class="ARCKHÉ-segment-label">Theme</span>
+<button data-ARCKHÉ-set-theme="ARCKHÉ-dark">Dark</button>
+<button data-ARCKHÉ-set-theme="claro">Clear</button>
+<button data-ARCKHÉ-set-theme="sepia">Sepia</button>
+<button data-ARCKHÉ-set-theme="foco">Focus</button>
+<button data-ARCKHÉ-set-theme="contraste">High contrast</button>
 </div>
-<div class="inema-segment"><span class="inema-segment-label">Source</span>
-<button data-inema-set-font="inter">Inter</button>
-<button data-inema-set-font="system">System</button>
-<button data-inema-set-font="leitura">Reading</button>
+<div class="ARCKHÉ-segment"><span class="ARCKHÉ-segment-label">Source</span>
+<button data-ARCKHÉ-set-font="inter">Inter</button>
+<button data-ARCKHÉ-set-font="system">System</button>
+<button data-ARCKHÉ-set-font="leitura">Reading</button>
 </div>
-<div class="inema-segment"><span class="inema-segment-label">Size</span>
-<button data-inema-set-fontscale="100">A</button>
-<button data-inema-set-fontscale="112">A+</button>
-<button data-inema-set-fontscale="125">A++</button>
+<div class="ARCKHÉ-segment"><span class="ARCKHÉ-segment-label">Size</span>
+<button data-ARCKHÉ-set-fontscale="100">A</button>
+<button data-ARCKHÉ-set-fontscale="112">A+</button>
+<button data-ARCKHÉ-set-fontscale="125">A++</button>
 </div>
-<div class="inema-segment"><span class="inema-segment-label">Width</span>
-<button data-inema-set-linewidth="60">Narrow</button>
-<button data-inema-set-linewidth="68">Medium</button>
-<button data-inema-set-linewidth="75">Long</button>
+<div class="ARCKHÉ-segment"><span class="ARCKHÉ-segment-label">Width</span>
+<button data-ARCKHÉ-set-linewidth="60">Narrow</button>
+<button data-ARCKHÉ-set-linewidth="68">Medium</button>
+<button data-ARCKHÉ-set-linewidth="75">Long</button>
 </div>
-<div class="inema-segment"><span class="inema-segment-label">Between the lines</span>
-<button data-inema-set-leading="1.45">Compact</button>
-<button data-inema-set-leading="1.7">Comfortable</button>
+<div class="ARCKHÉ-segment"><span class="ARCKHÉ-segment-label">Between the lines</span>
+<button data-ARCKHÉ-set-leading="1.45">Compact</button>
+<button data-ARCKHÉ-set-leading="1.7">Comfortable</button>
 </div>
-<div aria-label="Accent color" class="inema-accent-grid">
-<button data-inema-set-accent="emerald" title="Emerald"></button>
-<button data-inema-set-accent="blue" title="Blue"></button>
-<button data-inema-set-accent="purple" title="Purple"></button>
-<button data-inema-set-accent="amber" title="Amber"></button>
-<button data-inema-set-accent="teal" title="Teal"></button>
-<button data-inema-set-accent="rose" title="Pink"></button>
+<div aria-label="Accent color" class="ARCKHÉ-accent-grid">
+<button data-ARCKHÉ-set-accent="emerald" title="Emerald"></button>
+<button data-ARCKHÉ-set-accent="blue" title="Blue"></button>
+<button data-ARCKHÉ-set-accent="purple" title="Purple"></button>
+<button data-ARCKHÉ-set-accent="amber" title="Amber"></button>
+<button data-ARCKHÉ-set-accent="teal" title="Teal"></button>
+<button data-ARCKHÉ-set-accent="rose" title="Pink"></button>
 </div>
 </div>
 </nav>
@@ -210,17 +210,17 @@
 <header class="bg-gradient-to-br from-amber-900/30 via-dark-900 to-dark-900 border-b border-dark-600">
 <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
 <span class="inline-block px-3 py-1 bg-amber-500/20 text-amber-400 text-xs font-semibold rounded-full mb-4">DAY 3</span>
-<h1 class="text-3xl sm:text-4xl font-bold mb-3">⚙️ The System: from intention to reliable results</h1>
-<p class="text-lg text-neutral-400 max-w-3xl inema-prose">Build and operate: how five completed pillars become a system that delivers reliable, repeatable, aligned results — and survives a tool change.</p>
-<p class="text-base text-neutral-300 max-w-3xl mt-4 inema-prose">On days 1 and 2, you mapped your position on the pyramid and designed the 5-pillar Canvas. Today, the Canvas leaves the page and becomes a system. There's only one difference between a polished document and an operating system: the system <strong class="text-amber-400">wheel</strong>, é <strong class="text-amber-400">validated</strong> e <strong class="text-amber-400">improvement</strong> with use. You’ll build it, run it for the first time, validate it against objective criteria, and install the continuous improvement loop. By the end, you’ll have your 1st working Intent Architecture system — not a polished prompt, but an information environment that turns intent into results.</p>
+<h1 class="text-3xl sm:text-4xl font-bold mb-3">âš™ï¸ The System: from intention to reliable results</h1>
+<p class="text-lg text-neutral-400 max-w-3xl ARCKHÉ-prose">Build and operate: how five completed pillars become a system that delivers reliable, repeatable, aligned results â€” and survives a tool change.</p>
+<p class="text-base text-neutral-300 max-w-3xl mt-4 ARCKHÉ-prose">On days 1 and 2, you mapped your position on the pyramid and designed the 5-pillar Canvas. Today, the Canvas leaves the page and becomes a system. There's only one difference between a polished document and an operating system: the system <strong class="text-amber-400">wheel</strong>, Ã© <strong class="text-amber-400">validated</strong> e <strong class="text-amber-400">improvement</strong> with use. Youâ€™ll build it, run it for the first time, validate it against objective criteria, and install the continuous improvement loop. By the end, youâ€™ll have your 1st working Intent Architecture system â€” not a polished prompt, but an information environment that turns intent into results.</p>
 <!-- objetivos de aprendizagem -->
 <div class="mt-6 grid sm:grid-cols-2 gap-2 max-w-3xl">
-<div class="flex items-start gap-2 text-sm text-neutral-300"><span class="text-amber-400 mt-0.5">✓</span><span>Turn the Canvas’s 5 pillars into an end-to-end system, not an isolated prompt.</span></div>
-<div class="flex items-start gap-2 text-sm text-neutral-300"><span class="text-amber-400 mt-0.5">✓</span><span>Understand how frameworks, workflows, agents, and memory fit together like gears in the same mechanism.</span></div>
-<div class="flex items-start gap-2 text-sm text-neutral-300"><span class="text-amber-400 mt-0.5">✓</span><span>Run the run → validate → adjust → improve cycle as a quality routine, not as a one-time act.</span></div>
-<div class="flex items-start gap-2 text-sm text-neutral-300"><span class="text-amber-400 mt-0.5">✓</span><span>Separate the logic (which persists) from the tool (which changes) so you can use any model better than average.</span></div>
-<div class="flex items-start gap-2 text-sm text-neutral-300"><span class="text-amber-400 mt-0.5">✓</span><span>Recognize where a system creates real value: as an assistant, process, product, or decision system.</span></div>
-<div class="flex items-start gap-2 text-sm text-neutral-300"><span class="text-amber-400 mt-0.5">✓</span><span>Build, run, and validate your 1st complete system, with a documented continuous improvement plan.</span></div>
+<div class="flex items-start gap-2 text-sm text-neutral-300"><span class="text-amber-400 mt-0.5">âœ“</span><span>Turn the Canvasâ€™s 5 pillars into an end-to-end system, not an isolated prompt.</span></div>
+<div class="flex items-start gap-2 text-sm text-neutral-300"><span class="text-amber-400 mt-0.5">âœ“</span><span>Understand how frameworks, workflows, agents, and memory fit together like gears in the same mechanism.</span></div>
+<div class="flex items-start gap-2 text-sm text-neutral-300"><span class="text-amber-400 mt-0.5">âœ“</span><span>Run the run â†’ validate â†’ adjust â†’ improve cycle as a quality routine, not as a one-time act.</span></div>
+<div class="flex items-start gap-2 text-sm text-neutral-300"><span class="text-amber-400 mt-0.5">âœ“</span><span>Separate the logic (which persists) from the tool (which changes) so you can use any model better than average.</span></div>
+<div class="flex items-start gap-2 text-sm text-neutral-300"><span class="text-amber-400 mt-0.5">âœ“</span><span>Recognize where a system creates real value: as an assistant, process, product, or decision system.</span></div>
+<div class="flex items-start gap-2 text-sm text-neutral-300"><span class="text-amber-400 mt-0.5">âœ“</span><span>Build, run, and validate your 1st complete system, with a documented continuous improvement plan.</span></div>
 </div>
 <!-- stats grid -->
 <div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl">
@@ -234,45 +234,45 @@
 <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
 <div class="lg:grid lg:grid-cols-[220px_1fr] lg:gap-10">
 <!-- TOC -->
-<nav aria-label="Today’s index" class="hidden lg:block sticky top-24 self-start text-sm" data-inema-toc="">
-<p class="text-neutral-400 mb-2">Section <span data-inema-section-counter=""></span></p>
+<nav aria-label="Todayâ€™s index" class="hidden lg:block sticky top-24 self-start text-sm" data-ARCKHÉ-toc="">
+<p class="text-neutral-400 mb-2">Section <span data-ARCKHÉ-section-counter=""></span></p>
 <ol class="space-y-1">
-<li><a class="inema-toc-link block py-1 text-neutral-400 hover:text-amber-400" href="#topico-1">1. From pieces to a system</a></li>
-<li><a class="inema-toc-link block py-1 text-neutral-400 hover:text-amber-400" href="#topico-2">2. The mechanisms</a></li>
-<li><a class="inema-toc-link block py-1 text-neutral-400 hover:text-amber-400" href="#topico-3">3. The operating cycle</a></li>
-<li><a class="inema-toc-link block py-1 text-neutral-400 hover:text-amber-400" href="#topico-4">4. Above the tools</a></li>
-<li><a class="inema-toc-link block py-1 text-neutral-400 hover:text-amber-400" href="#topico-5">5. Where this creates value</a></li>
-<li><a class="inema-toc-link block py-1 text-neutral-400 hover:text-amber-400" href="#topico-6">6. Final project</a></li>
+<li><a class="ARCKHÉ-toc-link block py-1 text-neutral-400 hover:text-amber-400" href="#topico-1">1. From pieces to a system</a></li>
+<li><a class="ARCKHÉ-toc-link block py-1 text-neutral-400 hover:text-amber-400" href="#topico-2">2. The mechanisms</a></li>
+<li><a class="ARCKHÉ-toc-link block py-1 text-neutral-400 hover:text-amber-400" href="#topico-3">3. The operating cycle</a></li>
+<li><a class="ARCKHÉ-toc-link block py-1 text-neutral-400 hover:text-amber-400" href="#topico-4">4. Above the tools</a></li>
+<li><a class="ARCKHÉ-toc-link block py-1 text-neutral-400 hover:text-amber-400" href="#topico-5">5. Where this creates value</a></li>
+<li><a class="ARCKHÉ-toc-link block py-1 text-neutral-400 hover:text-amber-400" href="#topico-6">6. Final project</a></li>
 </ol>
 </nav>
 <!-- CONTEUDO -->
 <div>
 <!-- medidor do modulo -->
-<div aria-label="Day progress" aria-valuemax="100" aria-valuemin="0" class="mb-10" data-inema-meter="modulo:1-3" role="progressbar">
+<div aria-label="Day progress" aria-valuemax="100" aria-valuemin="0" class="mb-10" data-ARCKHÉ-meter="modulo:1-3" role="progressbar">
 <div class="flex justify-between text-sm mb-1.5">
-<span class="inema-meter-label" data-inema-meter-frac="">0 of 6</span>
-<span class="text-amber-400 font-semibold" data-inema-meter-pct="">0%</span>
+<span class="ARCKHÉ-meter-label" data-ARCKHÉ-meter-frac="">0 of 6</span>
+<span class="text-amber-400 font-semibold" data-ARCKHÉ-meter-pct="">0%</span>
 </div>
-<div class="inema-bar"><div class="inema-bar__fill" data-inema-meter-fill=""></div></div>
+<div class="ARCKHÉ-bar"><div class="ARCKHÉ-bar__fill" data-ARCKHÉ-meter-fill=""></div></div>
 </div>
-<article data-inema-module="1-3" data-inema-track="1">
+<article data-ARCKHÉ-module="1-3" data-ARCKHÉ-track="1">
 <!-- ====================== TOPICO 1 ====================== -->
-<section class="mb-16" data-inema-topic="modulo-1-3#topico-1" id="topico-1">
+<section class="mb-16" data-ARCKHÉ-topic="modulo-1-3#topico-1" id="topico-1">
 <div class="flex items-start justify-between gap-4 mb-5">
 <div class="flex items-center gap-4">
 <span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl flex-shrink-0">1</span>
-<h2 class="text-2xl font-bold">🧩 From Pieces to a System</h2>
+<h2 class="text-2xl font-bold">ðŸ§© From Pieces to a System</h2>
 </div>
-<button aria-pressed="false" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-dark-700 border border-dark-600 text-neutral-300 hover:bg-dark-600 transition-colors text-sm flex-shrink-0" data-inema-doubt-toggle="" title="Flag a question about this topic" type="button"><span aria-hidden="true">?</span><span class="hidden sm:inline">I have a question</span></button>
+<button aria-pressed="false" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-dark-700 border border-dark-600 text-neutral-300 hover:bg-dark-600 transition-colors text-sm flex-shrink-0" data-ARCKHÉ-doubt-toggle="" title="Flag a question about this topic" type="button"><span aria-hidden="true">?</span><span class="hidden sm:inline">I have a question</span></button>
 </div>
-<div class="inema-prose">
-<p class="text-neutral-300 mb-5 leading-relaxed text-[15px] sm:text-base" data-inema-block="m1-3-t1-p1">Imagine five engine parts scattered across a workbench: the piston, the spark plug, the crankshaft, the fuel tank, and the speedometer. Each part is perfect, but the car won’t move. The Canvas from day 2 gave you the five right parts—Context, Objectives, Rules, Memory, Validation. Today you assemble them in a way that starts the engine. A system isn’t the sum of its parts: it’s the arrangement that turns intention into results reliably.</p>
-<p class="text-neutral-300 mb-4 leading-relaxed" data-inema-block="m1-3-t1-p2">One <strong class="text-amber-400">polished prompt</strong> is a one-off prompt. You write, the AI responds, and quality depends on your inspiration in that moment. It works once, fails the next time, and no one knows why. That’s improvisation—not a system.</p>
-<p class="text-neutral-300 mb-4 leading-relaxed" data-inema-block="m1-3-t1-p3">A system is a <strong class="text-amber-400">information environment</strong>. Before you ask for anything, the AI already KNOWS who it is, what it needs to deliver, what it can and can’t do, what it learned before, and how the result will be checked. The request becomes the small part; the environment does the heavy lifting.</p>
-<p class="text-neutral-300 mb-4 leading-relaxed" data-inema-block="m1-3-t1-p4">The key to <strong class="text-amber-400">repeatability</strong> is this: what guarantees quality can’t live in your head. If the tone rule, objective, and acceptance criteria only exist when you remember to type them, you are the system—and you can’t scale or sleep. When this becomes a persistent environment, every run, on any day, starts from the same foundation.</p>
-<p class="text-neutral-300 mb-4 leading-relaxed" data-inema-block="m1-3-t1-p5">The 5 pillars only become a system when they connect into a <strong class="text-amber-400">chain</strong>: Intention → Context → Process → Outcome. Context and Memory provide input; Objectives and Rules guide and constrain; Validation closes the loop by telling you whether it worked. Remove one link and the system becomes a prompt that relies on luck again.</p>
-<p class="text-neutral-300 mb-4 leading-relaxed" data-inema-block="m1-3-t1-p6">The test for whether you have a system is brutally simple: can someone else (or you a month from now) run it and get an equivalent result without you explaining anything live? If so, it’s a system. If it depends on you narrating the context every time, you still have <strong class="text-amber-400">loose pieces</strong>.</p>
-<p class="text-neutral-300 mb-4 leading-relaxed" data-inema-block="m1-3-t1-p7">Repeatable, reliable, and aligned are the three proofs. <strong class="text-amber-400">Repeatable</strong>: run it again and get a similar result. <strong class="text-amber-400">Reliable</strong>: the result meets the criteria; it doesn’t just look good. <strong class="text-amber-400">Aligned</strong>: meets the objective and follows the business rules. A system is what delivers all three at once.</p>
+<div class="ARCKHÉ-prose">
+<p class="text-neutral-300 mb-5 leading-relaxed text-[15px] sm:text-base" data-ARCKHÉ-block="m1-3-t1-p1">Imagine five engine parts scattered across a workbench: the piston, the spark plug, the crankshaft, the fuel tank, and the speedometer. Each part is perfect, but the car wonâ€™t move. The Canvas from day 2 gave you the five right partsâ€”Context, Objectives, Rules, Memory, Validation. Today you assemble them in a way that starts the engine. A system isnâ€™t the sum of its parts: itâ€™s the arrangement that turns intention into results reliably.</p>
+<p class="text-neutral-300 mb-4 leading-relaxed" data-ARCKHÉ-block="m1-3-t1-p2">One <strong class="text-amber-400">polished prompt</strong> is a one-off prompt. You write, the AI responds, and quality depends on your inspiration in that moment. It works once, fails the next time, and no one knows why. Thatâ€™s improvisationâ€”not a system.</p>
+<p class="text-neutral-300 mb-4 leading-relaxed" data-ARCKHÉ-block="m1-3-t1-p3">A system is a <strong class="text-amber-400">information environment</strong>. Before you ask for anything, the AI already KNOWS who it is, what it needs to deliver, what it can and canâ€™t do, what it learned before, and how the result will be checked. The request becomes the small part; the environment does the heavy lifting.</p>
+<p class="text-neutral-300 mb-4 leading-relaxed" data-ARCKHÉ-block="m1-3-t1-p4">The key to <strong class="text-amber-400">repeatability</strong> is this: what guarantees quality canâ€™t live in your head. If the tone rule, objective, and acceptance criteria only exist when you remember to type them, you are the systemâ€”and you canâ€™t scale or sleep. When this becomes a persistent environment, every run, on any day, starts from the same foundation.</p>
+<p class="text-neutral-300 mb-4 leading-relaxed" data-ARCKHÉ-block="m1-3-t1-p5">The 5 pillars only become a system when they connect into a <strong class="text-amber-400">chain</strong>: Intention â†’ Context â†’ Process â†’ Outcome. Context and Memory provide input; Objectives and Rules guide and constrain; Validation closes the loop by telling you whether it worked. Remove one link and the system becomes a prompt that relies on luck again.</p>
+<p class="text-neutral-300 mb-4 leading-relaxed" data-ARCKHÉ-block="m1-3-t1-p6">The test for whether you have a system is brutally simple: can someone else (or you a month from now) run it and get an equivalent result without you explaining anything live? If so, itâ€™s a system. If it depends on you narrating the context every time, you still have <strong class="text-amber-400">loose pieces</strong>.</p>
+<p class="text-neutral-300 mb-4 leading-relaxed" data-ARCKHÉ-block="m1-3-t1-p7">Repeatable, reliable, and aligned are the three proofs. <strong class="text-amber-400">Repeatable</strong>: run it again and get a similar result. <strong class="text-amber-400">Reliable</strong>: the result meets the criteria; it doesnâ€™t just look good. <strong class="text-amber-400">Aligned</strong>: meets the objective and follows the business rules. A system is what delivers all three at once.</p>
 </div>
 <!-- SVG A -->
 <div class="rounded-2xl border border-amber-500/30 bg-dark-900/40 p-3 sm:p-5 mb-8 overflow-hidden">
@@ -308,96 +308,96 @@
 <!-- resultado -->
 <rect fill="#1f1604" height="106" rx="14" stroke="#fbbf24" stroke-width="2" width="232" x="728" y="92"></rect>
 <text fill="#fbbf24" font-family="Inter,sans-serif" font-size="15" font-weight="700" text-anchor="middle" x="844" y="132">Outcome</text>
-<text fill="#fcd9a0" font-family="Inter,sans-serif" font-size="11" text-anchor="middle" x="844" y="155">reliable · repeatable</text>
-<text fill="#fcd9a0" font-family="Inter,sans-serif" font-size="11" text-anchor="middle" x="844" y="172">· aligned</text>
+<text fill="#fcd9a0" font-family="Inter,sans-serif" font-size="11" text-anchor="middle" x="844" y="155">reliable Â· repeatable</text>
+<text fill="#fcd9a0" font-family="Inter,sans-serif" font-size="11" text-anchor="middle" x="844" y="172">Â· aligned</text>
 </svg>
-<p class="text-xs text-neutral-500 mt-3 text-center">Loose pieces don’t deliver. Put together as a system, they do.</p>
+<p class="text-xs text-neutral-500 mt-3 text-center">Loose pieces donâ€™t deliver. Put together as a system, they do.</p>
 </div>
 <!-- exemplo pronto -->
 <div class="mb-6">
-<h3 class="text-sm font-semibold text-neutral-400 uppercase tracking-wide mb-3">Ready-to-use example — Customer service: loose prompt vs. system</h3>
+<h3 class="text-sm font-semibold text-neutral-400 uppercase tracking-wide mb-3">Ready-to-use example â€” Customer service: loose prompt vs. system</h3>
 <p class="text-sm text-neutral-400 italic mb-3">A small business wants to use AI to respond to customers on WhatsApp.</p>
 <div class="grid sm:grid-cols-2 gap-4">
 <div class="bg-red-900/20 border border-red-500/30 rounded-xl p-5">
-<h4 class="font-semibold text-red-400 mb-2">✗ Fragile</h4>
+<h4 class="font-semibold text-red-400 mb-2">âœ— Fragile</h4>
 <p class="text-sm text-neutral-300">Respond to my store's customers in a friendly way and answer their questions.</p>
 </div>
 <div class="bg-emerald-900/20 border border-emerald-500/30 rounded-xl p-5">
-<h4 class="font-semibold text-emerald-400 mb-2">✓ Structured</h4>
-<p class="text-sm text-neutral-300">CONTEXT: Supplement store, average order value R$ 120, delivery in 5 business days, 7-day exchange policy. OBJECTIVE: resolve the question in the first response whenever possible; success = the customer doesn't need to repeat the question. RULES: never promise a delivery time shorter than 5 days; never offer a discount without approval; if the question is about a refund, forward it to a human. MEMORY: the 10 most frequently asked questions and the approved answers. VALIDATION: every response must cite the correct delivery time, use a courteous tone, and say it will be checked if you don't know — never make anything up.</p>
+<h4 class="font-semibold text-emerald-400 mb-2">âœ“ Structured</h4>
+<p class="text-sm text-neutral-300">CONTEXT: Supplement store, average order value R$ 120, delivery in 5 business days, 7-day exchange policy. OBJECTIVE: resolve the question in the first response whenever possible; success = the customer doesn't need to repeat the question. RULES: never promise a delivery time shorter than 5 days; never offer a discount without approval; if the question is about a refund, forward it to a human. MEMORY: the 10 most frequently asked questions and the approved answers. VALIDATION: every response must cite the correct delivery time, use a courteous tone, and say it will be checked if you don't know â€” never make anything up.</p>
 </div>
 </div>
-<p class="text-sm text-neutral-400 mt-3"><strong class="text-neutral-300">Why it changes:</strong> The loose prompt delivers tone, but doesn’t control deadlines, discounts, or refunds — every response is a gamble. The system version defines what success looks like, what’s forbidden, and how to check, so it runs the same with any customer service rep or on any day. It becomes repeatable, reliable, and aligned.</p>
+<p class="text-sm text-neutral-400 mt-3"><strong class="text-neutral-300">Why it changes:</strong> The loose prompt delivers tone, but doesnâ€™t control deadlines, discounts, or refunds â€” every response is a gamble. The system version defines what success looks like, whatâ€™s forbidden, and how to check, so it runs the same with any customer service rep or on any day. It becomes repeatable, reliable, and aligned.</p>
 </div>
 <!-- fazer / evitar -->
 <div class="grid sm:grid-cols-2 gap-4 mb-6">
 <div class="bg-emerald-900/20 border border-emerald-500/30 rounded-xl p-5">
-<h4 class="font-semibold text-emerald-400 mb-3">✓ What to DO</h4>
+<h4 class="font-semibold text-emerald-400 mb-3">âœ“ What to DO</h4>
 <ul class="space-y-2 text-sm text-neutral-300">
-<li class="flex items-start gap-2"><span class="text-emerald-400 mt-0.5">✓</span><span>Write the 5 pillars somewhere persistent that the AI reads on every run (system prompt, context document, knowledge base).</span></li>
-<li class="flex items-start gap-2"><span class="text-emerald-400 mt-0.5">✓</span><span>Connect the pillars in an explicit chain: what feeds, what guides, what limits, what validates.</span></li>
-<li class="flex items-start gap-2"><span class="text-emerald-400 mt-0.5">✓</span><span>Apply the third-party test before calling it done.</span></li>
+<li class="flex items-start gap-2"><span class="text-emerald-400 mt-0.5">âœ“</span><span>Write the 5 pillars somewhere persistent that the AI reads on every run (system prompt, context document, knowledge base).</span></li>
+<li class="flex items-start gap-2"><span class="text-emerald-400 mt-0.5">âœ“</span><span>Connect the pillars in an explicit chain: what feeds, what guides, what limits, what validates.</span></li>
+<li class="flex items-start gap-2"><span class="text-emerald-400 mt-0.5">âœ“</span><span>Apply the third-party test before calling it done.</span></li>
 </ul>
 </div>
 <div class="bg-red-900/20 border border-red-500/30 rounded-xl p-5">
-<h4 class="font-semibold text-red-400 mb-3">✗ What to AVOID</h4>
+<h4 class="font-semibold text-red-400 mb-3">âœ— What to AVOID</h4>
 <ul class="space-y-2 text-sm text-neutral-300">
-<li class="flex items-start gap-2"><span class="text-red-400 mt-0.5">✗</span><span>Treat the day’s request as if it were the system — the request is the tip, not the engine.</span></li>
-<li class="flex items-start gap-2"><span class="text-red-400 mt-0.5">✗</span><span>Keep the rule or objective only in your head and type it from memory every time.</span></li>
-<li class="flex items-start gap-2"><span class="text-red-400 mt-0.5">✗</span><span>Think that a long, polished prompt is already a system; without validation and persistence, it’s still a one-off run.</span></li>
+<li class="flex items-start gap-2"><span class="text-red-400 mt-0.5">âœ—</span><span>Treat the dayâ€™s request as if it were the system â€” the request is the tip, not the engine.</span></li>
+<li class="flex items-start gap-2"><span class="text-red-400 mt-0.5">âœ—</span><span>Keep the rule or objective only in your head and type it from memory every time.</span></li>
+<li class="flex items-start gap-2"><span class="text-red-400 mt-0.5">âœ—</span><span>Think that a long, polished prompt is already a system; without validation and persistence, itâ€™s still a one-off run.</span></li>
 </ul>
 </div>
 </div>
 <!-- dica -->
 <div class="bg-primary/10 rounded-xl border border-primary/30 p-5 mb-6">
-<h3 class="font-semibold text-primary mb-2 flex items-center"><span class="mr-2">💡</span>Practical tip</h3>
-<p class="text-neutral-300 text-sm">Take the envelope test: write down your system, close the computer, and ask someone else to run it using only what you wrote. Anything they have to ask you about is a pillar that still lives in your head — and needs to become text.</p>
+<h3 class="font-semibold text-primary mb-2 flex items-center"><span class="mr-2">ðŸ’¡</span>Practical tip</h3>
+<p class="text-neutral-300 text-sm">Take the envelope test: write down your system, close the computer, and ask someone else to run it using only what you wrote. Anything they have to ask you about is a pillar that still lives in your head â€” and needs to become text.</p>
 </div>
 <!-- conceitos-chave -->
 <h3 class="text-sm font-semibold text-neutral-400 uppercase tracking-wide mb-3">Key concepts</h3>
 <div class="grid sm:grid-cols-2 gap-3">
 <div class="bg-dark-800 border border-dark-600 rounded-lg p-4"><h4 class="font-semibold text-amber-400 text-sm mb-1">An environment, not a one-off run</h4><p class="text-xs text-neutral-400">A system is the information environment that exists BEFORE the request. The prompt becomes the small part; the environment carries the weight of quality.</p></div>
-<div class="bg-dark-800 border border-dark-600 rounded-lg p-4"><h4 class="font-semibold text-amber-400 text-sm mb-1">Quality comes from your head</h4><p class="text-xs text-neutral-400">Rules, objectives, and criteria need to be written down and persistent. If they exist only when you remember them, you are the system—and you don't scale.</p></div>
-<div class="bg-dark-800 border border-dark-600 rounded-lg p-4"><h4 class="font-semibold text-amber-400 text-sm mb-1">The chain connects the pieces</h4><p class="text-xs text-neutral-400">Intention → Context → Process → Result. The 5 pillars only become a system when they connect in this chain; remove one link and it’s back to luck.</p></div>
+<div class="bg-dark-800 border border-dark-600 rounded-lg p-4"><h4 class="font-semibold text-amber-400 text-sm mb-1">Quality comes from your head</h4><p class="text-xs text-neutral-400">Rules, objectives, and criteria need to be written down and persistent. If they exist only when you remember them, you are the systemâ€”and you don't scale.</p></div>
+<div class="bg-dark-800 border border-dark-600 rounded-lg p-4"><h4 class="font-semibold text-amber-400 text-sm mb-1">The chain connects the pieces</h4><p class="text-xs text-neutral-400">Intention â†’ Context â†’ Process â†’ Result. The 5 pillars only become a system when they connect in this chain; remove one link and itâ€™s back to luck.</p></div>
 <div class="bg-dark-800 border border-dark-600 rounded-lg p-4"><h4 class="font-semibold text-amber-400 text-sm mb-1">Third-party test</h4><p class="text-xs text-neutral-400">If someone else can run it and get an equivalent result without you explaining it live, it's a system. If it depends on you narrating, the pieces are still loose.</p></div>
 </div>
 <div class="flex justify-start mt-7">
-<button aria-pressed="false" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-amber-500/20 border border-amber-500/30 text-amber-400 hover:bg-amber-500/30 transition-colors text-sm font-semibold" data-inema-read-toggle="" type="button">
-<span aria-hidden="true" class="inema-ico-todo">○</span><span aria-hidden="true" class="inema-ico-done">●</span>
-<span class="inema-label-todo">Mark as read</span><span class="inema-label-done">Read</span>
+<button aria-pressed="false" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-amber-500/20 border border-amber-500/30 text-amber-400 hover:bg-amber-500/30 transition-colors text-sm font-semibold" data-ARCKHÉ-read-toggle="" type="button">
+<span aria-hidden="true" class="ARCKHÉ-ico-todo">â—‹</span><span aria-hidden="true" class="ARCKHÉ-ico-done">â—</span>
+<span class="ARCKHÉ-label-todo">Mark as read</span><span class="ARCKHÉ-label-done">Read</span>
 </button>
 </div>
 </section>
 <!-- ====================== TOPICO 2 ====================== -->
-<section class="mb-16" data-inema-topic="modulo-1-3#topico-2" id="topico-2">
+<section class="mb-16" data-ARCKHÉ-topic="modulo-1-3#topico-2" id="topico-2">
 <div class="flex items-start justify-between gap-4 mb-5">
 <div class="flex items-center gap-4">
 <span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl flex-shrink-0">2</span>
-<h2 class="text-2xl font-bold">⚙️ The cogs</h2>
+<h2 class="text-2xl font-bold">âš™ï¸ The cogs</h2>
 </div>
-<button aria-pressed="false" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-dark-700 border border-dark-600 text-neutral-300 hover:bg-dark-600 transition-colors text-sm flex-shrink-0" data-inema-doubt-toggle="" title="Flag a question about this topic" type="button"><span aria-hidden="true">?</span><span class="hidden sm:inline">I have a question</span></button>
+<button aria-pressed="false" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-dark-700 border border-dark-600 text-neutral-300 hover:bg-dark-600 transition-colors text-sm flex-shrink-0" data-ARCKHÉ-doubt-toggle="" title="Flag a question about this topic" type="button"><span aria-hidden="true">?</span><span class="hidden sm:inline">I have a question</span></button>
 </div>
-<div class="inema-prose">
-<p class="text-neutral-300 mb-5 leading-relaxed text-[15px] sm:text-base" data-inema-block="m1-3-t2-p1">If the system is an engine, its gears have names. A framework is the engine's design. A workflow is the order in which the parts move. An agent is the part that acts on its own within the workflow. Memory is what the engine remembers from one cycle to the next. You don't need to program any of them to understand how they fit together — and understanding the fit helps you choose better tools.</p>
-<p class="text-neutral-300 mb-4 leading-relaxed" data-inema-block="m1-3-t2-p2"><strong class="text-amber-400">Framework</strong> is the thought structure that organizes the system. The 5 pillars are one framework. The Intention → Context → Process → Result chain is another. A framework isn’t a tool: it’s the mental blueprint that says what needs to exist and in what order. Change the tool, and the framework still holds.</p>
-<p class="text-neutral-300 mb-4 leading-relaxed" data-inema-block="m1-3-t2-p3"><strong class="text-amber-400">Workflow</strong> is the sequence of steps that takes you from intention to result. Example: receive the customer’s message → classify the type of question → find the approved answer in memory → draft a response → validate it against the rules → send it or escalate to a human. The workflow turns a vague request into a production line with named steps.</p>
-<p class="text-neutral-300 mb-4 leading-relaxed" data-inema-block="m1-3-t2-p4"><strong class="text-amber-400">Agent</strong> is the part of the system that runs in cycles without you operating every step: it writes, tests, sees the error, fixes it, and delivers. On day 1, this was layer 3 of the pyramid. Within a system, the agent is a cog that runs part of the workflow autonomously—but always within the rules and validated at the end.</p>
-<p class="text-neutral-300 mb-4 leading-relaxed" data-inema-block="m1-3-t2-p5"><strong class="text-amber-400">Memory</strong> is what persists between runs: approved patterns, previous decisions, brand voice, and errors that must not happen again. Without memory, every day is day one and the AI relearns from scratch. With memory, the system gets better with each cycle because it carries forward what has worked.</p>
-<p class="text-neutral-300 mb-4 leading-relaxed" data-inema-block="m1-3-t2-p6">O <strong class="text-amber-400">fit</strong> is this: the framework defines what exists, the workflow defines the order, the agent runs the autonomous parts, and memory supplies everything with what’s already known. You design the framework and the workflow, decide where an agent fits, and choose what goes into memory. The tools simply fill those roles.</p>
-<p class="text-neutral-300 mb-4 leading-relaxed" data-inema-block="m1-3-t2-p7">Not every system needs an agent. A content generation system can be a framework + workflow + memory, without any autonomous cycle. Start with the <strong class="text-amber-400">minimum</strong>: only add an agent when a step needs to iterate (try, fail, correct) without you in the loop. Complexity is a cost, not a trophy.</p>
+<div class="ARCKHÉ-prose">
+<p class="text-neutral-300 mb-5 leading-relaxed text-[15px] sm:text-base" data-ARCKHÉ-block="m1-3-t2-p1">If the system is an engine, its gears have names. A framework is the engine's design. A workflow is the order in which the parts move. An agent is the part that acts on its own within the workflow. Memory is what the engine remembers from one cycle to the next. You don't need to program any of them to understand how they fit together â€” and understanding the fit helps you choose better tools.</p>
+<p class="text-neutral-300 mb-4 leading-relaxed" data-ARCKHÉ-block="m1-3-t2-p2"><strong class="text-amber-400">Framework</strong> is the thought structure that organizes the system. The 5 pillars are one framework. The Intention â†’ Context â†’ Process â†’ Result chain is another. A framework isnâ€™t a tool: itâ€™s the mental blueprint that says what needs to exist and in what order. Change the tool, and the framework still holds.</p>
+<p class="text-neutral-300 mb-4 leading-relaxed" data-ARCKHÉ-block="m1-3-t2-p3"><strong class="text-amber-400">Workflow</strong> is the sequence of steps that takes you from intention to result. Example: receive the customerâ€™s message â†’ classify the type of question â†’ find the approved answer in memory â†’ draft a response â†’ validate it against the rules â†’ send it or escalate to a human. The workflow turns a vague request into a production line with named steps.</p>
+<p class="text-neutral-300 mb-4 leading-relaxed" data-ARCKHÉ-block="m1-3-t2-p4"><strong class="text-amber-400">Agent</strong> is the part of the system that runs in cycles without you operating every step: it writes, tests, sees the error, fixes it, and delivers. On day 1, this was layer 3 of the pyramid. Within a system, the agent is a cog that runs part of the workflow autonomouslyâ€”but always within the rules and validated at the end.</p>
+<p class="text-neutral-300 mb-4 leading-relaxed" data-ARCKHÉ-block="m1-3-t2-p5"><strong class="text-amber-400">Memory</strong> is what persists between runs: approved patterns, previous decisions, brand voice, and errors that must not happen again. Without memory, every day is day one and the AI relearns from scratch. With memory, the system gets better with each cycle because it carries forward what has worked.</p>
+<p class="text-neutral-300 mb-4 leading-relaxed" data-ARCKHÉ-block="m1-3-t2-p6">O <strong class="text-amber-400">fit</strong> is this: the framework defines what exists, the workflow defines the order, the agent runs the autonomous parts, and memory supplies everything with whatâ€™s already known. You design the framework and the workflow, decide where an agent fits, and choose what goes into memory. The tools simply fill those roles.</p>
+<p class="text-neutral-300 mb-4 leading-relaxed" data-ARCKHÉ-block="m1-3-t2-p7">Not every system needs an agent. A content generation system can be a framework + workflow + memory, without any autonomous cycle. Start with the <strong class="text-amber-400">minimum</strong>: only add an agent when a step needs to iterate (try, fail, correct) without you in the loop. Complexity is a cost, not a trophy.</p>
 </div>
 <!-- exemplo pronto -->
 <div class="mb-6">
-<h3 class="text-sm font-semibold text-neutral-400 uppercase tracking-wide mb-3">Ready-to-use example — Brand content: vague request vs. designed workflow</h3>
-<p class="text-sm text-neutral-400 italic mb-3">A creator wants a system that produces weekly posts in her brand’s voice.</p>
+<h3 class="text-sm font-semibold text-neutral-400 uppercase tracking-wide mb-3">Ready-to-use example â€” Brand content: vague request vs. designed workflow</h3>
+<p class="text-sm text-neutral-400 italic mb-3">A creator wants a system that produces weekly posts in her brandâ€™s voice.</p>
 <div class="grid sm:grid-cols-2 gap-4">
 <div class="bg-red-900/20 border border-red-500/30 rounded-xl p-5">
-<h4 class="font-semibold text-red-400 mb-2">✗ Fragile</h4>
+<h4 class="font-semibold text-red-400 mb-2">âœ— Fragile</h4>
 <p class="text-sm text-neutral-300">Write me 5 posts for this week in my style.</p>
 </div>
 <div class="bg-emerald-900/20 border border-emerald-500/30 rounded-xl p-5">
-<h4 class="font-semibold text-emerald-400 mb-2">✓ Structured</h4>
-<p class="text-sm text-neutral-300">FRAMEWORK: 5 pillars. WORKFLOW: (1) pull the week’s theme and the goal for each post; (2) find the voice guide and 3 high-performing posts in MEMORY; (3) draft the post following the guide; (4) VALIDATE against the checklist (tone, hook in the first 2 seconds, 1 CTA, no banned jargon); (5) mark the ones that pass and return the failures with the reason. AGENT: in steps 3-4, iterate until the draft passes the checklist or, after 2 attempts, escalate to the creator.</p>
+<h4 class="font-semibold text-emerald-400 mb-2">âœ“ Structured</h4>
+<p class="text-sm text-neutral-300">FRAMEWORK: 5 pillars. WORKFLOW: (1) pull the weekâ€™s theme and the goal for each post; (2) find the voice guide and 3 high-performing posts in MEMORY; (3) draft the post following the guide; (4) VALIDATE against the checklist (tone, hook in the first 2 seconds, 1 CTA, no banned jargon); (5) mark the ones that pass and return the failures with the reason. AGENT: in steps 3-4, iterate until the draft passes the checklist or, after 2 attempts, escalate to the creator.</p>
 </div>
 </div>
 <p class="text-sm text-neutral-400 mt-3"><strong class="text-neutral-300">Why it changes:</strong> The vague request delivers 5 generic texts that you rewrite from scratch. The designed workflow names each step, draws on voice memory, validates against criteria, and uses autonomy only where it makes sense (iterating on the draft). The result arrives validated and on-brand, and improves because the memory keeps what performed well.</p>
@@ -405,63 +405,63 @@
 <!-- fazer / evitar -->
 <div class="grid sm:grid-cols-2 gap-4 mb-6">
 <div class="bg-emerald-900/20 border border-emerald-500/30 rounded-xl p-5">
-<h4 class="font-semibold text-emerald-400 mb-3">✓ What to DO</h4>
+<h4 class="font-semibold text-emerald-400 mb-3">âœ“ What to DO</h4>
 <ul class="space-y-2 text-sm text-neutral-300">
-<li class="flex items-start gap-2"><span class="text-emerald-400 mt-0.5">✓</span><span>Design the workflow as a sequence of named stages before thinking about any tools.</span></li>
-<li class="flex items-start gap-2"><span class="text-emerald-400 mt-0.5">✓</span><span>Consciously decide what goes into memory — approved patterns and mistakes to avoid repeating.</span></li>
-<li class="flex items-start gap-2"><span class="text-emerald-400 mt-0.5">✓</span><span>Use an agent only for steps that require iterating without you in the middle.</span></li>
+<li class="flex items-start gap-2"><span class="text-emerald-400 mt-0.5">âœ“</span><span>Design the workflow as a sequence of named stages before thinking about any tools.</span></li>
+<li class="flex items-start gap-2"><span class="text-emerald-400 mt-0.5">âœ“</span><span>Consciously decide what goes into memory â€” approved patterns and mistakes to avoid repeating.</span></li>
+<li class="flex items-start gap-2"><span class="text-emerald-400 mt-0.5">âœ“</span><span>Use an agent only for steps that require iterating without you in the middle.</span></li>
 </ul>
 </div>
 <div class="bg-red-900/20 border border-red-500/30 rounded-xl p-5">
-<h4 class="font-semibold text-red-400 mb-3">✗ What to AVOID</h4>
+<h4 class="font-semibold text-red-400 mb-3">âœ— What to AVOID</h4>
 <ul class="space-y-2 text-sm text-neutral-300">
-<li class="flex items-start gap-2"><span class="text-red-400 mt-0.5">✗</span><span>Confusing a framework (a mental model) with a tool (the app you open).</span></li>
-<li class="flex items-start gap-2"><span class="text-red-400 mt-0.5">✗</span><span>Stacking agents and integrations for status; unnecessary complexity is a cost and a point of failure.</span></li>
-<li class="flex items-start gap-2"><span class="text-red-400 mt-0.5">✗</span><span>Run without memory and complain that AI forgets everything—you didn't give it anything to remember.</span></li>
+<li class="flex items-start gap-2"><span class="text-red-400 mt-0.5">âœ—</span><span>Confusing a framework (a mental model) with a tool (the app you open).</span></li>
+<li class="flex items-start gap-2"><span class="text-red-400 mt-0.5">âœ—</span><span>Stacking agents and integrations for status; unnecessary complexity is a cost and a point of failure.</span></li>
+<li class="flex items-start gap-2"><span class="text-red-400 mt-0.5">âœ—</span><span>Run without memory and complain that AI forgets everythingâ€”you didn't give it anything to remember.</span></li>
 </ul>
 </div>
 </div>
 <!-- dica -->
 <div class="bg-primary/10 rounded-xl border border-primary/30 p-5 mb-6">
-<h3 class="font-semibold text-primary mb-2 flex items-center"><span class="mr-2">💡</span>Practical tip</h3>
+<h3 class="font-semibold text-primary mb-2 flex items-center"><span class="mr-2">ðŸ’¡</span>Practical tip</h3>
 <p class="text-neutral-300 text-sm">Draw your workflow in numbered boxes on a sheet of paper before opening any app. For each box, ask: does this need memory? Does this need iteration (an agent)? What rule limits it? That sheet matters more than the choice of tool.</p>
 </div>
 <!-- conceitos-chave -->
 <h3 class="text-sm font-semibold text-neutral-400 uppercase tracking-wide mb-3">Key concepts</h3>
 <div class="grid sm:grid-cols-2 gap-3">
-<div class="bg-dark-800 border border-dark-600 rounded-lg p-4"><h4 class="font-semibold text-amber-400 text-sm mb-1">Framework = the mental model</h4><p class="text-xs text-neutral-400">The structure that defines what needs to exist and in what order. The 5 pillars are a framework. It’s independent of any tool—switch tools, and it still stands.</p></div>
-<div class="bg-dark-800 border border-dark-600 rounded-lg p-4"><h4 class="font-semibold text-amber-400 text-sm mb-1">Workflow = the production line</h4><p class="text-xs text-neutral-400">The named sequence of steps from intention to result: receive → classify → search → draft → validate → deliver. It turns a vague request into a process.</p></div>
+<div class="bg-dark-800 border border-dark-600 rounded-lg p-4"><h4 class="font-semibold text-amber-400 text-sm mb-1">Framework = the mental model</h4><p class="text-xs text-neutral-400">The structure that defines what needs to exist and in what order. The 5 pillars are a framework. Itâ€™s independent of any toolâ€”switch tools, and it still stands.</p></div>
+<div class="bg-dark-800 border border-dark-600 rounded-lg p-4"><h4 class="font-semibold text-amber-400 text-sm mb-1">Workflow = the production line</h4><p class="text-xs text-neutral-400">The named sequence of steps from intention to result: receive â†’ classify â†’ search â†’ draft â†’ validate â†’ deliver. It turns a vague request into a process.</p></div>
 <div class="bg-dark-800 border border-dark-600 rounded-lg p-4"><h4 class="font-semibold text-amber-400 text-sm mb-1">Agent = autonomy in a cycle</h4><p class="text-xs text-neutral-400">The mechanism that writes, tests, corrects, and delivers one part of the workflow on its own. Always within the rules and validated at the end. Use it only when the step requires iteration.</p></div>
 <div class="bg-dark-800 border border-dark-600 rounded-lg p-4"><h4 class="font-semibold text-amber-400 text-sm mb-1">Memory = what persists</h4><p class="text-xs text-neutral-400">Patterns, decisions, and mistakes that must not be repeated. Without it, every day is day one. With it, the system improves with every cycle.</p></div>
 </div>
 <div class="flex justify-start mt-7">
-<button aria-pressed="false" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-amber-500/20 border border-amber-500/30 text-amber-400 hover:bg-amber-500/30 transition-colors text-sm font-semibold" data-inema-read-toggle="" type="button">
-<span aria-hidden="true" class="inema-ico-todo">○</span><span aria-hidden="true" class="inema-ico-done">●</span>
-<span class="inema-label-todo">Mark as read</span><span class="inema-label-done">Read</span>
+<button aria-pressed="false" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-amber-500/20 border border-amber-500/30 text-amber-400 hover:bg-amber-500/30 transition-colors text-sm font-semibold" data-ARCKHÉ-read-toggle="" type="button">
+<span aria-hidden="true" class="ARCKHÉ-ico-todo">â—‹</span><span aria-hidden="true" class="ARCKHÉ-ico-done">â—</span>
+<span class="ARCKHÉ-label-todo">Mark as read</span><span class="ARCKHÉ-label-done">Read</span>
 </button>
 </div>
 </section>
 <!-- ====================== TOPICO 3 ====================== -->
-<section class="mb-16" data-inema-topic="modulo-1-3#topico-3" id="topico-3">
+<section class="mb-16" data-ARCKHÉ-topic="modulo-1-3#topico-3" id="topico-3">
 <div class="flex items-start justify-between gap-4 mb-5">
 <div class="flex items-center gap-4">
 <span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl flex-shrink-0">3</span>
-<h2 class="text-2xl font-bold">🔄 The Operating Cycle</h2>
+<h2 class="text-2xl font-bold">ðŸ”„ The Operating Cycle</h2>
 </div>
-<button aria-pressed="false" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-dark-700 border border-dark-600 text-neutral-300 hover:bg-dark-600 transition-colors text-sm flex-shrink-0" data-inema-doubt-toggle="" title="Flag a question about this topic" type="button"><span aria-hidden="true">?</span><span class="hidden sm:inline">I have a question</span></button>
+<button aria-pressed="false" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-dark-700 border border-dark-600 text-neutral-300 hover:bg-dark-600 transition-colors text-sm flex-shrink-0" data-ARCKHÉ-doubt-toggle="" title="Flag a question about this topic" type="button"><span aria-hidden="true">?</span><span class="hidden sm:inline">I have a question</span></button>
 </div>
-<div class="inema-prose">
-<p class="text-neutral-300 mb-5 leading-relaxed text-[15px] sm:text-base" data-inema-block="m1-3-t3-p1">A good system isn't born ready — it's born ready to run. The first version always has gaps; what sets real operators apart is having a loop that turns every gap into an improvement. Running, validating, adjusting, and improving isn't a set of steps you do once: it's the routine that keeps the system alive and makes it more reliable over time.</p>
-<p class="text-neutral-300 mb-4 leading-relaxed" data-inema-block="m1-3-t3-p2"><strong class="text-amber-400">Run</strong> is running the system on a real case, not a hypothetical one. Use a real customer message, an actual post topic, or a concrete decision you need to make. A real case exposes gaps that the ideal case hides.</p>
-<p class="text-neutral-300 mb-4 leading-relaxed" data-inema-block="m1-3-t3-p3"><strong class="text-amber-400">Validate</strong> is checking the result against the criteria you defined in the Validation pillar—not against your taste in the moment. Criteria are objective: did it state the correct deadline? follow the discount rule? meet the objective? Validation without written criteria becomes an illusion of productivity: it looks good, but you don’t know if it is.</p>
-<p class="text-neutral-300 mb-4 leading-relaxed" data-inema-block="m1-3-t3-p4"><strong class="text-amber-400">Adjust</strong> is fixing the CAUSE, not the symptom. If the AI promised the wrong deadline, don’t rewrite the response by hand—fix the rule or context that let the error through. A symptom fix has to be redone every time; a cause fix solves it for good.</p>
-<p class="text-neutral-300 mb-4 leading-relaxed" data-inema-block="m1-3-t3-p5"><strong class="text-amber-400">Improve</strong> is raising the system’s ceiling, not just patching holes. Did you notice that the 3 most common questions always get escalated to a human? Add approved answers for them to memory. Continuous improvement is what makes the system in week 10 better than the one in week 1, without starting over.</p>
-<p class="text-neutral-300 mb-4 leading-relaxed" data-inema-block="m1-3-t3-p6">The loop closes back on itself: each validated run generates a lesson, the lesson becomes a root-cause adjustment or memory improvement, and the next run starts with a <strong class="text-amber-400">higher bar</strong>. This is how the system builds quality instead of just repeating.</p>
-<p class="text-neutral-300 mb-4 leading-relaxed" data-inema-block="m1-3-t3-p7">Two traps kill the loop. The first is <strong class="text-amber-400">don't validate</strong>: you run it, like it, move on—and never discover the silent errors. The second is <strong class="text-amber-400">validate without recording</strong>: you find the gap, fix it manually, and it comes back the following week because the cause never became a rule. Record what you learned or it will be lost.</p>
+<div class="ARCKHÉ-prose">
+<p class="text-neutral-300 mb-5 leading-relaxed text-[15px] sm:text-base" data-ARCKHÉ-block="m1-3-t3-p1">A good system isn't born ready â€” it's born ready to run. The first version always has gaps; what sets real operators apart is having a loop that turns every gap into an improvement. Running, validating, adjusting, and improving isn't a set of steps you do once: it's the routine that keeps the system alive and makes it more reliable over time.</p>
+<p class="text-neutral-300 mb-4 leading-relaxed" data-ARCKHÉ-block="m1-3-t3-p2"><strong class="text-amber-400">Run</strong> is running the system on a real case, not a hypothetical one. Use a real customer message, an actual post topic, or a concrete decision you need to make. A real case exposes gaps that the ideal case hides.</p>
+<p class="text-neutral-300 mb-4 leading-relaxed" data-ARCKHÉ-block="m1-3-t3-p3"><strong class="text-amber-400">Validate</strong> is checking the result against the criteria you defined in the Validation pillarâ€”not against your taste in the moment. Criteria are objective: did it state the correct deadline? follow the discount rule? meet the objective? Validation without written criteria becomes an illusion of productivity: it looks good, but you donâ€™t know if it is.</p>
+<p class="text-neutral-300 mb-4 leading-relaxed" data-ARCKHÉ-block="m1-3-t3-p4"><strong class="text-amber-400">Adjust</strong> is fixing the CAUSE, not the symptom. If the AI promised the wrong deadline, donâ€™t rewrite the response by handâ€”fix the rule or context that let the error through. A symptom fix has to be redone every time; a cause fix solves it for good.</p>
+<p class="text-neutral-300 mb-4 leading-relaxed" data-ARCKHÉ-block="m1-3-t3-p5"><strong class="text-amber-400">Improve</strong> is raising the systemâ€™s ceiling, not just patching holes. Did you notice that the 3 most common questions always get escalated to a human? Add approved answers for them to memory. Continuous improvement is what makes the system in week 10 better than the one in week 1, without starting over.</p>
+<p class="text-neutral-300 mb-4 leading-relaxed" data-ARCKHÉ-block="m1-3-t3-p6">The loop closes back on itself: each validated run generates a lesson, the lesson becomes a root-cause adjustment or memory improvement, and the next run starts with a <strong class="text-amber-400">higher bar</strong>. This is how the system builds quality instead of just repeating.</p>
+<p class="text-neutral-300 mb-4 leading-relaxed" data-ARCKHÉ-block="m1-3-t3-p7">Two traps kill the loop. The first is <strong class="text-amber-400">don't validate</strong>: you run it, like it, move onâ€”and never discover the silent errors. The second is <strong class="text-amber-400">validate without recording</strong>: you find the gap, fix it manually, and it comes back the following week because the cause never became a rule. Record what you learned or it will be lost.</p>
 </div>
 <!-- SVG B -->
 <div class="rounded-2xl border border-amber-500/30 bg-dark-900/40 p-3 sm:p-5 mb-8 overflow-hidden">
-<svg aria-label="The operating cycle of an intent system: run, then validate, then adjust, then improve — and run again in a continuous quality loop." class="w-full h-auto" role="img" viewbox="0 0 1000 340">
+<svg aria-label="The operating cycle of an intent system: run, then validate, then adjust, then improve â€” and run again in a continuous quality loop." class="w-full h-auto" role="img" viewbox="0 0 1000 340">
 <defs>
 <lineargradient id="d3b-grad" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#fbbf24"></stop><stop offset="1" stop-color="#f59e0b"></stop></lineargradient>
 <filter height="180%" id="d3b-glow" width="180%" x="-40%" y="-40%"><fegaussianblur result="b" stddeviation="1.8"></fegaussianblur><femerge><femergenode in="b"></femergenode><femergenode in="SourceGraphic"></femergenode></femerge></filter>
@@ -480,17 +480,17 @@
 <circle cx="500" cy="170" fill="#1f1604" opacity="0.5" r="56" stroke="#fbbf24" stroke-width="1.5"></circle>
 <text fill="#fbbf24" font-family="Inter,sans-serif" font-size="13" font-weight="700" text-anchor="middle" x="500" y="165">cycle of</text>
 <text fill="#fbbf24" font-family="Inter,sans-serif" font-size="13" font-weight="700" text-anchor="middle" x="500" y="184">operation</text>
-<!-- nós -->
+<!-- nÃ³s -->
 <g filter="url(#d3b-glow)"><rect fill="url(#d3b-grad)" height="58" rx="13" stroke="#f59e0b" stroke-width="2.5" width="170" x="415" y="48"></rect></g>
-<text fill="#231400" font-family="Inter,sans-serif" font-size="16" font-weight="700" text-anchor="middle" x="500" y="83">1 · Run</text>
+<text fill="#231400" font-family="Inter,sans-serif" font-size="16" font-weight="700" text-anchor="middle" x="500" y="83">1 Â· Run</text>
 <rect fill="#1f1604" height="58" rx="13" stroke="#fbbf24" stroke-width="2" width="170" x="725" y="142"></rect>
-<text fill="#fbbf24" font-family="Inter,sans-serif" font-size="16" font-weight="600" text-anchor="middle" x="810" y="177">2 · Validate</text>
+<text fill="#fbbf24" font-family="Inter,sans-serif" font-size="16" font-weight="600" text-anchor="middle" x="810" y="177">2 Â· Validate</text>
 <rect fill="#1f1604" height="58" rx="13" stroke="#fbbf24" stroke-width="2" width="170" x="415" y="236"></rect>
-<text fill="#fbbf24" font-family="Inter,sans-serif" font-size="16" font-weight="600" text-anchor="middle" x="500" y="271">3 · Adjust</text>
+<text fill="#fbbf24" font-family="Inter,sans-serif" font-size="16" font-weight="600" text-anchor="middle" x="500" y="271">3 Â· Adjust</text>
 <rect fill="#1f1604" height="58" rx="13" stroke="#fbbf24" stroke-width="2" width="170" x="105" y="142"></rect>
-<text fill="#fbbf24" font-family="Inter,sans-serif" font-size="16" font-weight="600" text-anchor="middle" x="190" y="177">4 · Improve</text>
+<text fill="#fbbf24" font-family="Inter,sans-serif" font-size="16" font-weight="600" text-anchor="middle" x="190" y="177">4 Â· Improve</text>
 </svg>
-<p class="text-xs text-neutral-500 mt-3 text-center">A system isn’t delivered ready-made: it runs, validates, adjusts, and improves — always.</p>
+<p class="text-xs text-neutral-500 mt-3 text-center">A system isnâ€™t delivered ready-made: it runs, validates, adjusts, and improves â€” always.</p>
 </div>
 <!-- TIMELINE do ciclo (variedade) -->
 <h3 class="text-sm font-semibold text-neutral-400 uppercase tracking-wide mb-4">The loop, step by step</h3>
@@ -520,194 +520,194 @@
 <div class="flex flex-col items-center">
 <span class="flex items-center justify-center w-10 h-10 rounded-full bg-amber-500/20 text-amber-400 font-bold flex-shrink-0">4</span>
 </div>
-<div class="pb-2"><div class="bg-dark-800 border border-dark-600 rounded-lg p-4"><h4 class="font-semibold mb-1">Improve and rerun</h4><p class="text-sm text-neutral-400">Along with plugging gaps, add what works to memory — and return to step 1 at a higher level. That’s what makes week 10 surpass week 1.</p></div></div>
+<div class="pb-2"><div class="bg-dark-800 border border-dark-600 rounded-lg p-4"><h4 class="font-semibold mb-1">Improve and rerun</h4><p class="text-sm text-neutral-400">Along with plugging gaps, add what works to memory â€” and return to step 1 at a higher level. Thatâ€™s what makes week 10 surpass week 1.</p></div></div>
 </div>
 </div>
 <!-- exemplo pronto -->
 <div class="mb-6">
-<h3 class="text-sm font-semibold text-neutral-400 uppercase tracking-wide mb-3">Ready-to-use example — Manual correction vs. root-cause adjustment</h3>
+<h3 class="text-sm font-semibold text-neutral-400 uppercase tracking-wide mb-3">Ready-to-use example â€” Manual correction vs. root-cause adjustment</h3>
 <p class="text-sm text-neutral-400 italic mb-3">The customer service assistant promised delivery in 3 days, but the actual timeframe is 5.</p>
 <div class="grid sm:grid-cols-2 gap-4">
 <div class="bg-red-900/20 border border-red-500/30 rounded-xl p-5">
-<h4 class="font-semibold text-red-400 mb-2">✗ Fragile</h4>
+<h4 class="font-semibold text-red-400 mb-2">âœ— Fragile</h4>
 <p class="text-sm text-neutral-300">The owner sees the error, edits the customer response by changing 3 to 5, and gets on with the day. The following week, the same error happens with another customer.</p>
 </div>
 <div class="bg-emerald-900/20 border border-emerald-500/30 rounded-xl p-5">
-<h4 class="font-semibold text-emerald-400 mb-2">✓ Structured</h4>
+<h4 class="font-semibold text-emerald-400 mb-2">âœ“ Structured</h4>
 <p class="text-sm text-neutral-300">The owner logs the gap, identifies the CAUSE (the context didn't include the standard timeframe, so the AI guessed), adds "delivery = 5 business days" to Context, and creates the Rule "never promise a timeframe shorter than the standard one"; they add a "check timeframe" item to Validation. They run the same case again: it passes. The error doesn't come back.</p>
 </div>
 </div>
-<p class="text-sm text-neutral-400 mt-3"><strong class="text-neutral-300">Why it changes:</strong> A manual fix solves one customer’s issue and leaves the cause intact—the error is structural and will happen again. A root-cause fix changes the system: it becomes a rule, a validation criterion, and the issue goes away for good. One effort, problem closed, more reliable system.</p>
+<p class="text-sm text-neutral-400 mt-3"><strong class="text-neutral-300">Why it changes:</strong> A manual fix solves one customerâ€™s issue and leaves the cause intactâ€”the error is structural and will happen again. A root-cause fix changes the system: it becomes a rule, a validation criterion, and the issue goes away for good. One effort, problem closed, more reliable system.</p>
 </div>
 <!-- fazer / evitar -->
 <div class="grid sm:grid-cols-2 gap-4 mb-6">
 <div class="bg-emerald-900/20 border border-emerald-500/30 rounded-xl p-5">
-<h4 class="font-semibold text-emerald-400 mb-3">✓ What to DO</h4>
+<h4 class="font-semibold text-emerald-400 mb-3">âœ“ What to DO</h4>
 <ul class="space-y-2 text-sm text-neutral-300">
-<li class="flex items-start gap-2"><span class="text-emerald-400 mt-0.5">✓</span><span>Always run the first test with a real case from your day, never a perfect example.</span></li>
-<li class="flex items-start gap-2"><span class="text-emerald-400 mt-0.5">✓</span><span>Validate using the Validation pillar checklist in front of you, item by item.</span></li>
-<li class="flex items-start gap-2"><span class="text-emerald-400 mt-0.5">✓</span><span>Record every gap in a short log: what failed, the cause, and the adjustment—and re-run the same case to confirm.</span></li>
+<li class="flex items-start gap-2"><span class="text-emerald-400 mt-0.5">âœ“</span><span>Always run the first test with a real case from your day, never a perfect example.</span></li>
+<li class="flex items-start gap-2"><span class="text-emerald-400 mt-0.5">âœ“</span><span>Validate using the Validation pillar checklist in front of you, item by item.</span></li>
+<li class="flex items-start gap-2"><span class="text-emerald-400 mt-0.5">âœ“</span><span>Record every gap in a short log: what failed, the cause, and the adjustmentâ€”and re-run the same case to confirm.</span></li>
 </ul>
 </div>
 <div class="bg-red-900/20 border border-red-500/30 rounded-xl p-5">
-<h4 class="font-semibold text-red-400 mb-3">✗ What to AVOID</h4>
+<h4 class="font-semibold text-red-400 mb-3">âœ— What to AVOID</h4>
 <ul class="space-y-2 text-sm text-neutral-300">
-<li class="flex items-start gap-2"><span class="text-red-400 mt-0.5">✗</span><span>Run it, like it, and move on without validating—that's how silent errors survive.</span></li>
-<li class="flex items-start gap-2"><span class="text-red-400 mt-0.5">✗</span><span>Fix the symptom by hand without addressing the cause; the error comes back in a new form.</span></li>
-<li class="flex items-start gap-2"><span class="text-red-400 mt-0.5">✗</span><span>Treat the loop as a one-time launch event, not a weekly routine.</span></li>
+<li class="flex items-start gap-2"><span class="text-red-400 mt-0.5">âœ—</span><span>Run it, like it, and move on without validatingâ€”that's how silent errors survive.</span></li>
+<li class="flex items-start gap-2"><span class="text-red-400 mt-0.5">âœ—</span><span>Fix the symptom by hand without addressing the cause; the error comes back in a new form.</span></li>
+<li class="flex items-start gap-2"><span class="text-red-400 mt-0.5">âœ—</span><span>Treat the loop as a one-time launch event, not a weekly routine.</span></li>
 </ul>
 </div>
 </div>
 <!-- dica -->
 <div class="bg-primary/10 rounded-xl border border-primary/30 p-5 mb-6">
-<h3 class="font-semibold text-primary mb-2 flex items-center"><span class="mr-2">💡</span>Practical tip</h3>
+<h3 class="font-semibold text-primary mb-2 flex items-center"><span class="mr-2">ðŸ’¡</span>Practical tip</h3>
 <p class="text-neutral-300 text-sm">Adopt the same-case rule: after fixing the cause, rerun exactly the case that failed. If it passes, you fixed the cause. If it still fails, you fixed a symptom. This is the fastest test for whether the improvement was real.</p>
 </div>
 <!-- conceitos-chave -->
 <h3 class="text-sm font-semibold text-neutral-400 uppercase tracking-wide mb-3">Key concepts</h3>
 <div class="grid sm:grid-cols-2 gap-3">
 <div class="bg-dark-800 border border-dark-600 rounded-lg p-4"><h4 class="font-semibold text-amber-400 text-sm mb-1">Run with a real case</h4><p class="text-xs text-neutral-400">Run it with a real message, topic, or decision. The ideal case hides gaps; the real case exposes them. A system proves itself by running, not on a slide.</p></div>
-<div class="bg-dark-800 border border-dark-600 rounded-lg p-4"><h4 class="font-semibold text-amber-400 text-sm mb-1">Validate against criteria, not personal preference</h4><p class="text-xs text-neutral-400">Check the result against the criteria written in the Validation pillar. Without objective criteria, validation becomes an illusion of productivity — it looks good, but you don’t know if it is.</p></div>
+<div class="bg-dark-800 border border-dark-600 rounded-lg p-4"><h4 class="font-semibold text-amber-400 text-sm mb-1">Validate against criteria, not personal preference</h4><p class="text-xs text-neutral-400">Check the result against the criteria written in the Validation pillar. Without objective criteria, validation becomes an illusion of productivity â€” it looks good, but you donâ€™t know if it is.</p></div>
 <div class="bg-dark-800 border border-dark-600 rounded-lg p-4"><h4 class="font-semibold text-amber-400 text-sm mb-1">Fix the cause, not the symptom</h4><p class="text-xs text-neutral-400">Recurring errors are fixed in the rule or the context, not by manually rewriting the output. You keep redoing the symptom; you fix the cause once.</p></div>
-<div class="bg-dark-800 border border-dark-600 rounded-lg p-4"><h4 class="font-semibold text-amber-400 text-sm mb-1">Improving raises the ceiling</h4><p class="text-xs text-neutral-400">Along with plugging gaps, add what works to memory. That’s what makes the system in week 10 better than the one in week 1 without starting over.</p></div>
+<div class="bg-dark-800 border border-dark-600 rounded-lg p-4"><h4 class="font-semibold text-amber-400 text-sm mb-1">Improving raises the ceiling</h4><p class="text-xs text-neutral-400">Along with plugging gaps, add what works to memory. Thatâ€™s what makes the system in week 10 better than the one in week 1 without starting over.</p></div>
 </div>
 <div class="flex justify-start mt-7">
-<button aria-pressed="false" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-amber-500/20 border border-amber-500/30 text-amber-400 hover:bg-amber-500/30 transition-colors text-sm font-semibold" data-inema-read-toggle="" type="button">
-<span aria-hidden="true" class="inema-ico-todo">○</span><span aria-hidden="true" class="inema-ico-done">●</span>
-<span class="inema-label-todo">Mark as read</span><span class="inema-label-done">Read</span>
+<button aria-pressed="false" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-amber-500/20 border border-amber-500/30 text-amber-400 hover:bg-amber-500/30 transition-colors text-sm font-semibold" data-ARCKHÉ-read-toggle="" type="button">
+<span aria-hidden="true" class="ARCKHÉ-ico-todo">â—‹</span><span aria-hidden="true" class="ARCKHÉ-ico-done">â—</span>
+<span class="ARCKHÉ-label-todo">Mark as read</span><span class="ARCKHÉ-label-done">Read</span>
 </button>
 </div>
 </section>
 <!-- ====================== TOPICO 4 ====================== -->
-<section class="mb-16" data-inema-topic="modulo-1-3#topico-4" id="topico-4">
+<section class="mb-16" data-ARCKHÉ-topic="modulo-1-3#topico-4" id="topico-4">
 <div class="flex items-start justify-between gap-4 mb-5">
 <div class="flex items-center gap-4">
 <span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl flex-shrink-0">4</span>
-<h2 class="text-2xl font-bold">🧭 Beyond the Tools</h2>
+<h2 class="text-2xl font-bold">ðŸ§­ Beyond the Tools</h2>
 </div>
-<button aria-pressed="false" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-dark-700 border border-dark-600 text-neutral-300 hover:bg-dark-600 transition-colors text-sm flex-shrink-0" data-inema-doubt-toggle="" title="Flag a question about this topic" type="button"><span aria-hidden="true">?</span><span class="hidden sm:inline">I have a question</span></button>
+<button aria-pressed="false" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-dark-700 border border-dark-600 text-neutral-300 hover:bg-dark-600 transition-colors text-sm flex-shrink-0" data-ARCKHÉ-doubt-toggle="" title="Flag a question about this topic" type="button"><span aria-hidden="true">?</span><span class="hidden sm:inline">I have a question</span></button>
 </div>
-<div class="inema-prose">
-<p class="text-neutral-300 mb-5 leading-relaxed text-[15px] sm:text-base" data-inema-block="m1-3-t4-p1">Tools change names every quarter. Today's model is replaced by tomorrow's; the app you love disappears or changes its price. People who learned only to click around the tool start over from scratch with every change. People who learned the logic — the 5 pillars, the chain, the loop — carry everything over to the new tool and still use it better than most.</p>
-<p class="text-neutral-300 mb-4 leading-relaxed" data-inema-block="m1-3-t4-p2">A <strong class="text-amber-400">logic</strong> is what doesn’t change: you’ll always need context, an objective, rules, memory, and validation, with any tool and any model. That’s inherent to the problem, not the software. That’s why the Intention Architecture lasts—it operates one layer above the tool.</p>
-<p class="text-neutral-300 mb-4 leading-relaxed" data-inema-block="m1-3-t4-p3">A <strong class="text-amber-400">tool</strong> is just the implementation of the logic. Where you write the context, how you store memory, which button triggers the workflow—that varies. But if you know WHAT needs to exist, figuring out WHERE to put it in a new tool takes minutes, not months.</p>
-<p class="text-neutral-300 mb-4 leading-relaxed" data-inema-block="m1-3-t4-p4">This changes who’s in control of the relationship. The <strong class="text-amber-400">shallow user</strong> is at the mercy of the tool: waits for the tutorial, copies the magic prompt, and gets stuck when the interface changes. The architect approaches a new tool with the system in mind and asks only where to fit each pillar. The tool serves them, not the other way around.</p>
-<p class="text-neutral-300 mb-4 leading-relaxed" data-inema-block="m1-3-t4-p5">Day 1's focus was this: in Intent Architecture, the focus shifts from the agent to the system that guides the agent. Here, that idea is complete — the focus also shifts from the tool to the logic that guides any tool. It's the same <strong class="text-amber-400">altitude increase</strong>.</p>
-<p class="text-neutral-300 mb-4 leading-relaxed" data-inema-block="m1-3-t4-p6">In practice, document your system independently of any tool: the 5 pillars in plain text, the workflow in numbered boxes, and the validation criteria in a checklist. This <strong class="text-amber-400">document is portable</strong>. Migrating from one tool to another becomes a matter of copying and adapting, not starting over.</p>
-<p class="text-neutral-300 mb-4 leading-relaxed" data-inema-block="m1-3-t4-p7">The portability test is straightforward: if your tool disappeared tomorrow, how much of your system would survive? If the answer is almost everything, you have logic. If it’s almost nothing, all you had was <strong class="text-amber-400">memorized clicks</strong> — and is one update away from losing everything.</p>
+<div class="ARCKHÉ-prose">
+<p class="text-neutral-300 mb-5 leading-relaxed text-[15px] sm:text-base" data-ARCKHÉ-block="m1-3-t4-p1">Tools change names every quarter. Today's model is replaced by tomorrow's; the app you love disappears or changes its price. People who learned only to click around the tool start over from scratch with every change. People who learned the logic â€” the 5 pillars, the chain, the loop â€” carry everything over to the new tool and still use it better than most.</p>
+<p class="text-neutral-300 mb-4 leading-relaxed" data-ARCKHÉ-block="m1-3-t4-p2">A <strong class="text-amber-400">logic</strong> is what doesnâ€™t change: youâ€™ll always need context, an objective, rules, memory, and validation, with any tool and any model. Thatâ€™s inherent to the problem, not the software. Thatâ€™s why the Intention Architecture lastsâ€”it operates one layer above the tool.</p>
+<p class="text-neutral-300 mb-4 leading-relaxed" data-ARCKHÉ-block="m1-3-t4-p3">A <strong class="text-amber-400">tool</strong> is just the implementation of the logic. Where you write the context, how you store memory, which button triggers the workflowâ€”that varies. But if you know WHAT needs to exist, figuring out WHERE to put it in a new tool takes minutes, not months.</p>
+<p class="text-neutral-300 mb-4 leading-relaxed" data-ARCKHÉ-block="m1-3-t4-p4">This changes whoâ€™s in control of the relationship. The <strong class="text-amber-400">shallow user</strong> is at the mercy of the tool: waits for the tutorial, copies the magic prompt, and gets stuck when the interface changes. The architect approaches a new tool with the system in mind and asks only where to fit each pillar. The tool serves them, not the other way around.</p>
+<p class="text-neutral-300 mb-4 leading-relaxed" data-ARCKHÉ-block="m1-3-t4-p5">Day 1's focus was this: in Intent Architecture, the focus shifts from the agent to the system that guides the agent. Here, that idea is complete â€” the focus also shifts from the tool to the logic that guides any tool. It's the same <strong class="text-amber-400">altitude increase</strong>.</p>
+<p class="text-neutral-300 mb-4 leading-relaxed" data-ARCKHÉ-block="m1-3-t4-p6">In practice, document your system independently of any tool: the 5 pillars in plain text, the workflow in numbered boxes, and the validation criteria in a checklist. This <strong class="text-amber-400">document is portable</strong>. Migrating from one tool to another becomes a matter of copying and adapting, not starting over.</p>
+<p class="text-neutral-300 mb-4 leading-relaxed" data-ARCKHÉ-block="m1-3-t4-p7">The portability test is straightforward: if your tool disappeared tomorrow, how much of your system would survive? If the answer is almost everything, you have logic. If itâ€™s almost nothing, all you had was <strong class="text-amber-400">memorized clicks</strong> â€” and is one update away from losing everything.</p>
 </div>
 <!-- exemplo pronto -->
 <div class="mb-6">
-<h3 class="text-sm font-semibold text-neutral-400 uppercase tracking-wide mb-3">Ready-to-use example — Tool hostage vs. owner of the logic</h3>
+<h3 class="text-sm font-semibold text-neutral-400 uppercase tracking-wide mb-3">Ready-to-use example â€” Tool hostage vs. owner of the logic</h3>
 <p class="text-sm text-neutral-400 italic mb-3">The AI tool the team was using ended its free plan; they need to migrate.</p>
 <div class="grid sm:grid-cols-2 gap-4">
 <div class="bg-red-900/20 border border-red-500/30 rounded-xl p-5">
-<h4 class="font-semibold text-red-400 mb-2">✗ Fragile</h4>
-<p class="text-sm text-neutral-300">The team had only a collection of prompts pasted into that specific tool and a memorized click workflow. During the migration, they lost the context, started testing from scratch, and spent weeks getting back to their previous level—without knowing why some things started failing again.</p>
+<h4 class="font-semibold text-red-400 mb-2">âœ— Fragile</h4>
+<p class="text-sm text-neutral-300">The team had only a collection of prompts pasted into that specific tool and a memorized click workflow. During the migration, they lost the context, started testing from scratch, and spent weeks getting back to their previous levelâ€”without knowing why some things started failing again.</p>
 </div>
 <div class="bg-emerald-900/20 border border-emerald-500/30 rounded-xl p-5">
-<h4 class="font-semibold text-emerald-400 mb-2">✓ Structured</h4>
+<h4 class="font-semibold text-emerald-400 mb-2">âœ“ Structured</h4>
 <p class="text-sm text-neutral-300">The team had the system documented: 5 pillars in one doc, a workflow in numbered boxes, and a validation checklist. In the new tool, they mapped where each pillar fit (context in the system, memory in a database, validation as a human checklist), ran the same test cases as always, and were validated and operating within a day.</p>
 </div>
 </div>
-<p class="text-sm text-neutral-400 mt-3"><strong class="text-neutral-300">Why it changes:</strong> Anyone who only had the clicks memorized was one update away from losing everything—the tool was the system. Anyone with the logic documented treated the switch as a quick reimplementation, because what matters (what needs to exist) was already written down and portable. The logic survives; the clicks don’t.</p>
+<p class="text-sm text-neutral-400 mt-3"><strong class="text-neutral-300">Why it changes:</strong> Anyone who only had the clicks memorized was one update away from losing everythingâ€”the tool was the system. Anyone with the logic documented treated the switch as a quick reimplementation, because what matters (what needs to exist) was already written down and portable. The logic survives; the clicks donâ€™t.</p>
 </div>
 <!-- fazer / evitar -->
 <div class="grid sm:grid-cols-2 gap-4 mb-6">
 <div class="bg-emerald-900/20 border border-emerald-500/30 rounded-xl p-5">
-<h4 class="font-semibold text-emerald-400 mb-3">✓ What to DO</h4>
+<h4 class="font-semibold text-emerald-400 mb-3">âœ“ What to DO</h4>
 <ul class="space-y-2 text-sm text-neutral-300">
-<li class="flex items-start gap-2"><span class="text-emerald-400 mt-0.5">✓</span><span>Document the system in a tool-independent format: pillars in text, workflow in boxes, validation in a checklist.</span></li>
-<li class="flex items-start gap-2"><span class="text-emerald-400 mt-0.5">✓</span><span>When evaluating a new tool, ask where each pillar fits — not how to use it.</span></li>
-<li class="flex items-start gap-2"><span class="text-emerald-400 mt-0.5">✓</span><span>Keep a fixed set of test cases to revalidate the system in any tool.</span></li>
+<li class="flex items-start gap-2"><span class="text-emerald-400 mt-0.5">âœ“</span><span>Document the system in a tool-independent format: pillars in text, workflow in boxes, validation in a checklist.</span></li>
+<li class="flex items-start gap-2"><span class="text-emerald-400 mt-0.5">âœ“</span><span>When evaluating a new tool, ask where each pillar fits â€” not how to use it.</span></li>
+<li class="flex items-start gap-2"><span class="text-emerald-400 mt-0.5">âœ“</span><span>Keep a fixed set of test cases to revalidate the system in any tool.</span></li>
 </ul>
 </div>
 <div class="bg-red-900/20 border border-red-500/30 rounded-xl p-5">
-<h4 class="font-semibold text-red-400 mb-3">✗ What to AVOID</h4>
+<h4 class="font-semibold text-red-400 mb-3">âœ— What to AVOID</h4>
 <ul class="space-y-2 text-sm text-neutral-300">
-<li class="flex items-start gap-2"><span class="text-red-400 mt-0.5">✗</span><span>Memorize magic prompts tied to a specific interface.</span></li>
-<li class="flex items-start gap-2"><span class="text-red-400 mt-0.5">✗</span><span>Treat switching tools as starting over; with documented logic, it’s a quick reimplementation.</span></li>
-<li class="flex items-start gap-2"><span class="text-red-400 mt-0.5">✗</span><span>Confusing knowing how to click the tool with understanding the system — they are different layers.</span></li>
+<li class="flex items-start gap-2"><span class="text-red-400 mt-0.5">âœ—</span><span>Memorize magic prompts tied to a specific interface.</span></li>
+<li class="flex items-start gap-2"><span class="text-red-400 mt-0.5">âœ—</span><span>Treat switching tools as starting over; with documented logic, itâ€™s a quick reimplementation.</span></li>
+<li class="flex items-start gap-2"><span class="text-red-400 mt-0.5">âœ—</span><span>Confusing knowing how to click the tool with understanding the system â€” they are different layers.</span></li>
 </ul>
 </div>
 </div>
 <!-- dica -->
 <div class="bg-primary/10 rounded-xl border border-primary/30 p-5 mb-6">
-<h3 class="font-semibold text-primary mb-2 flex items-center"><span class="mr-2">💡</span>Practical tip</h3>
+<h3 class="font-semibold text-primary mb-2 flex items-center"><span class="mr-2">ðŸ’¡</span>Practical tip</h3>
 <p class="text-neutral-300 text-sm">Take the disappearance test: if your main tool disappeared tomorrow, how much of your system would survive? Write down the honest percentage. Everything you would lose is logic still trapped in the tool that needs to become a portable document.</p>
 </div>
 <!-- conceitos-chave -->
 <h3 class="text-sm font-semibold text-neutral-400 uppercase tracking-wide mb-3">Key concepts</h3>
 <div class="grid sm:grid-cols-2 gap-3">
-<div class="bg-dark-800 border border-dark-600 rounded-lg p-4"><h4 class="font-semibold text-amber-400 text-sm mb-1">The logic comes from the nature of the problem</h4><p class="text-xs text-neutral-400">Context, objectives, rules, memory, and validation are required by every tool and every model. They don’t belong to the software — they belong to the problem. That’s why they last.</p></div>
-<div class="bg-dark-800 border border-dark-600 rounded-lg p-4"><h4 class="font-semibold text-amber-400 text-sm mb-1">The tool is implementation</h4><p class="text-xs text-neutral-400">Where to write, how to save it, which button to click—only the form changes. If you know WHAT needs to exist, finding WHERE in a new tool takes minutes.</p></div>
+<div class="bg-dark-800 border border-dark-600 rounded-lg p-4"><h4 class="font-semibold text-amber-400 text-sm mb-1">The logic comes from the nature of the problem</h4><p class="text-xs text-neutral-400">Context, objectives, rules, memory, and validation are required by every tool and every model. They donâ€™t belong to the software â€” they belong to the problem. Thatâ€™s why they last.</p></div>
+<div class="bg-dark-800 border border-dark-600 rounded-lg p-4"><h4 class="font-semibold text-amber-400 text-sm mb-1">The tool is implementation</h4><p class="text-xs text-neutral-400">Where to write, how to save it, which button to clickâ€”only the form changes. If you know WHAT needs to exist, finding WHERE in a new tool takes minutes.</p></div>
 <div class="bg-dark-800 border border-dark-600 rounded-lg p-4"><h4 class="font-semibold text-amber-400 text-sm mb-1">Who understands the logic is in control</h4><p class="text-xs text-neutral-400">The shallow user is at the mercy of the tutorial and gets stuck when the interface changes. The architect opens the new tool and simply asks where each pillar fits.</p></div>
-<div class="bg-dark-800 border border-dark-600 rounded-lg p-4"><h4 class="font-semibold text-amber-400 text-sm mb-1">Portable document</h4><p class="text-xs text-neutral-400">5 pillars in text, a flow in boxes, validation in a checklist—independent of the tool. Migrating means copying and adapting, not starting from scratch.</p></div>
+<div class="bg-dark-800 border border-dark-600 rounded-lg p-4"><h4 class="font-semibold text-amber-400 text-sm mb-1">Portable document</h4><p class="text-xs text-neutral-400">5 pillars in text, a flow in boxes, validation in a checklistâ€”independent of the tool. Migrating means copying and adapting, not starting from scratch.</p></div>
 </div>
 <div class="flex justify-start mt-7">
-<button aria-pressed="false" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-amber-500/20 border border-amber-500/30 text-amber-400 hover:bg-amber-500/30 transition-colors text-sm font-semibold" data-inema-read-toggle="" type="button">
-<span aria-hidden="true" class="inema-ico-todo">○</span><span aria-hidden="true" class="inema-ico-done">●</span>
-<span class="inema-label-todo">Mark as read</span><span class="inema-label-done">Read</span>
+<button aria-pressed="false" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-amber-500/20 border border-amber-500/30 text-amber-400 hover:bg-amber-500/30 transition-colors text-sm font-semibold" data-ARCKHÉ-read-toggle="" type="button">
+<span aria-hidden="true" class="ARCKHÉ-ico-todo">â—‹</span><span aria-hidden="true" class="ARCKHÉ-ico-done">â—</span>
+<span class="ARCKHÉ-label-todo">Mark as read</span><span class="ARCKHÉ-label-done">Read</span>
 </button>
 </div>
 </section>
 <!-- ====================== TOPICO 5 ====================== -->
-<section class="mb-16" data-inema-topic="modulo-1-3#topico-5" id="topico-5">
+<section class="mb-16" data-ARCKHÉ-topic="modulo-1-3#topico-5" id="topico-5">
 <div class="flex items-start justify-between gap-4 mb-5">
 <div class="flex items-center gap-4">
 <span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl flex-shrink-0">5</span>
-<h2 class="text-2xl font-bold">💎 Where this creates value</h2>
+<h2 class="text-2xl font-bold">ðŸ’Ž Where this creates value</h2>
 </div>
-<button aria-pressed="false" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-dark-700 border border-dark-600 text-neutral-300 hover:bg-dark-600 transition-colors text-sm flex-shrink-0" data-inema-doubt-toggle="" title="Flag a question about this topic" type="button"><span aria-hidden="true">?</span><span class="hidden sm:inline">I have a question</span></button>
+<button aria-pressed="false" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-dark-700 border border-dark-600 text-neutral-300 hover:bg-dark-600 transition-colors text-sm flex-shrink-0" data-ARCKHÉ-doubt-toggle="" title="Flag a question about this topic" type="button"><span aria-hidden="true">?</span><span class="hidden sm:inline">I have a question</span></button>
 </div>
-<div class="inema-prose">
-<p class="text-neutral-300 mb-5 leading-relaxed text-[15px] sm:text-base" data-inema-block="m1-3-t5-p1">Intent Architecture isn’t whiteboard theory — it becomes something that generates revenue, saves time, or reduces risk. There are four concrete ways a system can create value, and the same 5-pillar logic applies to all four. Knowing which one you’re building keeps the project focused from day one.</p>
-<p class="text-neutral-300 mb-4 leading-relaxed" data-inema-block="m1-3-t5-p2"><strong class="text-amber-400">Specialized assistant</strong> is a system that does one thing very well for a specific context: your store’s customer service assistant, the legal copilot that reviews contracts according to your standards, the HR assistant that screens resumes based on your criteria. Its value is depth—it knows your business, not the whole world.</p>
-<p class="text-neutral-300 mb-4 leading-relaxed" data-inema-block="m1-3-t5-p3"><strong class="text-amber-400">Automated process</strong> is a system that runs a chain of tasks from end to end with little intervention: receive a request → generate a response → validate → record → notify. Its value is time and consistency—what used to take hours of manual work runs on its own, the same way every time, within the rules.</p>
-<p class="text-neutral-300 mb-4 leading-relaxed" data-inema-block="m1-3-t5-p4"><strong class="text-amber-400">Digital product</strong> is a system you package and deliver to other people: an app, an internal tool that becomes external, or a service customers use. Its value is scale—the system serves many people without effort from you for each interaction. Here, validation and rules become even more critical because errors reach the end customer.</p>
-<p class="text-neutral-300 mb-4 leading-relaxed" data-inema-block="m1-3-t5-p5"><strong class="text-amber-400">Decision system</strong> is a system that organizes information so you (or your team) can make better decisions: it analyzes scenarios, compares options against criteria, and flags risks. Its value is better decisions and reduced risk. It doesn’t decide for you—it structures the decision so it’s consistent and well-founded.</p>
-<p class="text-neutral-300 mb-4 leading-relaxed" data-inema-block="m1-3-t5-p6">A <strong class="text-amber-400">same logic</strong> works for all four. In every case, you need context (what the AI knows), an objective (what success looks like), rules (constraints), memory (what persists), and validation (how to tell if it's correct). What changes is the packaging and who consumes the result—not the pillars.</p>
-<p class="text-neutral-300 mb-4 leading-relaxed" data-inema-block="m1-3-t5-p7">Naming the type from the start sharpens the project. A specialized assistant prioritizes depth of context and memory; a digital product prioritizes error-proof rules and validation; an automated process prioritizes workflow and automatic validation; a decision system prioritizes objectives and comparison criteria. <strong class="text-amber-400">Knowing the type tells you where to focus your effort.</strong></p>
+<div class="ARCKHÉ-prose">
+<p class="text-neutral-300 mb-5 leading-relaxed text-[15px] sm:text-base" data-ARCKHÉ-block="m1-3-t5-p1">Intent Architecture isnâ€™t whiteboard theory â€” it becomes something that generates revenue, saves time, or reduces risk. There are four concrete ways a system can create value, and the same 5-pillar logic applies to all four. Knowing which one youâ€™re building keeps the project focused from day one.</p>
+<p class="text-neutral-300 mb-4 leading-relaxed" data-ARCKHÉ-block="m1-3-t5-p2"><strong class="text-amber-400">Specialized assistant</strong> is a system that does one thing very well for a specific context: your storeâ€™s customer service assistant, the legal copilot that reviews contracts according to your standards, the HR assistant that screens resumes based on your criteria. Its value is depthâ€”it knows your business, not the whole world.</p>
+<p class="text-neutral-300 mb-4 leading-relaxed" data-ARCKHÉ-block="m1-3-t5-p3"><strong class="text-amber-400">Automated process</strong> is a system that runs a chain of tasks from end to end with little intervention: receive a request â†’ generate a response â†’ validate â†’ record â†’ notify. Its value is time and consistencyâ€”what used to take hours of manual work runs on its own, the same way every time, within the rules.</p>
+<p class="text-neutral-300 mb-4 leading-relaxed" data-ARCKHÉ-block="m1-3-t5-p4"><strong class="text-amber-400">Digital product</strong> is a system you package and deliver to other people: an app, an internal tool that becomes external, or a service customers use. Its value is scaleâ€”the system serves many people without effort from you for each interaction. Here, validation and rules become even more critical because errors reach the end customer.</p>
+<p class="text-neutral-300 mb-4 leading-relaxed" data-ARCKHÉ-block="m1-3-t5-p5"><strong class="text-amber-400">Decision system</strong> is a system that organizes information so you (or your team) can make better decisions: it analyzes scenarios, compares options against criteria, and flags risks. Its value is better decisions and reduced risk. It doesnâ€™t decide for youâ€”it structures the decision so itâ€™s consistent and well-founded.</p>
+<p class="text-neutral-300 mb-4 leading-relaxed" data-ARCKHÉ-block="m1-3-t5-p6">A <strong class="text-amber-400">same logic</strong> works for all four. In every case, you need context (what the AI knows), an objective (what success looks like), rules (constraints), memory (what persists), and validation (how to tell if it's correct). What changes is the packaging and who consumes the resultâ€”not the pillars.</p>
+<p class="text-neutral-300 mb-4 leading-relaxed" data-ARCKHÉ-block="m1-3-t5-p7">Naming the type from the start sharpens the project. A specialized assistant prioritizes depth of context and memory; a digital product prioritizes error-proof rules and validation; an automated process prioritizes workflow and automatic validation; a decision system prioritizes objectives and comparison criteria. <strong class="text-amber-400">Knowing the type tells you where to focus your effort.</strong></p>
 </div>
 <!-- exemplo pronto -->
 <div class="mb-6">
-<h3 class="text-sm font-semibold text-neutral-400 uppercase tracking-wide mb-3">Ready-to-use example — Same problem, four forms of value</h3>
+<h3 class="text-sm font-semibold text-neutral-400 uppercase tracking-wide mb-3">Ready-to-use example â€” Same problem, four forms of value</h3>
 <p class="text-sm text-neutral-400 italic mb-3">A clinic uses AI to handle patient triage and scheduling.</p>
 <div class="grid sm:grid-cols-2 gap-4">
 <div class="bg-red-900/20 border border-red-500/30 rounded-xl p-5">
-<h4 class="font-semibold text-red-400 mb-2">✗ Fragile</h4>
-<p class="text-sm text-neutral-300">“I’m going to use AI to help at the clinic.” (without defining the kind of system, the project becomes a pile of unfocused prompts, with no definition of done and no one accountable for the result.)</p>
+<h4 class="font-semibold text-red-400 mb-2">âœ— Fragile</h4>
+<p class="text-sm text-neutral-300">â€œIâ€™m going to use AI to help at the clinic.â€ (without defining the kind of system, the project becomes a pile of unfocused prompts, with no definition of done and no one accountable for the result.)</p>
 </div>
 <div class="bg-emerald-900/20 border border-emerald-500/30 rounded-xl p-5">
-<h4 class="font-semibold text-emerald-400 mb-2">✓ Structured</h4>
-<p class="text-sm text-neutral-300">Four clear categories: (1) SPECIALIZED ASSISTANT — a copilot that answers patients’ questions according to the clinic’s standards; focus on context and memory. (2) AUTOMATED PROCESS — a workflow that confirms appointments, reschedules missed visits, and records them in the system; focus on workflow and validation. (3) DIGITAL PRODUCT — a self-service portal that other clinics subscribe to; focus on rules and error-proof validation. (4) DECISION SYSTEM — a dashboard that prioritizes the queue by urgency based on clinical criteria; focus on objectives and criteria. Each becomes a project with a defined DONE.</p>
+<h4 class="font-semibold text-emerald-400 mb-2">âœ“ Structured</h4>
+<p class="text-sm text-neutral-300">Four clear categories: (1) SPECIALIZED ASSISTANT â€” a copilot that answers patientsâ€™ questions according to the clinicâ€™s standards; focus on context and memory. (2) AUTOMATED PROCESS â€” a workflow that confirms appointments, reschedules missed visits, and records them in the system; focus on workflow and validation. (3) DIGITAL PRODUCT â€” a self-service portal that other clinics subscribe to; focus on rules and error-proof validation. (4) DECISION SYSTEM â€” a dashboard that prioritizes the queue by urgency based on clinical criteria; focus on objectives and criteria. Each becomes a project with a defined DONE.</p>
 </div>
 </div>
-<p class="text-sm text-neutral-400 mt-3"><strong class="text-neutral-300">Why it changes:</strong> The vague scope gives you nowhere to focus your effort and no way to know whether it’s done. Naming the type sharpens the project: it defines which pillar matters most, the success criteria, and who uses the result. Same five-pillar logic, four concrete ways to deliver value.</p>
+<p class="text-sm text-neutral-400 mt-3"><strong class="text-neutral-300">Why it changes:</strong> The vague scope gives you nowhere to focus your effort and no way to know whether itâ€™s done. Naming the type sharpens the project: it defines which pillar matters most, the success criteria, and who uses the result. Same five-pillar logic, four concrete ways to deliver value.</p>
 </div>
 <!-- fazer / evitar -->
 <div class="grid sm:grid-cols-2 gap-4 mb-6">
 <div class="bg-emerald-900/20 border border-emerald-500/30 rounded-xl p-5">
-<h4 class="font-semibold text-emerald-400 mb-3">✓ What to DO</h4>
+<h4 class="font-semibold text-emerald-400 mb-3">âœ“ What to DO</h4>
 <ul class="space-y-2 text-sm text-neutral-300">
-<li class="flex items-start gap-2"><span class="text-emerald-400 mt-0.5">✓</span><span>Name which of the four types you're building from the start.</span></li>
-<li class="flex items-start gap-2"><span class="text-emerald-400 mt-0.5">✓</span><span>Focus effort on the pillar that this type requires most (context, workflow, rules, or objectives).</span></li>
-<li class="flex items-start gap-2"><span class="text-emerald-400 mt-0.5">✓</span><span>Explicitly define who consumes the result and what “done” means for that consumer.</span></li>
+<li class="flex items-start gap-2"><span class="text-emerald-400 mt-0.5">âœ“</span><span>Name which of the four types you're building from the start.</span></li>
+<li class="flex items-start gap-2"><span class="text-emerald-400 mt-0.5">âœ“</span><span>Focus effort on the pillar that this type requires most (context, workflow, rules, or objectives).</span></li>
+<li class="flex items-start gap-2"><span class="text-emerald-400 mt-0.5">âœ“</span><span>Explicitly define who consumes the result and what â€œdoneâ€ means for that consumer.</span></li>
 </ul>
 </div>
 <div class="bg-red-900/20 border border-red-500/30 rounded-xl p-5">
-<h4 class="font-semibold text-red-400 mb-3">✗ What to AVOID</h4>
+<h4 class="font-semibold text-red-400 mb-3">âœ— What to AVOID</h4>
 <ul class="space-y-2 text-sm text-neutral-300">
-<li class="flex items-start gap-2"><span class="text-red-400 mt-0.5">✗</span><span>Start building without deciding on the type — it becomes a pile of unfocused prompts.</span></li>
-<li class="flex items-start gap-2"><span class="text-red-400 mt-0.5">✗</span><span>Treat a digital product with the rigor of an internal draft; the error reaches the customer.</span></li>
-<li class="flex items-start gap-2"><span class="text-red-400 mt-0.5">✗</span><span>Expecting a decision-making system to decide for you; it structures the decision, but does not replace it.</span></li>
+<li class="flex items-start gap-2"><span class="text-red-400 mt-0.5">âœ—</span><span>Start building without deciding on the type â€” it becomes a pile of unfocused prompts.</span></li>
+<li class="flex items-start gap-2"><span class="text-red-400 mt-0.5">âœ—</span><span>Treat a digital product with the rigor of an internal draft; the error reaches the customer.</span></li>
+<li class="flex items-start gap-2"><span class="text-red-400 mt-0.5">âœ—</span><span>Expecting a decision-making system to decide for you; it structures the decision, but does not replace it.</span></li>
 </ul>
 </div>
 </div>
 <!-- dica -->
 <div class="bg-primary/10 rounded-xl border border-primary/30 p-5 mb-6">
-<h3 class="font-semibold text-primary mb-2 flex items-center"><span class="mr-2">💡</span>Practical tip</h3>
-<p class="text-neutral-300 text-sm">Before you build, complete the sentence: “I’m building a [type] that delivers [result] for [who], and it will be ready when [criterion].” If you can’t fill in all four brackets, you still don’t know what you’re building — and the project will drift.</p>
+<h3 class="font-semibold text-primary mb-2 flex items-center"><span class="mr-2">ðŸ’¡</span>Practical tip</h3>
+<p class="text-neutral-300 text-sm">Before you build, complete the sentence: â€œIâ€™m building a [type] that delivers [result] for [who], and it will be ready when [criterion].â€ If you canâ€™t fill in all four brackets, you still donâ€™t know what youâ€™re building â€” and the project will drift.</p>
 </div>
 <!-- conceitos-chave -->
 <h3 class="text-sm font-semibold text-neutral-400 uppercase tracking-wide mb-3">Key concepts</h3>
@@ -715,32 +715,32 @@
 <div class="bg-dark-800 border border-dark-600 rounded-lg p-4"><h4 class="font-semibold text-amber-400 text-sm mb-1">Specialized assistant</h4><p class="text-xs text-neutral-400">Does one thing very well for a specific context. Value = depth: it knows your business, not the world. It prioritizes context and memory.</p></div>
 <div class="bg-dark-800 border border-dark-600 rounded-lg p-4"><h4 class="font-semibold text-amber-400 text-sm mb-1">Automated process</h4><p class="text-xs text-neutral-400">Runs a chain of tasks from end to end with little intervention. Value = time and consistency. Prioritizes workflow and automatic validation.</p></div>
 <div class="bg-dark-800 border border-dark-600 rounded-lg p-4"><h4 class="font-semibold text-amber-400 text-sm mb-1">Digital product</h4><p class="text-xs text-neutral-400">System packaged and delivered to others. Value = scale. Rules and validation become critical because errors reach the end customer.</p></div>
-<div class="bg-dark-800 border border-dark-600 rounded-lg p-4"><h4 class="font-semibold text-amber-400 text-sm mb-1">Decision system</h4><p class="text-xs text-neutral-400">Organizes information to support better decisions—compares options and flags risks. Value = better decisions and less risk. Prioritizes goals and criteria.</p></div>
+<div class="bg-dark-800 border border-dark-600 rounded-lg p-4"><h4 class="font-semibold text-amber-400 text-sm mb-1">Decision system</h4><p class="text-xs text-neutral-400">Organizes information to support better decisionsâ€”compares options and flags risks. Value = better decisions and less risk. Prioritizes goals and criteria.</p></div>
 </div>
 <div class="flex justify-start mt-7">
-<button aria-pressed="false" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-amber-500/20 border border-amber-500/30 text-amber-400 hover:bg-amber-500/30 transition-colors text-sm font-semibold" data-inema-read-toggle="" type="button">
-<span aria-hidden="true" class="inema-ico-todo">○</span><span aria-hidden="true" class="inema-ico-done">●</span>
-<span class="inema-label-todo">Mark as read</span><span class="inema-label-done">Read</span>
+<button aria-pressed="false" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-amber-500/20 border border-amber-500/30 text-amber-400 hover:bg-amber-500/30 transition-colors text-sm font-semibold" data-ARCKHÉ-read-toggle="" type="button">
+<span aria-hidden="true" class="ARCKHÉ-ico-todo">â—‹</span><span aria-hidden="true" class="ARCKHÉ-ico-done">â—</span>
+<span class="ARCKHÉ-label-todo">Mark as read</span><span class="ARCKHÉ-label-done">Read</span>
 </button>
 </div>
 </section>
 <!-- ====================== TOPICO 6 ====================== -->
-<section class="mb-16" data-inema-topic="modulo-1-3#topico-6" id="topico-6">
+<section class="mb-16" data-ARCKHÉ-topic="modulo-1-3#topico-6" id="topico-6">
 <div class="flex items-start justify-between gap-4 mb-5">
 <div class="flex items-center gap-4">
 <span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl flex-shrink-0">6</span>
-<h2 class="text-2xl font-bold">🏁 Final project</h2>
+<h2 class="text-2xl font-bold">ðŸ Final project</h2>
 </div>
-<button aria-pressed="false" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-dark-700 border border-dark-600 text-neutral-300 hover:bg-dark-600 transition-colors text-sm flex-shrink-0" data-inema-doubt-toggle="" title="Flag a question about this topic" type="button"><span aria-hidden="true">?</span><span class="hidden sm:inline">I have a question</span></button>
+<button aria-pressed="false" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-dark-700 border border-dark-600 text-neutral-300 hover:bg-dark-600 transition-colors text-sm flex-shrink-0" data-ARCKHÉ-doubt-toggle="" title="Flag a question about this topic" type="button"><span aria-hidden="true">?</span><span class="hidden sm:inline">I have a question</span></button>
 </div>
-<div class="inema-prose">
-<p class="text-neutral-300 mb-5 leading-relaxed text-[15px] sm:text-base" data-inema-block="m1-3-t6-p1">It's time to start the engine. You'll take the 5 Pillars Canvas from day 2 and turn it into a system that actually runs: define the components, build the workflow, run it with a real case, validate it against the checklist, and write your continuous improvement plan. By the end of this topic, you won't have learned about Intent Architecture — you'll have your own working system.</p>
-<p class="text-neutral-300 mb-4 leading-relaxed" data-inema-block="m1-3-t6-p2"><strong class="text-amber-400">Step 1 — Turn the Canvas into a System Sheet.</strong> Take the 5 pillars from day 2 and fill out the System Sheet (today’s template): components, flow, validation criteria, and improvement plan. The Canvas was the blueprint; the Sheet is the operating system.</p>
-<p class="text-neutral-300 mb-4 leading-relaxed" data-inema-block="m1-3-t6-p3"><strong class="text-amber-400">Step 2 — Define the components.</strong> List what makes up the system: where the context lives, what’s in memory, which rules are active, what the goal is, and who uses the result. Each component needs a concrete place, not a vague intention.</p>
-<p class="text-neutral-300 mb-4 leading-relaxed" data-inema-block="m1-3-t6-p4"><strong class="text-amber-400">Step 3 — Build the flow.</strong> Write the sequence of steps in numbered boxes: from input (the request/case) to validated output. Mark where memory is consulted, where there is autonomy (agent), and where validation happens.</p>
-<p class="text-neutral-300 mb-4 leading-relaxed" data-inema-block="m1-3-t6-p5"><strong class="text-amber-400">Step 4 — Run it with a real case.</strong> Choose a real case from your day and run the system end to end. Write down what came out. A real case, not an ideal one — that’s the honest test.</p>
-<p class="text-neutral-300 mb-4 leading-relaxed" data-inema-block="m1-3-t6-p6"><strong class="text-amber-400">Step 5 — Validate against the checklist.</strong> Check the result against the validation criteria item by item. Mark each one as passed or failed. Taste doesn’t count; criteria do.</p>
-<p class="text-neutral-300 mb-4 leading-relaxed" data-inema-block="m1-3-t6-p7"><strong class="text-amber-400">Step 6 — Write the continuous improvement plan.</strong> Record the gaps you found, the cause of each, the adjustment, and the review cadence (e.g., review the log every Friday). This plan is what keeps the system alive. With the Worksheet filled out, the case run, validation done, and the plan written down, you’ve completed the setup: you have an Intention Architecture system that’s built, run, and equipped with an improvement loop.</p>
+<div class="ARCKHÉ-prose">
+<p class="text-neutral-300 mb-5 leading-relaxed text-[15px] sm:text-base" data-ARCKHÉ-block="m1-3-t6-p1">It's time to start the engine. You'll take the 5 Pillars Canvas from day 2 and turn it into a system that actually runs: define the components, build the workflow, run it with a real case, validate it against the checklist, and write your continuous improvement plan. By the end of this topic, you won't have learned about Intent Architecture â€” you'll have your own working system.</p>
+<p class="text-neutral-300 mb-4 leading-relaxed" data-ARCKHÉ-block="m1-3-t6-p2"><strong class="text-amber-400">Step 1 â€” Turn the Canvas into a System Sheet.</strong> Take the 5 pillars from day 2 and fill out the System Sheet (todayâ€™s template): components, flow, validation criteria, and improvement plan. The Canvas was the blueprint; the Sheet is the operating system.</p>
+<p class="text-neutral-300 mb-4 leading-relaxed" data-ARCKHÉ-block="m1-3-t6-p3"><strong class="text-amber-400">Step 2 â€” Define the components.</strong> List what makes up the system: where the context lives, whatâ€™s in memory, which rules are active, what the goal is, and who uses the result. Each component needs a concrete place, not a vague intention.</p>
+<p class="text-neutral-300 mb-4 leading-relaxed" data-ARCKHÉ-block="m1-3-t6-p4"><strong class="text-amber-400">Step 3 â€” Build the flow.</strong> Write the sequence of steps in numbered boxes: from input (the request/case) to validated output. Mark where memory is consulted, where there is autonomy (agent), and where validation happens.</p>
+<p class="text-neutral-300 mb-4 leading-relaxed" data-ARCKHÉ-block="m1-3-t6-p5"><strong class="text-amber-400">Step 4 â€” Run it with a real case.</strong> Choose a real case from your day and run the system end to end. Write down what came out. A real case, not an ideal one â€” thatâ€™s the honest test.</p>
+<p class="text-neutral-300 mb-4 leading-relaxed" data-ARCKHÉ-block="m1-3-t6-p6"><strong class="text-amber-400">Step 5 â€” Validate against the checklist.</strong> Check the result against the validation criteria item by item. Mark each one as passed or failed. Taste doesnâ€™t count; criteria do.</p>
+<p class="text-neutral-300 mb-4 leading-relaxed" data-ARCKHÉ-block="m1-3-t6-p7"><strong class="text-amber-400">Step 6 â€” Write the continuous improvement plan.</strong> Record the gaps you found, the cause of each, the adjustment, and the review cadence (e.g., review the log every Friday). This plan is what keeps the system alive. With the Worksheet filled out, the case run, validation done, and the plan written down, youâ€™ve completed the setup: you have an Intention Architecture system thatâ€™s built, run, and equipped with an improvement loop.</p>
 </div>
 <!-- TIMELINE dos 6 passos -->
 <h3 class="text-sm font-semibold text-neutral-400 uppercase tracking-wide mb-4">The 6 steps to start the engine</h3>
@@ -757,7 +757,7 @@
 <span class="flex items-center justify-center w-10 h-10 rounded-full bg-amber-500/20 text-amber-400 font-bold flex-shrink-0">2</span>
 <span class="w-px flex-1 bg-dark-600 my-1"></span>
 </div>
-<div class="pb-5"><div class="bg-dark-800 border border-dark-600 rounded-lg p-4"><h4 class="font-semibold mb-1">Define the components</h4><p class="text-sm text-neutral-400">Where the context lives, what’s in memory, which rules are active, what the goal is, who uses it. Each one has a specific place.</p></div></div>
+<div class="pb-5"><div class="bg-dark-800 border border-dark-600 rounded-lg p-4"><h4 class="font-semibold mb-1">Define the components</h4><p class="text-sm text-neutral-400">Where the context lives, whatâ€™s in memory, which rules are active, what the goal is, who uses it. Each one has a specific place.</p></div></div>
 </div>
 <div class="flex gap-4">
 <div class="flex flex-col items-center">
@@ -771,14 +771,14 @@
 <span class="flex items-center justify-center w-10 h-10 rounded-full bg-amber-500/20 text-amber-400 font-bold flex-shrink-0">4</span>
 <span class="w-px flex-1 bg-dark-600 my-1"></span>
 </div>
-<div class="pb-5"><div class="bg-dark-800 border border-dark-600 rounded-lg p-4"><h4 class="font-semibold mb-1">Run it with a real case</h4><p class="text-sm text-neutral-400">A real case from your day, from start to finish. Write down what came out. A real case, not an ideal one — that’s the honest test.</p></div></div>
+<div class="pb-5"><div class="bg-dark-800 border border-dark-600 rounded-lg p-4"><h4 class="font-semibold mb-1">Run it with a real case</h4><p class="text-sm text-neutral-400">A real case from your day, from start to finish. Write down what came out. A real case, not an ideal one â€” thatâ€™s the honest test.</p></div></div>
 </div>
 <div class="flex gap-4">
 <div class="flex flex-col items-center">
 <span class="flex items-center justify-center w-10 h-10 rounded-full bg-amber-500/20 text-amber-400 font-bold flex-shrink-0">5</span>
 <span class="w-px flex-1 bg-dark-600 my-1"></span>
 </div>
-<div class="pb-5"><div class="bg-dark-800 border border-dark-600 rounded-lg p-4"><h4 class="font-semibold mb-1">Validate against the checklist</h4><p class="text-sm text-neutral-400">Go through the criteria one by one. Mark each as passed or failed. It’s not about preference; it’s about criteria.</p></div></div>
+<div class="pb-5"><div class="bg-dark-800 border border-dark-600 rounded-lg p-4"><h4 class="font-semibold mb-1">Validate against the checklist</h4><p class="text-sm text-neutral-400">Go through the criteria one by one. Mark each as passed or failed. Itâ€™s not about preference; itâ€™s about criteria.</p></div></div>
 </div>
 <div class="flex gap-4">
 <div class="flex flex-col items-center">
@@ -789,76 +789,76 @@
 </div>
 <!-- exemplo pronto -->
 <div class="mb-6">
-<h3 class="text-sm font-semibold text-neutral-400 uppercase tracking-wide mb-3">Ready-to-use example — Final deliverable: vague Canvas vs. executed system</h3>
+<h3 class="text-sm font-semibold text-neutral-400 uppercase tracking-wide mb-3">Ready-to-use example â€” Final deliverable: vague Canvas vs. executed system</h3>
 <p class="text-sm text-neutral-400 italic mb-3">Student wants to finish the course with a real customer service system.</p>
 <div class="grid sm:grid-cols-2 gap-4">
 <div class="bg-red-900/20 border border-red-500/30 rounded-xl p-5">
-<h4 class="font-semibold text-red-400 mb-2">✗ Fragile</h4>
-<p class="text-sm text-neutral-300">I have the Canvas filled out with the 5 pillars written down and a big prompt ready. (but it has never been run on a real case, never been validated, and has no improvement plan—it's a design, not a system.)</p>
+<h4 class="font-semibold text-red-400 mb-2">âœ— Fragile</h4>
+<p class="text-sm text-neutral-300">I have the Canvas filled out with the 5 pillars written down and a big prompt ready. (but it has never been run on a real case, never been validated, and has no improvement planâ€”it's a design, not a system.)</p>
 </div>
 <div class="bg-emerald-900/20 border border-emerald-500/30 rounded-xl p-5">
-<h4 class="font-semibold text-emerald-400 mb-2">✓ Structured</h4>
-<p class="text-sm text-neutral-300">Completed SHEET: components defined (context in system, 10 questions in memory, 4 active rules, goal of resolving in the first response). WORKFLOW mapped in 5 boxes. RAN with 3 real customer messages. VALIDATED against 6 criteria — 2 failed (wrong timeline, escalated too much). FIXED the causes (timeline rule + refund response in memory), ran again, and passed. PLAN: review the log every Friday, with a goal of reducing escalations by 20% this month.</p>
+<h4 class="font-semibold text-emerald-400 mb-2">âœ“ Structured</h4>
+<p class="text-sm text-neutral-300">Completed SHEET: components defined (context in system, 10 questions in memory, 4 active rules, goal of resolving in the first response). WORKFLOW mapped in 5 boxes. RAN with 3 real customer messages. VALIDATED against 6 criteria â€” 2 failed (wrong timeline, escalated too much). FIXED the causes (timeline rule + refund response in memory), ran again, and passed. PLAN: review the log every Friday, with a goal of reducing escalations by 20% this month.</p>
 </div>
 </div>
-<p class="text-sm text-neutral-400 mt-3"><strong class="text-neutral-300">Why it changes:</strong> The vague Canvas has all the pieces, but the engine was never started — so no one knows if it works. Running the Worksheet proved the system with real cases, found and fixed root causes of gaps, and installed the improvement loop. One is a promise; the other is a reliable, repeatable, aligned operating system. That's what completes the course.</p>
+<p class="text-sm text-neutral-400 mt-3"><strong class="text-neutral-300">Why it changes:</strong> The vague Canvas has all the pieces, but the engine was never started â€” so no one knows if it works. Running the Worksheet proved the system with real cases, found and fixed root causes of gaps, and installed the improvement loop. One is a promise; the other is a reliable, repeatable, aligned operating system. That's what completes the course.</p>
 </div>
 <!-- fazer / evitar -->
 <div class="grid sm:grid-cols-2 gap-4 mb-6">
 <div class="bg-emerald-900/20 border border-emerald-500/30 rounded-xl p-5">
-<h4 class="font-semibold text-emerald-400 mb-3">✓ What to DO</h4>
+<h4 class="font-semibold text-emerald-400 mb-3">âœ“ What to DO</h4>
 <ul class="space-y-2 text-sm text-neutral-300">
-<li class="flex items-start gap-2"><span class="text-emerald-400 mt-0.5">✓</span><span>Translate Day 2’s Canvas into the System Sheet before any execution.</span></li>
-<li class="flex items-start gap-2"><span class="text-emerald-400 mt-0.5">✓</span><span>You must run it with 2-3 real cases and validate each one against the checklist.</span></li>
-<li class="flex items-start gap-2"><span class="text-emerald-400 mt-0.5">✓</span><span>Fix the causes of the gaps, rerun the same case, and only then call it done.</span></li>
-<li class="flex items-start gap-2"><span class="text-emerald-400 mt-0.5">✓</span><span>Write the improvement plan with the cause, adjustment, and review cadence.</span></li>
+<li class="flex items-start gap-2"><span class="text-emerald-400 mt-0.5">âœ“</span><span>Translate Day 2â€™s Canvas into the System Sheet before any execution.</span></li>
+<li class="flex items-start gap-2"><span class="text-emerald-400 mt-0.5">âœ“</span><span>You must run it with 2-3 real cases and validate each one against the checklist.</span></li>
+<li class="flex items-start gap-2"><span class="text-emerald-400 mt-0.5">âœ“</span><span>Fix the causes of the gaps, rerun the same case, and only then call it done.</span></li>
+<li class="flex items-start gap-2"><span class="text-emerald-400 mt-0.5">âœ“</span><span>Write the improvement plan with the cause, adjustment, and review cadence.</span></li>
 </ul>
 </div>
 <div class="bg-red-900/20 border border-red-500/30 rounded-xl p-5">
-<h4 class="font-semibold text-red-400 mb-3">✗ What to AVOID</h4>
+<h4 class="font-semibold text-red-400 mb-3">âœ— What to AVOID</h4>
 <ul class="space-y-2 text-sm text-neutral-300">
-<li class="flex items-start gap-2"><span class="text-red-400 mt-0.5">✗</span><span>Declare the system ready without ever running a real case.</span></li>
-<li class="flex items-start gap-2"><span class="text-red-400 mt-0.5">✗</span><span>Validating based on personal preference instead of the criteria checklist.</span></li>
-<li class="flex items-start gap-2"><span class="text-red-400 mt-0.5">✗</span><span>Leave without an improvement plan — the system freezes at the first version.</span></li>
-<li class="flex items-start gap-2"><span class="text-red-400 mt-0.5">✗</span><span>Fix holes only in the output instead of addressing the cause; the error comes back the following week.</span></li>
+<li class="flex items-start gap-2"><span class="text-red-400 mt-0.5">âœ—</span><span>Declare the system ready without ever running a real case.</span></li>
+<li class="flex items-start gap-2"><span class="text-red-400 mt-0.5">âœ—</span><span>Validating based on personal preference instead of the criteria checklist.</span></li>
+<li class="flex items-start gap-2"><span class="text-red-400 mt-0.5">âœ—</span><span>Leave without an improvement plan â€” the system freezes at the first version.</span></li>
+<li class="flex items-start gap-2"><span class="text-red-400 mt-0.5">âœ—</span><span>Fix holes only in the output instead of addressing the cause; the error comes back the following week.</span></li>
 </ul>
 </div>
 </div>
 <!-- dica -->
 <div class="bg-primary/10 rounded-xl border border-primary/30 p-5 mb-6">
-<h3 class="font-semibold text-primary mb-2 flex items-center"><span class="mr-2">💡</span>Practical tip</h3>
-<p class="text-neutral-300 text-sm">Your real certificate isn't the PDF — it's the completed Form with at least one case run, validated, and a flaw fixed at its root cause. Keep that Form: it's your first system and the template for all the next ones. Whenever you have a new AI idea, start by filling out a Form.</p>
+<h3 class="font-semibold text-primary mb-2 flex items-center"><span class="mr-2">ðŸ’¡</span>Practical tip</h3>
+<p class="text-neutral-300 text-sm">Your real certificate isn't the PDF â€” it's the completed Form with at least one case run, validated, and a flaw fixed at its root cause. Keep that Form: it's your first system and the template for all the next ones. Whenever you have a new AI idea, start by filling out a Form.</p>
 </div>
 <!-- conceitos-chave -->
 <h3 class="text-sm font-semibold text-neutral-400 uppercase tracking-wide mb-3">Key concepts</h3>
 <div class="grid sm:grid-cols-2 gap-3">
 <div class="bg-dark-800 border border-dark-600 rounded-lg p-4"><h4 class="font-semibold text-amber-400 text-sm mb-1">From Canvas to Worksheet</h4><p class="text-xs text-neutral-400">The day 2 Canvas was the design; the System Worksheet is the operational version. Translating one into the other is what takes the intent off the page and puts it into action.</p></div>
 <div class="bg-dark-800 border border-dark-600 rounded-lg p-4"><h4 class="font-semibold text-amber-400 text-sm mb-1">Component has a concrete place</h4><p class="text-xs text-neutral-400">Each pillar becomes a component with a real address: where the context lives, what's in memory, which rules are active. Vague intent doesn't run.</p></div>
-<div class="bg-dark-800 border border-dark-600 rounded-lg p-4"><h4 class="font-semibold text-amber-400 text-sm mb-1">Running with a real case completes the course</h4><p class="text-xs text-neutral-400">The system is proven only when it processes a real case from start to finish and passes validation. An ideal case doesn’t count.</p></div>
+<div class="bg-dark-800 border border-dark-600 rounded-lg p-4"><h4 class="font-semibold text-amber-400 text-sm mb-1">Running with a real case completes the course</h4><p class="text-xs text-neutral-400">The system is proven only when it processes a real case from start to finish and passes validation. An ideal case doesnâ€™t count.</p></div>
 <div class="bg-dark-800 border border-dark-600 rounded-lg p-4"><h4 class="font-semibold text-amber-400 text-sm mb-1">An improvement plan keeps it alive</h4><p class="text-xs text-neutral-400">Gaps, causes, adjustments, and review cadence in writing. Without the plan, the system freezes at v1; with it, it improves every week.</p></div>
 </div>
 <div class="flex justify-start mt-7">
-<button aria-pressed="false" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-amber-500/20 border border-amber-500/30 text-amber-400 hover:bg-amber-500/30 transition-colors text-sm font-semibold" data-inema-read-toggle="" type="button">
-<span aria-hidden="true" class="inema-ico-todo">○</span><span aria-hidden="true" class="inema-ico-done">●</span>
-<span class="inema-label-todo">Mark as read</span><span class="inema-label-done">Read</span>
+<button aria-pressed="false" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-amber-500/20 border border-amber-500/30 text-amber-400 hover:bg-amber-500/30 transition-colors text-sm font-semibold" data-ARCKHÉ-read-toggle="" type="button">
+<span aria-hidden="true" class="ARCKHÉ-ico-todo">â—‹</span><span aria-hidden="true" class="ARCKHÉ-ico-done">â—</span>
+<span class="ARCKHÉ-label-todo">Mark as read</span><span class="ARCKHÉ-label-done">Read</span>
 </button>
 </div>
 </section>
 </article>
 <!-- ====================== EXERCICIOS ====================== -->
 <section class="mb-14">
-<h2 class="text-2xl font-bold mb-2">🛠️ Practical Exercises</h2>
-<p class="text-neutral-400 mb-6 inema-prose">Use your real case. The answer key is an example, not the only correct answer.</p>
+<h2 class="text-2xl font-bold mb-2">ðŸ› ï¸ Practical Exercises</h2>
+<p class="text-neutral-400 mb-6 ARCKHÉ-prose">Use your real case. The answer key is an example, not the only correct answer.</p>
 <div class="bg-dark-800 border border-dark-600 rounded-xl p-6 mb-5">
-<h3 class="text-lg font-semibold mb-2">Exercise 1 — Loose prompt becomes a system</h3>
+<h3 class="text-lg font-semibold mb-2">Exercise 1 â€” Loose prompt becomes a system</h3>
 <p class="text-sm text-neutral-400 mb-3"><strong class="text-amber-400">Objective:</strong> Turn an improvised request into a system with all 5 pillars connected.</p>
-<p class="text-neutral-300 mb-4">Take a task you currently handle with an improvised, one-off prompt (customer support, content, triage, email, summary). Rewrite it as a system: fill in the 5 pillars (Context, Objectives, Rules, Memory, Validation) and show the chain Intention → Context → Process → Result connecting them. Apply the third-party test at the end.</p>
+<p class="text-neutral-300 mb-4">Take a task you currently handle with an improvised, one-off prompt (customer support, content, triage, email, summary). Rewrite it as a system: fill in the 5 pillars (Context, Objectives, Rules, Memory, Validation) and show the chain Intention â†’ Context â†’ Process â†’ Result connecting them. Apply the third-party test at the end.</p>
 <ol class="list-decimal list-inside space-y-1.5 text-sm text-neutral-300 mb-2">
 <li>Write the loose prompt you use today, as is.</li>
-<li>List the CONTEXT the AI needs to know that’s currently only in your head.</li>
+<li>List the CONTEXT the AI needs to know thatâ€™s currently only in your head.</li>
 <li>Define the Goal (what success looks like) and 2-3 Rules (limits and prohibitions).</li>
 <li>Specify what goes into Memory and write 3 Validation criteria.</li>
-<li>Apply the third-party test: could someone else run it using only what’s written?</li>
+<li>Apply the third-party test: could someone else run it using only whatâ€™s written?</li>
 </ol>
 <details class="mt-4 group">
 <summary class="cursor-pointer text-amber-400 font-medium">See the sample answer key</summary>
@@ -872,69 +872,69 @@ OBJECTIVE: Schedule the site visit. Success = the customer leaves with a visit d
 RULES: Never provide a price by email without a visit; never promise a lead time under 30 days; politely decline repair requests.
 MEMORY: Approved response template, list of neighborhoods served, standard qualifying questions (room, approximate measurements, desired timeline).
 VALIDATION: The response (1) proposes scheduling a visit, (2) doesn't mention a price, (3) cites the correct 30-day lead time, (4) has a courteous, direct tone.
-CHAIN: Intent (convert lead) → Context (shop rules) → Process (qualify + propose visit) → Result (visit scheduled).
-THIRD-PARTY TEST: yes—a new assistant could respond according to the standard using only this document, without asking me anything.</div>
+CHAIN: Intent (convert lead) â†’ Context (shop rules) â†’ Process (qualify + propose visit) â†’ Result (visit scheduled).
+THIRD-PARTY TEST: yesâ€”a new assistant could respond according to the standard using only this document, without asking me anything.</div>
 </details>
-<p class="text-sm text-neutral-400 mt-4">💡 Tip: The shortcut to finding hidden Context is to list everything you would correct in a new employee’s response. Each correction is a piece of context, a rule, or an objective that lives in your head and needs to be put into writing.</p>
+<p class="text-sm text-neutral-400 mt-4">ðŸ’¡ Tip: The shortcut to finding hidden Context is to list everything you would correct in a new employeeâ€™s response. Each correction is a piece of context, a rule, or an objective that lives in your head and needs to be put into writing.</p>
 </div>
 <div class="bg-dark-800 border border-dark-600 rounded-xl p-6 mb-5">
-<h3 class="text-lg font-semibold mb-2">Exercise 2 — Map the workflow and position the gears</h3>
+<h3 class="text-lg font-semibold mb-2">Exercise 2 â€” Map the workflow and position the gears</h3>
 <p class="text-sm text-neutral-400 mb-3"><strong class="text-amber-400">Objective:</strong> Build the workflow in named steps and identify where memory, agent, and validation fit.</p>
 <p class="text-neutral-300 mb-4">For the Exercise 1 system (or another case of your own), draw the flow in numbered boxes, from input to validated output. At each step, mark: does this need memory? Does this need autonomous cycles (an agent)? What rule sets the limit? Explain where you did NOT add an agent.</p>
 <ol class="list-decimal list-inside space-y-1.5 text-sm text-neutral-300 mb-2">
 <li>Write the sequence of steps as numbered boxes, from input to output.</li>
 <li>Mark which steps consult memory and what it provides.</li>
-<li>Identify whether any step requires iteration (try/fail/correct)—only then does an agent make sense.</li>
+<li>Identify whether any step requires iteration (try/fail/correct)â€”only then does an agent make sense.</li>
 <li>Point out the rule that limits each critical step.</li>
 <li>Justify at least one step where you decided NOT to use an agent.</li>
 </ol>
 <details class="mt-4 group">
 <summary class="cursor-pointer text-amber-400 font-medium">See the sample answer key</summary>
-<div class="mt-3 bg-dark-700/50 rounded-lg p-4 text-sm text-neutral-300 whitespace-pre-line">WORKFLOW — woodworking shop quote support:
-(1) RECEIVE the customer’s email. Rule: don’t respond to requests outside the service area without saying so.
+<div class="mt-3 bg-dark-700/50 rounded-lg p-4 text-sm text-neutral-300 whitespace-pre-line">WORKFLOW â€” woodworking shop quote support:
+(1) RECEIVE the customerâ€™s email. Rule: donâ€™t respond to requests outside the service area without saying so.
 (2) CLASSIFY the request (quote / repair / other). Memory: list of neighborhoods and service types.
-(3) QUALIFY — ask the standard questions if information is missing. Memory: approved questions. Rule: don’t ask for a target price.
-(4) DRAFT a response proposing a visit. Memory: approved template and brand tone. AGENT here: iterate on the draft until it passes validation or, after 2 attempts, escalate to the owner — because the writing benefits from trying and correcting.
+(3) QUALIFY â€” ask the standard questions if information is missing. Memory: approved questions. Rule: donâ€™t ask for a target price.
+(4) DRAFT a response proposing a visit. Memory: approved template and brand tone. AGENT here: iterate on the draft until it passes validation or, after 2 attempts, escalate to the owner â€” because the writing benefits from trying and correcting.
 (5) VALIDATE against the checklist (proposes a visit / no price / 30-day timeline / courteous tone).
 (6) SEND if it passes; ESCALATE to the owner if it fails 2x.
-WHERE I DIDN’T USE AN AGENT: step 2 (classify) — it’s a single, straightforward decision that doesn’t need iteration; cycle-based autonomy there would only add cost and another point of failure.</div>
+WHERE I DIDNâ€™T USE AN AGENT: step 2 (classify) â€” itâ€™s a single, straightforward decision that doesnâ€™t need iteration; cycle-based autonomy there would only add cost and another point of failure.</div>
 </details>
-<p class="text-sm text-neutral-400 mt-4">💡 Tip: Use the minimum rule: start with no agents and add one only where the step really requires trying, failing, and correcting without you. If the step is a one-time decision, a simple workflow is enough—an agent there adds complexity without a payoff.</p>
+<p class="text-sm text-neutral-400 mt-4">ðŸ’¡ Tip: Use the minimum rule: start with no agents and add one only where the step really requires trying, failing, and correcting without you. If the step is a one-time decision, a simple workflow is enoughâ€”an agent there adds complexity without a payoff.</p>
 </div>
 <div class="bg-dark-800 border border-dark-600 rounded-xl p-6 mb-5">
-<h3 class="text-lg font-semibold mb-2">Exercise 3 — Run, validate, and fix the cause</h3>
-<p class="text-sm text-neutral-400 mb-3"><strong class="text-amber-400">Objective:</strong> Run the run → validate → adjust → improve loop with a real case and fix the cause, not the symptom.</p>
+<h3 class="text-lg font-semibold mb-2">Exercise 3 â€” Run, validate, and fix the cause</h3>
+<p class="text-sm text-neutral-400 mb-3"><strong class="text-amber-400">Objective:</strong> Run the run â†’ validate â†’ adjust â†’ improve loop with a real case and fix the cause, not the symptom.</p>
 <p class="text-neutral-300 mb-4">Run your system on a REAL case from your day. Validate the result item by item against your checklist. For each failed item, identify the CAUSE (which pillar failed) and write the structural adjustment. Then rerun the same case and confirm it passed (the same-case rule).</p>
 <ol class="list-decimal list-inside space-y-1.5 text-sm text-neutral-300 mb-2">
 <li>Choose a real case (a message, a request, an actual decision).</li>
 <li>Run the system and record the result it produced.</li>
 <li>Validate against the checklist item by item: pass or fail each one.</li>
 <li>For each rejection, write down the cause (which pillar failed) and the adjustment to that pillar.</li>
-<li>Re-run the SAME case and confirm: did it pass? If it still fails, that was a symptom—adjust again.</li>
+<li>Re-run the SAME case and confirm: did it pass? If it still fails, that was a symptomâ€”adjust again.</li>
 </ol>
 <details class="mt-4 group">
 <summary class="cursor-pointer text-amber-400 font-medium">See the sample answer key</summary>
-<div class="mt-3 bg-dark-700/50 rounded-lg p-4 text-sm text-neutral-300 whitespace-pre-line">REAL CASE: email: “I want a kitchen cabinet. How much does it cost, and when will it be ready? I live downtown.”
+<div class="mt-3 bg-dark-700/50 rounded-lg p-4 text-sm text-neutral-300 whitespace-pre-line">REAL CASE: email: â€œI want a kitchen cabinet. How much does it cost, and when will it be ready? I live downtown.â€
 
-RESULT: a friendly reply that suggested a visit, BUT said “it’ll be ready in about 3 weeks” and didn’t confirm whether downtown is in the service area.
+RESULT: a friendly reply that suggested a visit, BUT said â€œitâ€™ll be ready in about 3 weeksâ€ and didnâ€™t confirm whether downtown is in the service area.
 
 VALIDATION:
 - Suggests a visit: PASSED.
 - No price: PASSED.
 - Correct timing (30 days): FAILED (said 3 weeks).
 - Friendly tone: PASSED.
-- Confirms service area: FAILED (didn’t check the neighborhood).
+- Confirms service area: FAILED (didnâ€™t check the neighborhood).
 
 CAUSES AND ADJUSTMENTS:
-- Wrong timing → cause: Context didn’t specify the standard timeline → adjustment: add “production time = 30 days” to Context and “never promise a timeline shorter than 30 days” as a Rule.
-- Service area not confirmed → cause: a check step was missing → adjustment: add “confirm the neighborhood against the service area list” to step 2 of the flow and add “confirms service area” to the validation checklist.
+- Wrong timing â†’ cause: Context didnâ€™t specify the standard timeline â†’ adjustment: add â€œproduction time = 30 daysâ€ to Context and â€œnever promise a timeline shorter than 30 daysâ€ as a Rule.
+- Service area not confirmed â†’ cause: a check step was missing â†’ adjustment: add â€œconfirm the neighborhood against the service area listâ€ to step 2 of the flow and add â€œconfirms service areaâ€ to the validation checklist.
 
 RERUN (same case): the new reply gives a 30-day timeline and confirms downtown is served before suggesting a visit. Passed all 5 items. The adjustment addressed the cause.</div>
 </details>
-<p class="text-sm text-neutral-400 mt-4">💡 Tip: If the same case passes when you rerun it, but you suspect another case would break, create a small set of 3 varied real cases and run all three after every adjustment. It’s an inexpensive way to avoid replacing one gap with another.</p>
+<p class="text-sm text-neutral-400 mt-4">ðŸ’¡ Tip: If the same case passes when you rerun it, but you suspect another case would break, create a small set of 3 varied real cases and run all three after every adjustment. Itâ€™s an inexpensive way to avoid replacing one gap with another.</p>
 </div>
 <div class="bg-dark-800 border border-dark-600 rounded-xl p-6 mb-5">
-<h3 class="text-lg font-semibold mb-2">Exercise 4 — Portability test</h3>
+<h3 class="text-lg font-semibold mb-2">Exercise 4 â€” Portability test</h3>
 <p class="text-sm text-neutral-400 mb-3"><strong class="text-amber-400">Objective:</strong> Separate the durable logic in your system from the clicks tied to the tool.</p>
 <p class="text-neutral-300 mb-4">Take the disappearance test: imagine your main AI tool disappears tomorrow. List everything in your system that would SURVIVE (documented logic) and everything that would be LOST (clicks and prompts trapped in the tool). For each lost item, write how to turn it into a portable document.</p>
 <ol class="list-decimal list-inside space-y-1.5 text-sm text-neutral-300 mb-2">
@@ -946,36 +946,36 @@ RERUN (same case): the new reply gives a 30-day timeline and confirms downtown i
 </ol>
 <details class="mt-4 group">
 <summary class="cursor-pointer text-amber-400 font-medium">See the sample answer key</summary>
-<div class="mt-3 bg-dark-700/50 rounded-lg p-4 text-sm text-neutral-300 whitespace-pre-line">DISAPPEARANCE TEST — woodworking shop customer service system:
+<div class="mt-3 bg-dark-700/50 rounded-lg p-4 text-sm text-neutral-300 whitespace-pre-line">DISAPPEARANCE TEST â€” woodworking shop customer service system:
 
 SURVIVES (documented logic):
-- The 5 pillars are in a plain-text doc → portable.
-- The flow is in 6 numbered boxes → portable.
-- The validation checklist (5 criteria) is written down → portable.
+- The 5 pillars are in a plain-text doc â†’ portable.
+- The flow is in 6 numbered boxes â†’ portable.
+- The validation checklist (5 criteria) is written down â†’ portable.
 
 LOST (locked into the tool):
-- The prompt was built inside the tool's interface, with no copy outside it → PORTABLE: paste the system prompt text into the master doc.
-- The memory (response template, neighborhood list) was only in a field in the tool → PORTABLE: export it to a text file/spreadsheet for memory.
-- The agent for step 4 was an automation configured by clicking → PORTABLE: describe the rule in words (iterate the draft until it passes validation or for 2 attempts) so it can be reconfigured in any tool.
+- The prompt was built inside the tool's interface, with no copy outside it â†’ PORTABLE: paste the system prompt text into the master doc.
+- The memory (response template, neighborhood list) was only in a field in the tool â†’ PORTABLE: export it to a text file/spreadsheet for memory.
+- The agent for step 4 was an automation configured by clicking â†’ PORTABLE: describe the rule in words (iterate the draft until it passes validation or for 2 attempts) so it can be reconfigured in any tool.
 
-HONEST PERCENTAGE THAT WOULD SURVIVE: ~70%. The lost 30% becomes a portable document with the adjustments above → rises to ~100%.</div>
+HONEST PERCENTAGE THAT WOULD SURVIVE: ~70%. The lost 30% becomes a portable document with the adjustments above â†’ rises to ~100%.</div>
 </details>
-<p class="text-sm text-neutral-400 mt-4">💡 Tip: Keep one tool-independent master system document, and treat the tool as a disposable attachment. Whenever you configure something inside a tool, copy the logic in plain language into the master document—that way, portability never drops below 90%.</p>
+<p class="text-sm text-neutral-400 mt-4">ðŸ’¡ Tip: Keep one tool-independent master system document, and treat the tool as a disposable attachment. Whenever you configure something inside a tool, copy the logic in plain language into the master documentâ€”that way, portability never drops below 90%.</p>
 </div>
 <div class="bg-dark-800 border border-dark-600 rounded-xl p-6 mb-5">
-<h3 class="text-lg font-semibold mb-2">Exercise 5 — Complete System Sheet (final project)</h3>
+<h3 class="text-lg font-semibold mb-2">Exercise 5 â€” Complete System Sheet (final project)</h3>
 <p class="text-sm text-neutral-400 mb-3"><strong class="text-amber-400">Objective:</strong> Consolidate all your learning in a completed System Sheet that has been run and validated, with an improvement plan.</p>
-<p class="text-neutral-300 mb-4">Fill in the complete System Sheet for your case (day’s template): components, workflow, validation criteria as a checklist, and a continuous improvement plan. Run it with at least one real case, record the validation, address the cause of at least one gap, and write down the review cadence. This is your course completion deliverable.</p>
+<p class="text-neutral-300 mb-4">Fill in the complete System Sheet for your case (dayâ€™s template): components, workflow, validation criteria as a checklist, and a continuous improvement plan. Run it with at least one real case, record the validation, address the cause of at least one gap, and write down the review cadence. This is your course completion deliverable.</p>
 <ol class="list-decimal list-inside space-y-1.5 text-sm text-neutral-300 mb-2">
 <li>Translate your Day 2 Canvas into the Card's components (give each pillar a concrete place).</li>
-<li>Build the run → validate → adjust → improve workflow in named steps.</li>
+<li>Build the run â†’ validate â†’ adjust â†’ improve workflow in named steps.</li>
 <li>Write the validation checklist with 4-6 objective criteria.</li>
 <li>Run it with 1-3 real cases and record the result for each checklist item.</li>
 <li>Fix the cause of at least one gap, rerun and confirm; write the improvement plan with a cadence.</li>
 </ol>
 <details class="mt-4 group">
 <summary class="cursor-pointer text-amber-400 font-medium">See the sample answer key</summary>
-<div class="mt-3 bg-dark-700/50 rounded-lg p-4 text-sm text-neutral-300 whitespace-pre-line">SYSTEM SHEET — Customer service assistant for the woodworking shop
+<div class="mt-3 bg-dark-700/50 rounded-lg p-4 text-sm text-neutral-300 whitespace-pre-line">SYSTEM SHEET â€” Customer service assistant for the woodworking shop
 
 TYPE: specialized assistant.
 COMPONENTS:
@@ -984,32 +984,32 @@ COMPONENTS:
 - Rules: no prices by email; no timelines under 30 days; politely decline repairs; confirm the region first.
 - Memory: approved template, list of neighborhoods, qualification questions (memory file).
 - Validation: checklist below.
-WORKFLOW: (1) receive → (2) classify+confirm region → (3) qualify → (4) draft [agent iterates] → (5) validate → (6) send/escalate.
+WORKFLOW: (1) receive â†’ (2) classify+confirm region â†’ (3) qualify â†’ (4) draft [agent iterates] â†’ (5) validate â†’ (6) send/escalate.
 VALIDATION CHECKLIST: [ ] proposes a visit; [ ] no price; [ ] 30-day timeline; [ ] confirms the region; [ ] courteous tone; [ ] qualifies with 1-2 questions.
 RUN (real case, Center email): failed on timeline and region the first time.
 ROOT CAUSE FIX: timeline fixed in Context + rule; region confirmation step added to the workflow. Ran again: passed all 6 items.
 IMPROVEMENT PLAN: review the gap log every Friday; goal of reducing escalations to the owner by 20% in 30 days; add any new question that comes up 3+ times to memory.
-STATUS: assembled, run, validated, with a loop in place. Assembly complete — ready for Day 4.</div>
+STATUS: assembled, run, validated, with a loop in place. Assembly complete â€” ready for Day 4.</div>
 </details>
-<p class="text-sm text-neutral-400 mt-4">💡 Tip: Don’t aim for the perfect Sheet on the first pass—aim for a Sheet that RUNS. A Sheet with one gap already fixed at the root cause is worth more than a flawless Sheet that has never handled a real case. The completion criterion is having started the engine, not having the prettiest design.</p>
+<p class="text-sm text-neutral-400 mt-4">ðŸ’¡ Tip: Donâ€™t aim for the perfect Sheet on the first passâ€”aim for a Sheet that RUNS. A Sheet with one gap already fixed at the root cause is worth more than a flawless Sheet that has never handled a real case. The completion criterion is having started the engine, not having the prettiest design.</p>
 </div>
 </section>
 <!-- ====================== TEMPLATE ====================== -->
 <section class="mb-14">
 <div class="bg-gradient-to-br from-amber-900/20 to-dark-800 rounded-xl border border-amber-500/30 p-6 sm:p-8">
-<h2 class="text-2xl font-bold mb-2 flex items-center"><span class="mr-2">🧩</span>System Brief + Validation Checklist</h2>
-<p class="text-neutral-300 mb-6 inema-prose">From Canvas to operating system. Translate the 5 pillars from day 2 into components with a concrete place, build the run-validate-adjust-improve workflow, and set the validation criteria as a checklist. Fill one out for each real case; the completed and validated Worksheet is your course completion deliverable.</p>
+<h2 class="text-2xl font-bold mb-2 flex items-center"><span class="mr-2">ðŸ§©</span>System Brief + Validation Checklist</h2>
+<p class="text-neutral-300 mb-6 ARCKHÉ-prose">From Canvas to operating system. Translate the 5 pillars from day 2 into components with a concrete place, build the run-validate-adjust-improve workflow, and set the validation criteria as a checklist. Fill one out for each real case; the completed and validated Worksheet is your course completion deliverable.</p>
 <div class="space-y-3">
 <div class="bg-dark-800/60 rounded-lg p-4"><div class="text-amber-400 font-semibold text-sm mb-1">System name</div><div class="text-neutral-300 text-sm">Example: Marcenaria Cedro customer service assistant</div></div>
 <div class="bg-dark-800/60 rounded-lg p-4"><div class="text-amber-400 font-semibold text-sm mb-1">Type (specialized assistant / automated process / digital product / decision system)</div><div class="text-neutral-300 text-sm">Example: Specialized assistant</div></div>
 <div class="bg-dark-800/60 rounded-lg p-4"><div class="text-amber-400 font-semibold text-sm mb-1">Outcome and recipient (what is delivered, and to whom)</div><div class="text-neutral-300 text-sm">Example: Provides quote responses that schedule technical visits for customers who reach out by email</div></div>
-<div class="bg-dark-800/60 rounded-lg p-4"><div class="text-amber-400 font-semibold text-sm mb-1">Context Component (what it knows and where it lives)</div><div class="text-neutral-300 text-sm">Example: Custom woodworking shop, 30-day timeline, quotes only after a visit, metro area — fixed in the system prompt</div></div>
+<div class="bg-dark-800/60 rounded-lg p-4"><div class="text-amber-400 font-semibold text-sm mb-1">Context Component (what it knows and where it lives)</div><div class="text-neutral-300 text-sm">Example: Custom woodworking shop, 30-day timeline, quotes only after a visit, metro area â€” fixed in the system prompt</div></div>
 <div class="bg-dark-800/60 rounded-lg p-4"><div class="text-amber-400 font-semibold text-sm mb-1">Objectives Component (what success means)</div><div class="text-neutral-300 text-sm">Example: Schedule the technical visit; success = customer has a scheduled date or a clear next step</div></div>
 <div class="bg-dark-800/60 rounded-lg p-4"><div class="text-amber-400 font-semibold text-sm mb-1">Rules Component (active boundaries)</div><div class="text-neutral-300 text-sm">Example: No prices by email; no timelines under 30 days; politely decline repairs; confirm the region before proposing a visit</div></div>
-<div class="bg-dark-800/60 rounded-lg p-4"><div class="text-amber-400 font-semibold text-sm mb-1">Memory Component (what persists)</div><div class="text-neutral-300 text-sm">Example: Approved response template, list of service areas, qualification questions — in a memory file</div></div>
+<div class="bg-dark-800/60 rounded-lg p-4"><div class="text-amber-400 font-semibold text-sm mb-1">Memory Component (what persists)</div><div class="text-neutral-300 text-sm">Example: Approved response template, list of service areas, qualification questions â€” in a memory file</div></div>
 <div class="bg-dark-800/60 rounded-lg p-4"><div class="text-amber-400 font-semibold text-sm mb-1">Workflow in numbered steps (with agent/validation marked)</div><div class="text-neutral-300 text-sm">Example: 1) receive; 2) classify+confirm region; 3) qualify; 4) draft [agent iterates until it passes/2x]; 5) validate; 6) send or escalate</div></div>
 <div class="bg-dark-800/60 rounded-lg p-4"><div class="text-amber-400 font-semibold text-sm mb-1">Validation Checklist (4-6 objective criteria)</div><div class="text-neutral-300 text-sm">Example: [ ] proposes a visit; [ ] no price; [ ] 30-day timeline; [ ] confirms the region; [ ] courteous tone; [ ] qualifies with 1-2 questions</div></div>
-<div class="bg-dark-800/60 rounded-lg p-4"><div class="text-amber-400 font-semibold text-sm mb-1">Run with a real case (case used and validation result)</div><div class="text-neutral-300 text-sm">Example: Center email: failed on timeline (said 3 weeks) and region (didn’t confirm) the first time</div></div>
+<div class="bg-dark-800/60 rounded-lg p-4"><div class="text-amber-400 font-semibold text-sm mb-1">Run with a real case (case used and validation result)</div><div class="text-neutral-300 text-sm">Example: Center email: failed on timeline (said 3 weeks) and region (didnâ€™t confirm) the first time</div></div>
 <div class="bg-dark-800/60 rounded-lg p-4"><div class="text-amber-400 font-semibold text-sm mb-1">Cause fix (which pillar failed and what changed)</div><div class="text-neutral-300 text-sm">Example: Cause: Context had no standard timeframe and the workflow did not check the region. Adjustment: timeframe+rule in Context and a region confirmation step. Reran: passed all 6 items</div></div>
 <div class="bg-dark-800/60 rounded-lg p-4"><div class="text-amber-400 font-semibold text-sm mb-1">Continuous improvement plan (cadence and goal)</div><div class="text-neutral-300 text-sm">Example: Review the gap log every Friday; reduce escalations to the owner by 20% in 30 days; add any question that repeats 3+ times to memory</div></div>
 </div>
@@ -1017,32 +1017,32 @@ STATUS: assembled, run, validated, with a loop in place. Assembly complete — r
 </section>
 <!-- ====================== CHECAGEM ====================== -->
 <section class="mb-14">
-<div class="inema-check bg-dark-800 border border-dark-600 rounded-xl p-6" data-inema-check="modulo-1-3#q1">
+<div class="ARCKHÉ-check bg-dark-800 border border-dark-600 rounded-xl p-6" data-ARCKHÉ-check="modulo-1-3#q1">
 <p class="font-medium mb-4">In the operating cycle, what distinguishes fixing the cause from correcting the symptom?</p>
-<div class="inema-check-options space-y-2">
-<button class="block w-full text-left px-4 py-2.5 rounded-lg bg-dark-700 border border-dark-600 hover:bg-dark-600 transition-colors text-sm" data-inema-check-option="0" type="button">Fixing the cause means manually rewriting the output every time the error appears</button>
-<button class="block w-full text-left px-4 py-2.5 rounded-lg bg-dark-700 border border-dark-600 hover:bg-dark-600 transition-colors text-sm" data-inema-check-option="1" type="button">Fixing the cause means changing the pillar (rule, context, memory) that let the error through, so it doesn’t happen again</button>
-<button class="block w-full text-left px-4 py-2.5 rounded-lg bg-dark-700 border border-dark-600 hover:bg-dark-600 transition-colors text-sm" data-inema-check-option="2" type="button">Fixing the symptom is always more efficient because it solves the problem right away</button>
-<button class="block w-full text-left px-4 py-2.5 rounded-lg bg-dark-700 border border-dark-600 hover:bg-dark-600 transition-colors text-sm" data-inema-check-option="3" type="button">Fixing the cause only applies to systems with autonomous agents</button>
+<div class="ARCKHÉ-check-options space-y-2">
+<button class="block w-full text-left px-4 py-2.5 rounded-lg bg-dark-700 border border-dark-600 hover:bg-dark-600 transition-colors text-sm" data-ARCKHÉ-check-option="0" type="button">Fixing the cause means manually rewriting the output every time the error appears</button>
+<button class="block w-full text-left px-4 py-2.5 rounded-lg bg-dark-700 border border-dark-600 hover:bg-dark-600 transition-colors text-sm" data-ARCKHÉ-check-option="1" type="button">Fixing the cause means changing the pillar (rule, context, memory) that let the error through, so it doesnâ€™t happen again</button>
+<button class="block w-full text-left px-4 py-2.5 rounded-lg bg-dark-700 border border-dark-600 hover:bg-dark-600 transition-colors text-sm" data-ARCKHÉ-check-option="2" type="button">Fixing the symptom is always more efficient because it solves the problem right away</button>
+<button class="block w-full text-left px-4 py-2.5 rounded-lg bg-dark-700 border border-dark-600 hover:bg-dark-600 transition-colors text-sm" data-ARCKHÉ-check-option="3" type="button">Fixing the cause only applies to systems with autonomous agents</button>
 </div>
-<div aria-live="polite" class="mt-4 text-sm" data-inema-check-feedback="" role="status"></div>
+<div aria-live="polite" class="mt-4 text-sm" data-ARCKHÉ-check-feedback="" role="status"></div>
 </div>
 </section>
 <!-- ====================== FACILITADOR ====================== -->
 <section class="mb-14">
 <details class="bg-dark-800 border border-dark-600 rounded-xl p-6">
-<summary class="cursor-pointer font-semibold text-neutral-200">🎓 To make things easier live (in-person mode)</summary>
+<summary class="cursor-pointer font-semibold text-neutral-200">ðŸŽ“ To make things easier live (in-person mode)</summary>
 <div class="mt-4 space-y-3 text-sm text-neutral-300">
 <p><strong class="text-amber-400">Total time:</strong> 120 min.</p>
-<p><strong class="text-amber-400">Activity:</strong> “Start the Engine” workshop in trios. Opening (15 min): the facilitator shows a loose prompt failing live, then the same case as a system, connecting it to Day 1’s pyramid and Day 2’s Canvas. Block 1 — Assembly (30 min): each participant translates their Canvas into the System Worksheet (components + flow). Block 2 — Cross-Run (35 min): within the trio, each person runs the system belonging to the person on their left, using a real case that person provides, and checks it against their checklist—the system owner does NOT defend it; they only take notes on the gaps (a real-world third-party test). Block 3 — Cause-Based Adjustment (25 min): each person fixes the cause of at least one identified gap, reruns the same case, and confirms the fix. Wrap-up (15 min): each trio presents one gap that led to a structural adjustment and writes the cadence for the improvement plan. Close the course by handing in the Worksheet as a real certificate.</p>
+<p><strong class="text-amber-400">Activity:</strong> â€œStart the Engineâ€ workshop in trios. Opening (15 min): the facilitator shows a loose prompt failing live, then the same case as a system, connecting it to Day 1â€™s pyramid and Day 2â€™s Canvas. Block 1 â€” Assembly (30 min): each participant translates their Canvas into the System Worksheet (components + flow). Block 2 â€” Cross-Run (35 min): within the trio, each person runs the system belonging to the person on their left, using a real case that person provides, and checks it against their checklistâ€”the system owner does NOT defend it; they only take notes on the gaps (a real-world third-party test). Block 3 â€” Cause-Based Adjustment (25 min): each person fixes the cause of at least one identified gap, reruns the same case, and confirms the fix. Wrap-up (15 min): each trio presents one gap that led to a structural adjustment and writes the cadence for the improvement plan. Close the course by handing in the Worksheet as a real certificate.</p>
 <p><strong class="text-amber-400">Materials:</strong> A3 sheets with the printed System Brief (1 per participant); pads of 2 colors of sticky notes (yellow = gap, green = adjustment); thick marker; completed day 2 Canvas (prerequisite); access to an AI tool per trio; visible timer; wall space for improvement plans.</p>
 <div>
 <p class="font-semibold text-neutral-200 mb-2">Discussion questions:</p>
 <ul class="list-disc list-inside space-y-1.5 text-neutral-300">
-<li>Which pillar failed the most when someone else ran your system—and why was it weak?</li>
+<li>Which pillar failed the most when someone else ran your systemâ€”and why was it weak?</li>
 <li>Of the gaps that surfaced, how many were root causes (structure) and how many were symptoms (output)? What does that tell you about your system?</li>
 <li>If the tool you used today disappeared tomorrow, how much of your Form would survive? Where is the logic still tied to the tool?</li>
-<li>Which of the four types of value is your system (assistant, process, product, or decision)—and did you focus your effort on the right pillar for that type?</li>
+<li>Which of the four types of value is your system (assistant, process, product, or decision)â€”and did you focus your effort on the right pillar for that type?</li>
 <li>What will your actual review cadence be after the course, and what might keep you from following it? How can you guard against that?</li>
 </ul>
 </div>
@@ -1052,22 +1052,22 @@ STATUS: assembled, run, validated, with a loop in place. Assembly complete — r
 <!-- ====================== RESUMO ====================== -->
 <section class="mb-8">
 <div class="bg-gradient-to-br from-amber-900/40 via-dark-800 to-dark-800 rounded-xl border border-amber-500/30 p-8">
-<h2 class="text-2xl font-bold mb-6 flex items-center"><span class="mr-3">✅</span>Day 3 Summary</h2>
+<h2 class="text-2xl font-bold mb-6 flex items-center"><span class="mr-3">âœ…</span>Day 3 Summary</h2>
 <ul class="space-y-3 text-neutral-200 mb-7">
-<li class="flex items-start gap-2"><span class="text-amber-400 mt-0.5">✓</span><span>A system isn't a fancy prompt: it's an information environment that exists before the request and takes quality out of your head, making the result repeatable, reliable, and aligned.</span></li>
-<li class="flex items-start gap-2"><span class="text-amber-400 mt-0.5">✓</span><span>The gears have clear roles: a framework is the mental model, a flow is the production line, an agent is autonomy in a cycle, and memory is what persists — use an agent only where the step requires iteration.</span></li>
-<li class="flex items-start gap-2"><span class="text-amber-400 mt-0.5">✓</span><span>The run → validate → adjust → improve loop is a routine, not a one-time event: run it with a real case, validate against criteria, fix the cause (not the symptom), and improve the memory; rerun the same case to confirm.</span></li>
-<li class="flex items-start gap-2"><span class="text-amber-400 mt-0.5">✓</span><span>The logic survives a tool change—document the 5 pillars in text, the workflow in boxes, and validation in a checklist, and you’ll use any tool better than most.</span></li>
-<li class="flex items-start gap-2"><span class="text-amber-400 mt-0.5">✓</span><span>Systems turn into value in four forms—specialized assistant, automated process, digital product, and decision system—and naming the type sharpens where to focus effort.</span></li>
-<li class="flex items-start gap-2"><span class="text-amber-400 mt-0.5">✓</span><span>The real certificate is a completed System Worksheet, run with a real case, validated, with at least one gap fixed at its root cause, plus a continuous improvement plan.</span></li>
+<li class="flex items-start gap-2"><span class="text-amber-400 mt-0.5">âœ“</span><span>A system isn't a fancy prompt: it's an information environment that exists before the request and takes quality out of your head, making the result repeatable, reliable, and aligned.</span></li>
+<li class="flex items-start gap-2"><span class="text-amber-400 mt-0.5">âœ“</span><span>The gears have clear roles: a framework is the mental model, a flow is the production line, an agent is autonomy in a cycle, and memory is what persists â€” use an agent only where the step requires iteration.</span></li>
+<li class="flex items-start gap-2"><span class="text-amber-400 mt-0.5">âœ“</span><span>The run â†’ validate â†’ adjust â†’ improve loop is a routine, not a one-time event: run it with a real case, validate against criteria, fix the cause (not the symptom), and improve the memory; rerun the same case to confirm.</span></li>
+<li class="flex items-start gap-2"><span class="text-amber-400 mt-0.5">âœ“</span><span>The logic survives a tool changeâ€”document the 5 pillars in text, the workflow in boxes, and validation in a checklist, and youâ€™ll use any tool better than most.</span></li>
+<li class="flex items-start gap-2"><span class="text-amber-400 mt-0.5">âœ“</span><span>Systems turn into value in four formsâ€”specialized assistant, automated process, digital product, and decision systemâ€”and naming the type sharpens where to focus effort.</span></li>
+<li class="flex items-start gap-2"><span class="text-amber-400 mt-0.5">âœ“</span><span>The real certificate is a completed System Worksheet, run with a real case, validated, with at least one gap fixed at its root cause, plus a continuous improvement plan.</span></li>
 </ul>
 <div class="bg-dark-900/50 rounded-lg border border-amber-500/20 p-5 mb-7">
 <h3 class="font-semibold text-amber-400 mb-2">Next:</h3>
-<p class="text-sm text-neutral-300">Your System Card is assembled, run, and validated. Tomorrow (Day 4), you'll bring it to the September 2026 models—Claude Fable 5.1 and GPT-6 Astra—which follow instructions so well that step-by-step prompts have become noise. You'll audit by subtraction, replace rules with boundaries, write the definition of done, and migrate the Card to the Intent Card v2, running the same real case in both formats.</p>
+<p class="text-sm text-neutral-300">Your System Card is assembled, run, and validated. Tomorrow (Day 4), you'll bring it to the September 2026 modelsâ€”Claude Fable 5.1 and GPT-6 Astraâ€”which follow instructions so well that step-by-step prompts have become noise. You'll audit by subtraction, replace rules with boundaries, write the definition of done, and migrate the Card to the Intent Card v2, running the same real case in both formats.</p>
 </div>
 <div class="flex flex-col sm:flex-row gap-4">
-<a class="text-center px-6 py-3 bg-dark-700 hover:bg-dark-600 text-neutral-200 rounded-lg font-semibold transition-colors" href="dia-2.html">← Day 2</a>
-<a class="text-center px-6 py-3 bg-amber-600 hover:bg-amber-500 text-white rounded-lg font-semibold transition-colors" href="dia-4.html">Day 4 — The Shift →</a>
+<a class="text-center px-6 py-3 bg-dark-700 hover:bg-dark-600 text-neutral-200 rounded-lg font-semibold transition-colors" href="dia-2.html">â† Day 2</a>
+<a class="text-center px-6 py-3 bg-amber-600 hover:bg-amber-500 text-white rounded-lg font-semibold transition-colors" href="dia-4.html">Day 4 â€” The Shift â†’</a>
 </div>
 </div>
 </section>
@@ -1077,7 +1077,7 @@ STATUS: assembled, run, validated, with a loop in place. Assembly complete — r
 </main>
 <footer class="border-t border-dark-600 py-8 mt-8">
 <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm">
-<p>Intent Architecture — an immersion <a class="text-sky-400 hover:text-sky-300" href="https://inema.club" rel="noopener" target="_blank">INEMA.CLUB</a> · 2026</p>
+<p>Intent Architecture â€” an immersion <a class="text-sky-400 hover:text-sky-300" href="https://ARCKHÉ AI" rel="noopener" target="_blank">ARCKHÉ AI</a> Â· 2026</p>
 </div>
 </footer>
 <!-- SCRIPTS: nucleo v1 -->
@@ -1096,15 +1096,15 @@ STATUS: assembled, run, validated, with a loop in place. Assembly complete — r
     function closeModal(){ document.querySelectorAll('.modal').forEach(m=>m.classList.add('hidden')); document.body.style.overflow='auto'; }
     document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
 
-    // Toggle sol/lua → integra com inema.prefs (consistente entre paginas), com fallback v1.
+    // Toggle sol/lua â†’ integra com ARCKHÉ.prefs (consistente entre paginas), com fallback v1.
     (function () {
       var btn = document.getElementById('theme-toggle');
       if (!btn) return;
       btn.addEventListener('click', function () {
-        if (window.INEMA && INEMA.setPref && INEMA.getPrefs) {
-          var cur = INEMA.getPrefs().theme;
-          var next = (cur === 'claro' || cur === 'sepia') ? 'inema-dark' : 'claro';
-          INEMA.setPref('theme', next);
+        if (window.ARCKHÉ && ARCKHÉ.setPref && ARCKHÉ.getPrefs) {
+          var cur = ARCKHÉ.getPrefs().theme;
+          var next = (cur === 'claro' || cur === 'sepia') ? 'ARCKHÉ-dark' : 'claro';
+          ARCKHÉ.setPref('theme', next);
         } else {
           var html = document.documentElement;
           html.classList.toggle('dark');
@@ -1118,14 +1118,14 @@ STATUS: assembled, run, validated, with a loop in place. Assembly complete — r
 <!-- Camada de aprendizagem v2 -->
 <script src="../assets/learn.js"></script>
 <script>
-    if (window.INEMA && typeof window.INEMA.init === 'function') { window.INEMA.init(); }
-    if (window.INEMA && INEMA.registerCheck) INEMA.registerCheck('modulo-1-3#q1', {
+    if (window.ARCKHÉ && typeof window.ARCKHÉ.init === 'function') { window.ARCKHÉ.init(); }
+    if (window.ARCKHÉ && ARCKHÉ.registerCheck) ARCKHÉ.registerCheck('modulo-1-3#q1', {
       answer: 1,
       explain: {
-        0: 'Errado — reescrever a saída na mão é justamente corrigir o sintoma; o erro estrutural permanece e volta na próxima execução.',
-        1: 'Correto — ajustar a causa muda o pilar que falhou (a regra, o contexto, a memória), então o erro deixa de acontecer de vez. Re-rodar o mesmo caso confirma se foi causa ou sintoma.',
-        2: 'Errado — corrigir o sintoma resolve um caso e deixa a causa intacta; o erro repete e o custo total é maior, não menor.',
-        3: 'Errado — ajuste de causa vale para qualquer sistema, com ou sem agente; é sobre mudar a estrutura (pilares), não sobre autonomia.'
+        0: 'Errado â€” reescrever a saÃ­da na mÃ£o Ã© justamente corrigir o sintoma; o erro estrutural permanece e volta na prÃ³xima execuÃ§Ã£o.',
+        1: 'Correto â€” ajustar a causa muda o pilar que falhou (a regra, o contexto, a memÃ³ria), entÃ£o o erro deixa de acontecer de vez. Re-rodar o mesmo caso confirma se foi causa ou sintoma.',
+        2: 'Errado â€” corrigir o sintoma resolve um caso e deixa a causa intacta; o erro repete e o custo total Ã© maior, nÃ£o menor.',
+        3: 'Errado â€” ajuste de causa vale para qualquer sistema, com ou sem agente; Ã© sobre mudar a estrutura (pilares), nÃ£o sobre autonomia.'
       }
     });
   </script>

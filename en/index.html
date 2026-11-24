@@ -4,29 +4,29 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<meta content="arquitetura-intencao" name="inema-course"/>
-<title>Intent Architecture | 4-day immersion · INEMA.CLUB</title>
+<meta content="arquitetura-intencao" name="ARCKHÉ-course"/>
+<title>Intent Architecture | 4-day immersion Â· ARCKHÉ AI</title>
 <!-- 1) ANTI-FOUC: bloqueante, ANTES do Tailwind. Aplica .dark + data-theme + prefs de leitura antes do 1o paint. Default dark/amber no erro. -->
 <script>
   (function () {
     try {
       var html = document.documentElement;
-      var DEF = { theme: 'inema-dark', font: 'inter', fontScale: 100, lineWidth: 68, leading: 1.7, accent: 'amber' };
+      var DEF = { theme: 'ARCKHÉ-dark', font: 'inter', fontScale: 100, lineWidth: 68, leading: 1.7, accent: 'amber' };
       function clone(o){var r={};for(var x in o)r[x]=o[x];return r;}
       var p = clone(DEF);
       try {
-        var raw = localStorage.getItem('inema.prefs');
+        var raw = localStorage.getItem('ARCKHÉ.prefs');
         if (raw) { var parsed = JSON.parse(raw); if (parsed && typeof parsed === 'object') { for (var k in DEF) if (parsed[k] != null) p[k] = parsed[k]; } }
-        else { var legacy = localStorage.getItem('theme'); if (legacy === 'light') p.theme = 'claro'; else if (legacy === 'dark') p.theme = 'inema-dark'; }
+        else { var legacy = localStorage.getItem('theme'); if (legacy === 'light') p.theme = 'claro'; else if (legacy === 'dark') p.theme = 'ARCKHÉ-dark'; }
       } catch (e) { p = clone(DEF); }
       var THEMES = {
-        'inema-dark': { dark: true,  attr: null,        cs: 'dark'  },
+        'ARCKHÉ-dark': { dark: true,  attr: null,        cs: 'dark'  },
         'claro':      { dark: false, attr: null,        cs: 'light' },
         'sepia':      { dark: false, attr: 'sepia',     cs: 'light' },
         'foco':       { dark: null,  attr: 'foco',      cs: null    },
         'contraste':  { dark: true,  attr: 'contraste', cs: 'dark'  }
       };
-      var t = THEMES[p.theme] || THEMES['inema-dark'];
+      var t = THEMES[p.theme] || THEMES['ARCKHÉ-dark'];
       if (t.dark === true) html.classList.add('dark'); else if (t.dark === false) html.classList.remove('dark');
       if (t.attr) html.setAttribute('data-theme', t.attr); else html.removeAttribute('data-theme');
       html.style.colorScheme = (t.cs ? t.cs : (html.classList.contains('dark') ? 'dark' : 'light'));
@@ -34,7 +34,7 @@
       html.setAttribute('data-accent', p.accent || 'amber');
       html.setAttribute('data-line-width', String(p.lineWidth || 68));
       var s = html.style; var scale = (+p.fontScale || 100);
-      s.setProperty('--inema-font-scale', (scale / 100).toString());
+      s.setProperty('--ARCKHÉ-font-scale', (scale / 100).toString());
       s.setProperty('font-size', scale + '%');
       s.setProperty('--measure', (+p.lineWidth || 68) + 'ch');
       s.setProperty('--lh-body', (+p.leading || 1.7).toString());
@@ -58,15 +58,15 @@
 <link href="../assets/learn.css" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
 <!-- Manifesto do curso (OBRIGATORIO, identico em TODA pagina) -->
-<script data-inema-manifest="" type="application/json">
+<script data-ARCKHÉ-manifest="" type="application/json">
   {
     "course": "arquitetura-intencao",
     "tracks": [
-      { "n": "1", "title": "Arquitetura de Intenção", "modules": [
-        { "id": "1-1", "title": "Dia 1 — A Pirâmide", "topics": 6, "href": "dia-1.html" },
-        { "id": "1-2", "title": "Dia 2 — Os 5 Pilares", "topics": 7, "href": "dia-2.html" },
-        { "id": "1-3", "title": "Dia 3 — O Sistema", "topics": 6, "href": "dia-3.html" },
-        { "id": "1-4", "title": "Dia 4 — A Virada", "topics": 6, "href": "dia-4.html" }
+      { "n": "1", "title": "Arquitetura de IntenÃ§Ã£o", "modules": [
+        { "id": "1-1", "title": "Dia 1 â€” A PirÃ¢mide", "topics": 6, "href": "dia-1.html" },
+        { "id": "1-2", "title": "Dia 2 â€” Os 5 Pilares", "topics": 7, "href": "dia-2.html" },
+        { "id": "1-3", "title": "Dia 3 â€” O Sistema", "topics": 6, "href": "dia-3.html" },
+        { "id": "1-4", "title": "Dia 4 â€” A Virada", "topics": 6, "href": "dia-4.html" }
       ]}
     ]
   }
@@ -77,9 +77,9 @@
     .topic-explanation { display: none; }
     .topic-explanation.active { display: block; }
     html { scroll-behavior: smooth; }
-    [id^="topico-"], [data-inema-topic], main [id] { scroll-margin-top: 84px; }
+    [id^="topico-"], [data-ARCKHÉ-topic], main [id] { scroll-margin-top: 84px; }
 
-    /* Light mode — Parte 1: base */
+    /* Light mode â€” Parte 1: base */
     html:not(.dark) body { background-color: #f8fafc; }
     html:not(.dark) .bg-dark-900 { background-color: #ffffff; }
     html:not(.dark) .bg-dark-800 { background-color: #f9fafb; }
@@ -92,7 +92,7 @@
     html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
     html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
 
-    /* Light mode — Parte 2: acento da trilha (Amber T4 → amber-800 #92400e) */
+    /* Light mode â€” Parte 2: acento da trilha (Amber T4 â†’ amber-800 #92400e) */
     html:not(.dark) .text-amber-400 { color: #92400e; }
     html:not(.dark) .bg-amber-500\/20 { background-color: rgba(217,119,6,0.12); }
     html:not(.dark) .bg-amber-500\/10 { background-color: rgba(217,119,6,0.08); }
@@ -101,7 +101,7 @@
     html:not(.dark) .hover\:text-amber-400:hover { color: #92400e; }
     html:not(.dark) .group:hover .group-hover\:text-amber-400 { color: #92400e; }
 
-    /* Light mode — Parte 3: remove gradientes + cores especiais */
+    /* Light mode â€” Parte 3: remove gradientes + cores especiais */
     html:not(.dark) [class*="bg-gradient-to"] { background-image: none !important; }
     html:not(.dark) .text-primary { color: #a16207; }
     html:not(.dark) .bg-primary\/10 { background-color: rgba(161, 98, 7, 0.08); }
@@ -112,14 +112,14 @@
     html:not(.dark) .hover\:text-sky-300:hover { color: #0284c7; }
     html:not(.dark) .hover\:text-yellow-300:hover { color: #854d0e; }
 
-    /* Light mode — Parte 4: navbar */
+    /* Light mode â€” Parte 4: navbar */
     html:not(.dark) .bg-dark-900\/95 { background-color: rgba(255, 255, 255, 0.95); }
 
-    /* Dark mode — bordas e divisores mais suaves */
+    /* Dark mode â€” bordas e divisores mais suaves */
     .dark .border-dark-600 { border-color: #374151; }
     .dark .divide-dark-600 > :not([hidden]) ~ :not([hidden]) { border-color: #374151; }
 
-    /* SVG diagramas — suaviza no tema claro */
+    /* SVG diagramas â€” suaviza no tema claro */
     html:not(.dark) svg[role="img"] { filter: saturate(0.82) brightness(0.96); }
 
     /* Pulso dos diagramas (so com motion permitido) */
@@ -130,8 +130,8 @@
       .wf-a:nth-child(4){animation-delay:.75s}
     }
   </style>
-<link href="https://inematds.github.io/arquitetura-de-intencao/" hreflang="pt-BR" rel="alternate"/><link href="https://inematds.github.io/arquitetura-de-intencao/en/" hreflang="en" rel="alternate"/><link href="https://inematds.github.io/arquitetura-de-intencao/es/" hreflang="es" rel="alternate"/></head>
-<body class="bg-dark-900 text-neutral-100 min-h-screen"><div class="inema-lang" style="position:fixed;right:14px;bottom:14px;z-index:9999;display:flex;gap:2px;padding:4px;border-radius:10px;background:rgba(12,12,16,.82);border:1px solid rgba(226,162,59,.45);font:600 12px/1 Sora,Inter,system-ui,sans-serif;backdrop-filter:blur(8px)" translate="no"><a href="../" hreflang="pt-BR" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">PT</a><a href="./" hreflang="en" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#1a1206;background:#E2A23B">EN</a><a href="../es/" hreflang="es" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">ES</a></div>
+<link href="https://linnoff88-dev.github.io/ hreflang="pt-BR" rel="alternate"/><link href="https://linnoff88-dev.github.io/ hreflang="en" rel="alternate"/><link href="https://linnoff88-dev.github.io/ hreflang="es" rel="alternate"/></head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen"><div class="ARCKHÉ-lang" style="position:fixed;right:14px;bottom:14px;z-index:9999;display:flex;gap:2px;padding:4px;border-radius:10px;background:rgba(12,12,16,.82);border:1px solid rgba(226,162,59,.45);font:600 12px/1 Sora,Inter,system-ui,sans-serif;backdrop-filter:blur(8px)" translate="no"><a href="../" hreflang="pt-BR" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">PT</a><a href="./" hreflang="en" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#1a1206;background:#E2A23B">EN</a><a href="../es/" hreflang="es" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">ES</a></div>
 <a class="skip" href="#conteudo">Skip to the content</a>
 <!-- NAVIGATION (identico em todas as paginas) -->
 <nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
@@ -139,11 +139,11 @@
 <div class="flex justify-between items-center h-14">
 <div class="flex items-center space-x-3">
 <a class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300" href="index.html">
-<span class="text-2xl">🎯</span>
+<span class="text-2xl">ðŸŽ¯</span>
 <span class="font-bold text-lg hidden sm:inline">Intent Architecture</span>
 </a>
 <span class="text-neutral-600 hidden sm:inline">|</span>
-<a class="text-sky-400 hover:text-sky-300 text-sm font-medium" href="https://inema.club" rel="noopener" target="_blank">INEMA.CLUB</a>
+<a class="text-sky-400 hover:text-sky-300 text-sm font-medium" href="https://ARCKHÉ AI" rel="noopener" target="_blank">ARCKHÉ AI</a>
 </div>
 <div class="flex items-center space-x-1 sm:space-x-2">
 <a class="px-2.5 sm:px-3 py-1.5 rounded-lg text-sm font-semibold text-amber-400 bg-amber-500/10" href="index.html">Start</a>
@@ -151,12 +151,12 @@
 <a class="px-2.5 sm:px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-amber-400 hover:bg-amber-500/10 transition-colors" href="dia-2.html"><span class="sm:hidden">D2</span><span class="hidden sm:inline">Day 2</span></a>
 <a class="px-2.5 sm:px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-amber-400 hover:bg-amber-500/10 transition-colors" href="dia-3.html"><span class="sm:hidden">D3</span><span class="hidden sm:inline">Day 3</span></a>
 <a class="px-2.5 sm:px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-amber-400 hover:bg-amber-500/10 transition-colors" href="dia-4.html"><span class="sm:hidden">D4</span><span class="hidden sm:inline">Day 4</span></a>
-<button class="ml-1 inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-neutral-300 hover:text-neutral-100 hover:bg-dark-700 transition-colors text-sm" data-inema-journey-open="" title="My journey" type="button">
-<span aria-hidden="true">◷</span><span class="hidden sm:inline">Journey</span>
-<span aria-hidden="true" class="inema-journey-badge hidden" data-count="0" data-inema-journey-badge=""></span>
+<button class="ml-1 inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-neutral-300 hover:text-neutral-100 hover:bg-dark-700 transition-colors text-sm" data-ARCKHÉ-journey-open="" title="My journey" type="button">
+<span aria-hidden="true">â—·</span><span class="hidden sm:inline">Journey</span>
+<span aria-hidden="true" class="ARCKHÉ-journey-badge hidden" data-count="0" data-ARCKHÉ-journey-badge=""></span>
 </button>
-<button aria-expanded="false" class="inema-appearance-trigger inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-neutral-300 hover:text-neutral-100 hover:bg-dark-700 transition-colors text-sm" data-inema-appearance-toggle="[data-inema-appearance]" title="Appearance and reading" type="button">
-<span aria-hidden="true">◑</span><span class="hidden sm:inline">Appearance</span>
+<button aria-expanded="false" class="ARCKHÉ-appearance-trigger inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-neutral-300 hover:text-neutral-100 hover:bg-dark-700 transition-colors text-sm" data-ARCKHÉ-appearance-toggle="[data-ARCKHÉ-appearance]" title="Appearance and reading" type="button">
+<span aria-hidden="true">â—‘</span><span class="hidden sm:inline">Appearance</span>
 </button>
 <button aria-label="Toggle light/dark" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors" id="theme-toggle" title="Toggle light/dark">
 <svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-dark-icon" viewbox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
@@ -166,40 +166,40 @@
 </div>
 </div>
 <!-- Painel de aparencia (escondido por padrao; data-open via JS) -->
-<div aria-label="Appearance and reading" class="inema-appearance-pop" data-inema-appearance="" role="dialog">
-<div class="inema-segment"><span class="inema-segment-label">Theme</span>
-<button data-inema-set-theme="inema-dark">Dark</button>
-<button data-inema-set-theme="claro">Clear</button>
-<button data-inema-set-theme="sepia">Sepia</button>
-<button data-inema-set-theme="foco">Focus</button>
-<button data-inema-set-theme="contraste">High contrast</button>
+<div aria-label="Appearance and reading" class="ARCKHÉ-appearance-pop" data-ARCKHÉ-appearance="" role="dialog">
+<div class="ARCKHÉ-segment"><span class="ARCKHÉ-segment-label">Theme</span>
+<button data-ARCKHÉ-set-theme="ARCKHÉ-dark">Dark</button>
+<button data-ARCKHÉ-set-theme="claro">Clear</button>
+<button data-ARCKHÉ-set-theme="sepia">Sepia</button>
+<button data-ARCKHÉ-set-theme="foco">Focus</button>
+<button data-ARCKHÉ-set-theme="contraste">High contrast</button>
 </div>
-<div class="inema-segment"><span class="inema-segment-label">Source</span>
-<button data-inema-set-font="inter">Inter</button>
-<button data-inema-set-font="system">System</button>
-<button data-inema-set-font="leitura">Reading</button>
+<div class="ARCKHÉ-segment"><span class="ARCKHÉ-segment-label">Source</span>
+<button data-ARCKHÉ-set-font="inter">Inter</button>
+<button data-ARCKHÉ-set-font="system">System</button>
+<button data-ARCKHÉ-set-font="leitura">Reading</button>
 </div>
-<div class="inema-segment"><span class="inema-segment-label">Size</span>
-<button data-inema-set-fontscale="100">A</button>
-<button data-inema-set-fontscale="112">A+</button>
-<button data-inema-set-fontscale="125">A++</button>
+<div class="ARCKHÉ-segment"><span class="ARCKHÉ-segment-label">Size</span>
+<button data-ARCKHÉ-set-fontscale="100">A</button>
+<button data-ARCKHÉ-set-fontscale="112">A+</button>
+<button data-ARCKHÉ-set-fontscale="125">A++</button>
 </div>
-<div class="inema-segment"><span class="inema-segment-label">Width</span>
-<button data-inema-set-linewidth="60">Narrow</button>
-<button data-inema-set-linewidth="68">Medium</button>
-<button data-inema-set-linewidth="75">Long</button>
+<div class="ARCKHÉ-segment"><span class="ARCKHÉ-segment-label">Width</span>
+<button data-ARCKHÉ-set-linewidth="60">Narrow</button>
+<button data-ARCKHÉ-set-linewidth="68">Medium</button>
+<button data-ARCKHÉ-set-linewidth="75">Long</button>
 </div>
-<div class="inema-segment"><span class="inema-segment-label">Between the lines</span>
-<button data-inema-set-leading="1.45">Compact</button>
-<button data-inema-set-leading="1.7">Comfortable</button>
+<div class="ARCKHÉ-segment"><span class="ARCKHÉ-segment-label">Between the lines</span>
+<button data-ARCKHÉ-set-leading="1.45">Compact</button>
+<button data-ARCKHÉ-set-leading="1.7">Comfortable</button>
 </div>
-<div aria-label="Accent color" class="inema-accent-grid">
-<button data-inema-set-accent="emerald" title="Emerald"></button>
-<button data-inema-set-accent="blue" title="Blue"></button>
-<button data-inema-set-accent="purple" title="Purple"></button>
-<button data-inema-set-accent="amber" title="Amber"></button>
-<button data-inema-set-accent="teal" title="Teal"></button>
-<button data-inema-set-accent="rose" title="Pink"></button>
+<div aria-label="Accent color" class="ARCKHÉ-accent-grid">
+<button data-ARCKHÉ-set-accent="emerald" title="Emerald"></button>
+<button data-ARCKHÉ-set-accent="blue" title="Blue"></button>
+<button data-ARCKHÉ-set-accent="purple" title="Purple"></button>
+<button data-ARCKHÉ-set-accent="amber" title="Amber"></button>
+<button data-ARCKHÉ-set-accent="teal" title="Teal"></button>
+<button data-ARCKHÉ-set-accent="rose" title="Pink"></button>
 </div>
 </div>
 </nav>
@@ -209,21 +209,21 @@
 <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
 <!-- HERO BANNER -->
 <div class="rounded-2xl border border-amber-500/30 overflow-hidden mb-10 shadow-2xl shadow-amber-900/30">
-<img alt="A prompt isn’t enough—Intention Architecture. AI’s evolution through 4 levels: Coding (manual and limited), Vibe Coding (unpredictable and fragile), Agentic Engineering (automates and executes), and Intention Architecture (strategic intelligence), supported by context, rules, memory, and objectives." class="w-full h-auto block" decoding="async" height="941" loading="eager" src="../assets/img/hero-banner.png" width="1672"/>
+<img alt="A prompt isnâ€™t enoughâ€”Intention Architecture. AIâ€™s evolution through 4 levels: Coding (manual and limited), Vibe Coding (unpredictable and fragile), Agentic Engineering (automates and executes), and Intention Architecture (strategic intelligence), supported by context, rules, memory, and objectives." class="w-full h-auto block" decoding="async" height="941" loading="eager" src="../assets/img/hero-banner.png" width="1672"/>
 </div>
-<span class="inline-block px-3 py-1 bg-amber-500/20 text-amber-400 text-xs font-semibold rounded-full mb-5 tracking-wide">IMMERSION · 4 DAYS · FROM PROMPT TO SYSTEM · UPDATED SEP/2026</span>
+<span class="inline-block px-3 py-1 bg-amber-500/20 text-amber-400 text-xs font-semibold rounded-full mb-5 tracking-wide">IMMERSION Â· 4 DAYS Â· FROM PROMPT TO SYSTEM Â· UPDATED SEP/2026</span>
 <h1 class="text-4xl sm:text-5xl font-bold mb-4 leading-tight">Intent Architecture</h1>
-<p class="text-2xl sm:text-3xl font-semibold text-amber-400 mb-6">A prompt isn’t enough.</p>
-<div class="inema-prose">
+<p class="text-2xl sm:text-3xl font-semibold text-amber-400 mb-6">A prompt isnâ€™t enough.</p>
+<div class="ARCKHÉ-prose">
 <p class="text-lg text-neutral-300 mb-4 leading-relaxed">
             After the <strong class="text-neutral-100">coding</strong>, from the <strong class="text-neutral-100">vibe coding</strong> and of the <strong class="text-neutral-100">agents</strong>, comes the next layer: structuring <strong class="text-amber-400">context, rules, memory, objectives, and validation</strong> so the AI can turn intent into a reliable, repeatable result that aligns with your goals.
           </p>
 <p class="text-lg text-neutral-400 mb-8 leading-relaxed">
-            In 4 days, you’ll move beyond improvised AI use and learn to <strong class="text-neutral-200">design the system</strong> behind the intent — using the same logic that applies to any tool. Day 4 covers the September 2026 shift: what changed with <strong class="text-neutral-200">Claude Fable 5.1</strong> e o <strong class="text-neutral-200">GPT-6 Astra</strong>, models that operate on intent rather than step-by-step prompts.
+            In 4 days, youâ€™ll move beyond improvised AI use and learn to <strong class="text-neutral-200">design the system</strong> behind the intent â€” using the same logic that applies to any tool. Day 4 covers the September 2026 shift: what changed with <strong class="text-neutral-200">Claude Fable 5.1</strong> e o <strong class="text-neutral-200">GPT-6 Astra</strong>, models that operate on intent rather than step-by-step prompts.
           </p>
 </div>
 <div class="flex flex-col sm:flex-row justify-start gap-4 mb-12">
-<a class="text-center px-7 py-3.5 bg-amber-600 hover:bg-amber-500 text-white rounded-lg font-semibold transition-colors" href="dia-1.html">Start Day 1 →</a>
+<a class="text-center px-7 py-3.5 bg-amber-600 hover:bg-amber-500 text-white rounded-lg font-semibold transition-colors" href="dia-1.html">Start Day 1 â†’</a>
 <a class="text-center px-7 py-3.5 bg-dark-700 hover:bg-dark-600 text-neutral-200 rounded-lg font-semibold transition-colors" href="#mapa">See the immersion map</a>
 </div>
 <!-- HERO SVG: a piramide -->
@@ -239,7 +239,7 @@
 <rect fill="url(#piram-grid)" height="360" width="1000" x="0" y="0"></rect>
 <!-- eixo esquerdo: papel do humano sobe -->
 <line marker-end="url(#piram-ah)" opacity="0.6" stroke="#fbbf24" stroke-width="2" x1="92" x2="92" y1="312" y2="52"></line>
-<text fill="#fcd9a0" font-family="Inter,sans-serif" font-size="12.5" font-weight="600" text-anchor="middle" transform="rotate(-90 74 185)" x="74" y="185">the human’s role increases</text>
+<text fill="#fcd9a0" font-family="Inter,sans-serif" font-size="12.5" font-weight="600" text-anchor="middle" transform="rotate(-90 74 185)" x="74" y="185">the humanâ€™s role increases</text>
 <!-- eixo direito: confiabilidade sobe -->
 <line marker-end="url(#piram-ahc)" opacity="0.55" stroke="#38bdf8" stroke-width="2" x1="908" x2="908" y1="312" y2="52"></line>
 <text fill="#bfe6ff" font-family="Inter,sans-serif" font-size="12.5" font-weight="600" text-anchor="middle" transform="rotate(90 926 185)" x="926" y="185">reliability increases</text>
@@ -260,7 +260,7 @@
 <text fill="#231400" font-family="Inter,sans-serif" font-size="17" font-weight="700" text-anchor="middle" x="500" y="68">Intent Architecture</text>
 <text fill="#3a2400" font-family="Inter,sans-serif" font-size="12" font-weight="600" text-anchor="middle" x="500" y="87">you architect the system that guides the AI</text>
 </svg>
-<p class="text-xs text-neutral-500 mt-3 text-center">The AI ladder—each rung elevates the role of the person guiding it. The top is the focus of the intensive workshop.</p>
+<p class="text-xs text-neutral-500 mt-3 text-center">The AI ladderâ€”each rung elevates the role of the person guiding it. The top is the focus of the intensive workshop.</p>
 </div>
 </div>
 </header>
@@ -271,42 +271,42 @@
 <div class="flex-1">
 <h2 class="text-lg font-semibold mb-1">Your progress in the immersion</h2>
 <p class="text-sm text-neutral-400 mb-3">Mark each section as read each day. Everything is saved in your browser.</p>
-<div aria-label="Course progress" aria-valuemax="100" aria-valuemin="0" data-inema-meter="curso" role="progressbar">
+<div aria-label="Course progress" aria-valuemax="100" aria-valuemin="0" data-ARCKHÉ-meter="curso" role="progressbar">
 <div class="flex justify-between text-sm mb-1.5">
-<span class="inema-meter-label" data-inema-meter-frac="">0 of 19</span>
-<span class="text-amber-400 font-semibold" data-inema-meter-pct="">0%</span>
+<span class="ARCKHÉ-meter-label" data-ARCKHÉ-meter-frac="">0 of 19</span>
+<span class="text-amber-400 font-semibold" data-ARCKHÉ-meter-pct="">0%</span>
 </div>
-<div class="inema-bar"><div class="inema-bar__fill" data-inema-meter-fill=""></div></div>
+<div class="ARCKHÉ-bar"><div class="ARCKHÉ-bar__fill" data-ARCKHÉ-meter-fill=""></div></div>
 </div>
 </div>
 <div class="flex flex-col gap-2 sm:w-52">
-<button class="px-4 py-2.5 bg-amber-600 hover:bg-amber-500 text-white rounded-lg text-sm font-semibold transition-colors" data-inema-journey-open="" type="button">Continue where I left off</button>
+<button class="px-4 py-2.5 bg-amber-600 hover:bg-amber-500 text-white rounded-lg text-sm font-semibold transition-colors" data-ARCKHÉ-journey-open="" type="button">Continue where I left off</button>
 <a class="text-center px-4 py-2.5 bg-dark-700 hover:bg-dark-600 text-neutral-200 rounded-lg text-sm font-semibold transition-colors" href="dia-1.html">Go to Day 1</a>
 </div>
 </div>
 </section>
 <!-- O QUE VOCE VAI CONSTRUIR -->
 <section class="mb-16">
-<h2 class="text-2xl font-bold mb-2">What you’ll build</h2>
-<p class="text-neutral-400 mb-8 inema-prose">It's not "using AI better." It's leaving with a <strong class="text-neutral-200">system</strong> yours, working.</p>
+<h2 class="text-2xl font-bold mb-2">What youâ€™ll build</h2>
+<p class="text-neutral-400 mb-8 ARCKHÉ-prose">It's not "using AI better." It's leaving with a <strong class="text-neutral-200">system</strong> yours, working.</p>
 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
 <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
-<div class="text-2xl mb-3">🔺</div>
+<div class="text-2xl mb-3">ðŸ”º</div>
 <h3 class="font-semibold mb-1.5">See the pyramid</h3>
-<p class="text-sm text-neutral-400">Understand the 4 layers and where you are today — so you can stop improvising.</p>
+<p class="text-sm text-neutral-400">Understand the 4 layers and where you are today â€” so you can stop improvising.</p>
 </div>
 <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
-<div class="text-2xl mb-3">🧱</div>
+<div class="text-2xl mb-3">ðŸ§±</div>
 <h3 class="font-semibold mb-1.5">Master the 5 pillars</h3>
-<p class="text-sm text-neutral-400">Context, objectives, rules, memory, and validation — structured in a canvas.</p>
+<p class="text-sm text-neutral-400">Context, objectives, rules, memory, and validation â€” structured in a canvas.</p>
 </div>
 <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
-<div class="text-2xl mb-3">⚙️</div>
+<div class="text-2xl mb-3">âš™ï¸</div>
 <h3 class="font-semibold mb-1.5">Build a system</h3>
-<p class="text-sm text-neutral-400">Bring everything together in a repeatable workflow with the run → validate → adjust → improve cycle.</p>
+<p class="text-sm text-neutral-400">Bring everything together in a repeatable workflow with the run â†’ validate â†’ adjust â†’ improve cycle.</p>
 </div>
 <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
-<div class="text-2xl mb-3">🚀</div>
+<div class="text-2xl mb-3">ðŸš€</div>
 <h3 class="font-semibold mb-1.5">Jump straight into applying it</h3>
 <p class="text-sm text-neutral-400">A real-world case of your own runs through all 4 days and becomes a concrete outcome at the end.</p>
 </div>
@@ -315,7 +315,7 @@
 <!-- A PIRAMIDE EM PALAVRAS -->
 <section class="mb-16">
 <h2 class="text-2xl font-bold mb-2">The evolution, in four rungs</h2>
-<p class="text-neutral-400 mb-8 inema-prose">The question changes from <em>“how do I write a better prompt?”</em> stop <strong class="text-amber-400">“what system guides the AI?”</strong>.</p>
+<p class="text-neutral-400 mb-8 ARCKHÉ-prose">The question changes from <em>â€œhow do I write a better prompt?â€</em> stop <strong class="text-amber-400">â€œwhat system guides the AI?â€</strong>.</p>
 <div class="space-y-4">
 <div class="flex items-start gap-4 bg-dark-800 rounded-xl border border-dark-600 p-5">
 <span class="flex-shrink-0 w-9 h-9 rounded-full bg-dark-700 text-neutral-300 font-bold flex items-center justify-center">1</span>
@@ -327,7 +327,7 @@
 </div>
 <div class="flex items-start gap-4 bg-dark-800 rounded-xl border border-dark-600 p-5">
 <span class="flex-shrink-0 w-9 h-9 rounded-full bg-dark-700 text-neutral-300 font-bold flex items-center justify-center">3</span>
-<div><h3 class="font-semibold">Agentic Engineering</h3><p class="text-sm text-neutral-400">The AI works in cycles—write, test, correct, deliver. You stop operating each step and start directing.</p></div>
+<div><h3 class="font-semibold">Agentic Engineering</h3><p class="text-sm text-neutral-400">The AI works in cyclesâ€”write, test, correct, deliver. You stop operating each step and start directing.</p></div>
 </div>
 <div class="flex items-start gap-4 bg-gradient-to-br from-amber-900/30 to-dark-800 rounded-xl border border-amber-500/30 p-5">
 <span class="flex-shrink-0 w-9 h-9 rounded-full bg-amber-500/20 text-amber-400 font-bold flex items-center justify-center">4</span>
@@ -344,36 +344,36 @@
 <span class="text-amber-400 font-bold">1.1</span>
 <span class="text-xs text-neutral-500">~90 min</span>
 </div>
-<h3 class="text-lg font-semibold mb-1 group-hover:text-amber-400 transition-colors">🔺 Day 1 — The Pyramid</h3>
+<h3 class="text-lg font-semibold mb-1 group-hover:text-amber-400 transition-colors">ðŸ”º Day 1 â€” The Pyramid</h3>
 <p class="text-sm text-neutral-400 mb-3">Improvise or design</p>
-<span class="text-xs text-neutral-500">6 sections · see + diagnose</span>
+<span class="text-xs text-neutral-500">6 sections Â· see + diagnose</span>
 </a>
 <a class="group bg-dark-800 rounded-xl border border-dark-600 hover:border-amber-500/30 p-6 transition-all" href="dia-2.html">
 <div class="flex items-center justify-between mb-3">
 <span class="text-amber-400 font-bold">1.2</span>
 <span class="text-xs text-neutral-500">~110 min</span>
 </div>
-<h3 class="text-lg font-semibold mb-1 group-hover:text-amber-400 transition-colors">🧱 Day 2 — The 5 Pillars</h3>
+<h3 class="text-lg font-semibold mb-1 group-hover:text-amber-400 transition-colors">ðŸ§± Day 2 â€” The 5 Pillars</h3>
 <p class="text-sm text-neutral-400 mb-3">Structure the intent</p>
-<span class="text-xs text-neutral-500">7 sections · the method, hands-on</span>
+<span class="text-xs text-neutral-500">7 sections Â· the method, hands-on</span>
 </a>
 <a class="group bg-dark-800 rounded-xl border border-dark-600 hover:border-amber-500/30 p-6 transition-all" href="dia-3.html">
 <div class="flex items-center justify-between mb-3">
 <span class="text-amber-400 font-bold">1.3</span>
 <span class="text-xs text-neutral-500">~100 min</span>
 </div>
-<h3 class="text-lg font-semibold mb-1 group-hover:text-amber-400 transition-colors">⚙️ Day 3 — The System</h3>
+<h3 class="text-lg font-semibold mb-1 group-hover:text-amber-400 transition-colors">âš™ï¸ Day 3 â€” The System</h3>
 <p class="text-sm text-neutral-400 mb-3">From intent to result</p>
-<span class="text-xs text-neutral-500">6 sections · build + operate</span>
+<span class="text-xs text-neutral-500">6 sections Â· build + operate</span>
 </a>
 <a class="group bg-dark-800 rounded-xl border border-amber-500/40 hover:border-amber-500/70 p-6 transition-all" href="dia-4.html">
 <div class="flex items-center justify-between mb-3">
 <span class="text-amber-400 font-bold">1.4</span>
 <span class="text-xs text-neutral-500">~100 min</span>
 </div>
-<h3 class="text-lg font-semibold mb-1 group-hover:text-amber-400 transition-colors">🧭 Day 4 — The Turning Point</h3>
-<p class="text-sm text-neutral-400 mb-3">Models that operate based on intention (Fable 5.1 · GPT-6 Astra)</p>
-<span class="text-xs text-neutral-500">6 sections · subtract + migrate · new Sep/2026</span>
+<h3 class="text-lg font-semibold mb-1 group-hover:text-amber-400 transition-colors">ðŸ§­ Day 4 â€” The Turning Point</h3>
+<p class="text-sm text-neutral-400 mb-3">Models that operate based on intention (Fable 5.1 Â· GPT-6 Astra)</p>
+<span class="text-xs text-neutral-500">6 sections Â· subtract + migrate Â· new Sep/2026</span>
 </a>
 </div>
 </section>
@@ -382,18 +382,18 @@
 <div class="bg-dark-800 rounded-xl border border-dark-600 p-7">
 <h2 class="text-xl font-bold mb-4">Prerequisites</h2>
 <ul class="space-y-3 text-neutral-300">
-<li class="flex items-start gap-2"><span class="text-amber-400 mt-0.5">✓</span><span>No programming knowledge required. If you've used an AI chat, you're ready.</span></li>
-<li class="flex items-start gap-2"><span class="text-amber-400 mt-0.5">✓</span><span>Ready to apply, not just watch. Hands-on.</span></li>
-<li class="flex items-start gap-2"><span class="text-amber-400 mt-0.5">✓</span><span>A real-world case of your own (a problem, task, or idea) to bring to the 4 days.</span></li>
+<li class="flex items-start gap-2"><span class="text-amber-400 mt-0.5">âœ“</span><span>No programming knowledge required. If you've used an AI chat, you're ready.</span></li>
+<li class="flex items-start gap-2"><span class="text-amber-400 mt-0.5">âœ“</span><span>Ready to apply, not just watch. Hands-on.</span></li>
+<li class="flex items-start gap-2"><span class="text-amber-400 mt-0.5">âœ“</span><span>A real-world case of your own (a problem, task, or idea) to bring to the 4 days.</span></li>
 </ul>
 </div>
 <div class="bg-dark-800 rounded-xl border border-dark-600 p-7">
 <h2 class="text-xl font-bold mb-4">How the immersion works</h2>
 <div class="space-y-3 text-sm text-neutral-300">
-<p><strong class="text-amber-400">Day 1 — See.</strong> You see the pyramid, diagnose where you are, and choose your real intention.</p>
-<p><strong class="text-amber-400">Day 2 — Structure.</strong> You fill in the 5 pillars on the Canvas for your use case.</p>
-<p><strong class="text-amber-400">Day 3 — Build.</strong> You turn the Canvas into a system that runs and improves itself.</p>
-<p><strong class="text-amber-400">Day 4 — Shift.</strong> You migrate the system to the Sep/2026 generation (Fable 5.1, GPT-6 Astra): fewer steps, more intention, boundaries, and a definition of done.</p>
+<p><strong class="text-amber-400">Day 1 â€” See.</strong> You see the pyramid, diagnose where you are, and choose your real intention.</p>
+<p><strong class="text-amber-400">Day 2 â€” Structure.</strong> You fill in the 5 pillars on the Canvas for your use case.</p>
+<p><strong class="text-amber-400">Day 3 â€” Build.</strong> You turn the Canvas into a system that runs and improves itself.</p>
+<p><strong class="text-amber-400">Day 4 â€” Shift.</strong> You migrate the system to the Sep/2026 generation (Fable 5.1, GPT-6 Astra): fewer steps, more intention, boundaries, and a definition of done.</p>
 <p class="text-neutral-400 pt-2 border-t border-dark-600">Each day has practical exercises, ready-made examples, and a reusable template.</p>
 </div>
 </div>
@@ -402,10 +402,10 @@
 <section class="mb-4">
 <div class="bg-gradient-to-br from-amber-900/40 via-dark-800 to-dark-800 rounded-2xl border border-amber-500/30 p-8 sm:p-10 text-center">
 <h2 class="text-2xl sm:text-3xl font-bold mb-3">The next step after the prompt</h2>
-<p class="text-neutral-300 mb-7 max-w-2xl mx-auto">Will you use AI superficially — or structure systems capable of multiplying results? Start now.</p>
+<p class="text-neutral-300 mb-7 max-w-2xl mx-auto">Will you use AI superficially â€” or structure systems capable of multiplying results? Start now.</p>
 <div class="flex flex-col sm:flex-row justify-center gap-4">
-<a class="px-8 py-3.5 bg-amber-600 hover:bg-amber-500 text-white rounded-lg font-semibold transition-colors" href="dia-1.html">Start Day 1 →</a>
-<a class="px-8 py-3.5 bg-dark-700 hover:bg-dark-600 text-neutral-200 rounded-lg font-semibold transition-colors" href="https://inema.club" rel="noopener" target="_blank">Get to know INEMA.CLUB</a>
+<a class="px-8 py-3.5 bg-amber-600 hover:bg-amber-500 text-white rounded-lg font-semibold transition-colors" href="dia-1.html">Start Day 1 â†’</a>
+<a class="px-8 py-3.5 bg-dark-700 hover:bg-dark-600 text-neutral-200 rounded-lg font-semibold transition-colors" href="https://ARCKHÉ AI" rel="noopener" target="_blank">Get to know ARCKHÉ AI</a>
 </div>
 </div>
 </section>
@@ -413,7 +413,7 @@
 </main>
 <footer class="border-t border-dark-600 py-8 mt-8">
 <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm">
-<p>Intent Architecture — an immersion <a class="text-sky-400 hover:text-sky-300" href="https://inema.club" rel="noopener" target="_blank">INEMA.CLUB</a> · 2026</p>
+<p>Intent Architecture â€” an immersion <a class="text-sky-400 hover:text-sky-300" href="https://ARCKHÉ AI" rel="noopener" target="_blank">ARCKHÉ AI</a> Â· 2026</p>
 </div>
 </footer>
 <!-- SCRIPTS: nucleo v1 -->
@@ -432,15 +432,15 @@
     function closeModal(){ document.querySelectorAll('.modal').forEach(m=>m.classList.add('hidden')); document.body.style.overflow='auto'; }
     document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
 
-    // Toggle sol/lua → integra com inema.prefs (consistente entre paginas), com fallback v1.
+    // Toggle sol/lua â†’ integra com ARCKHÉ.prefs (consistente entre paginas), com fallback v1.
     (function () {
       var btn = document.getElementById('theme-toggle');
       if (!btn) return;
       btn.addEventListener('click', function () {
-        if (window.INEMA && INEMA.setPref && INEMA.getPrefs) {
-          var cur = INEMA.getPrefs().theme;
-          var next = (cur === 'claro' || cur === 'sepia') ? 'inema-dark' : 'claro';
-          INEMA.setPref('theme', next);
+        if (window.ARCKHÉ && ARCKHÉ.setPref && ARCKHÉ.getPrefs) {
+          var cur = ARCKHÉ.getPrefs().theme;
+          var next = (cur === 'claro' || cur === 'sepia') ? 'ARCKHÉ-dark' : 'claro';
+          ARCKHÉ.setPref('theme', next);
         } else {
           var html = document.documentElement;
           html.classList.toggle('dark');
@@ -454,7 +454,7 @@
 <!-- Camada de aprendizagem v2 -->
 <script src="../assets/learn.js"></script>
 <script>
-    if (window.INEMA && typeof window.INEMA.init === 'function') { window.INEMA.init(); }
+    if (window.ARCKHÉ && typeof window.ARCKHÉ.init === 'function') { window.ARCKHÉ.init(); }
   </script>
 </body>
 </html>

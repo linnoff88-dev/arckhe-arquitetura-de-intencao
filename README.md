@@ -1,4 +1,4 @@
-﻿# ðŸŽ¯ Arquitetura de IntenÃ§Ã£o â€” ImersÃ£o de 4 dias
+# ðŸŽ¯ Arquitetura de IntenÃ§Ã£o â€” ImersÃ£o de 4 dias
 
 <div align="center">
   <img src="capa/logo.svg" alt="Arckhé AI" height="48" />
@@ -6,7 +6,7 @@
 </div>
 
 
-**Prompt nÃ£o basta.** Curso INEMA.CLUB sobre o prÃ³ximo passo depois do *vibe coding* e dos agentes:
+**Prompt nÃ£o basta.** Curso ARCKHÉ AI sobre o prÃ³ximo passo depois do *vibe coding* e dos agentes:
 estruturar **contexto, regras, memÃ³ria, objetivos e validaÃ§Ã£o** para que a IA transforme
 intenÃ§Ã£o em resultado confiÃ¡vel, repetÃ­vel e alinhado.
 
@@ -28,15 +28,15 @@ para o curso presencial.
 
 ## Como ver
 
-Abra `index.html` no navegador **ou** acesse **https://inematds.github.io/arquitetura-de-intencao/**
+Abra `index.html` no navegador **ou** acesse **https://linnoff88-dev.github.io/
 
-Self-contained: HTML + Tailwind (CDN) + camada de aprendizagem INEMA (`assets/learn.css` / `assets/learn.js`)
+Self-contained: HTML + Tailwind (CDN) + camada de aprendizagem ARCKHÉ (`assets/learn.css` / `assets/learn.js`)
 â€” progresso, marcar lido, dÃºvida, anotaÃ§Ã£o/highlight, "minha jornada", temas e modos de leitura.
 Sem build, sem backend.
 
 ---
 
-Uma imersÃ£o [INEMA.CLUB](https://inema.club).
+Uma imersÃ£o [ARCKHÉ AI](https://ARCKHÉ AI).
 
 ---
 
